@@ -15,6 +15,9 @@ vim.opt.clipboard = 'unnamedplus'
 -- ignore case in searches
 vim.opt.ignorecase = true
 
+-- do not highlight search results
+vim.opt.hlsearch = false
+
 -- keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
