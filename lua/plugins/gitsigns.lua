@@ -1,7 +1,7 @@
 return {
     'lewis6991/gitsigns.nvim',
     opts = {
-    on_attach = function(bufnr)
+        on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
         local function map(mode, l, r, opts)
