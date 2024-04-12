@@ -1,3 +1,3 @@
-require('options')
-require('others')
-require('plugins')
+require("options")
+require("others")
+require("plugins")
