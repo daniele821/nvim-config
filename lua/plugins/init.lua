@@ -21,5 +21,6 @@ require('lazy').setup({
         require('plugins/comment'),
         require('plugins/gitsigns'),
         require('plugins/undotree'),
+        require('plugins/lsp'),
     },
 })
