@@ -30,7 +30,7 @@ return {
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gl", require("telescope.builtin").lsp_implementations, "[G]oto imp[L]ementation")
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("gt", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 					map(
 						"<leader>ws",
