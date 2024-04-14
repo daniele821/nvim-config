@@ -68,10 +68,13 @@ return {
 
 		-- Ensure the servers specified are installed
 		require("mason").setup()
-		require("mason-tool-installer").setup({ ensure_installed = {
-			"lua_ls",
-			"stylua",
-		} })
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"lua_ls",
+				"stylua",
+				"shellcheck",
+			},
+		})
 
 		require("mason-lspconfig").setup({
 			handlers = {
