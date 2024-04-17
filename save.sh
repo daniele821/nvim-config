@@ -4,7 +4,7 @@ SCRIPT_PWD="$(realpath "${BASH_SOURCE[0]}")"
 SCRIPT_DIR="$(dirname "${SCRIPT_PWD}")"
 
 git -C "${SCRIPT_DIR}" pull
-git -C "${SCRIPT_DIR}" prune origin
+git -C "${SCRIPT_DIR}" remote prune origin
 if [[ -n "$(git -C "${SCRIPT_DIR}" status -s)" ]]; then
     git -C "${SCRIPT_DIR}" status -s 
     echo -n "write the new commit name: "
