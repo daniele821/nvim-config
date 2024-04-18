@@ -48,10 +48,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
--- set diagnostic symbols in the signcolumn
-local function diagnostic_sign(name, icon)
-	vim.fn.sign_define(name, { text = icon, texthl = name })
-end
-diagnostic_sign("DiagnosticSignError", "󰅚")
-diagnostic_sign("DiagnosticSignWarn", "󰀪")
-diagnostic_sign("DiagnosticSignInfo", "󰋽")

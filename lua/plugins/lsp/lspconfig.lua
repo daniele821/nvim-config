@@ -14,6 +14,13 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		-- set diagnostic symbols in the signcolumn
+		local function diagnostic_sign(name, icon)
+			vim.fn.sign_define(name, { text = icon, texthl = name })
+		end
+		diagnostic_sign("DiagnosticSignError", "󰅚")
+		diagnostic_sign("DiagnosticSignWarn", "󰀪")
+		diagnostic_sign("DiagnosticSignInfo", "󰋽")
 		-- Diagnostic keymaps
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
