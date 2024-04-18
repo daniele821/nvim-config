@@ -15,6 +15,9 @@ return {
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
+			if vim.g.disable_autoformat then
+				return
+			end
 			-- Disable "format_on_save lsp_fallback" for languages that don't
 			-- have a well standardized coding style. You can add additional
 			-- languages here or re-enable it for the disabled ones.
@@ -34,4 +37,15 @@ return {
 			-- javascript = { { "prettierd", "prettier" } },
 		},
 	},
+	init = function()
+		vim.g.disable_autoformat = true -- set default behavior
+		vim.api.nvim_create_user_command("AutoFormatToggle", function()
+			vim.g.disable_autoformat = not vim.g.disable_autoformat
+			if vim.g.disable_autoformat then
+				print("autoformat on save is disabled")
+			else
+				print("autoformat on save is enabled")
+			end
+		end, {})
+	end,
 }
