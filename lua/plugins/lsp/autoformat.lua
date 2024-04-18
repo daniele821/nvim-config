@@ -47,5 +47,6 @@ return {
 				print("autoformat on save is enabled")
 			end
 		end, {})
+		vim.keymap.set("n", "<A-f>", ":AutoFormatToggle<CR>", {})
 	end,
 }
