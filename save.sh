@@ -32,9 +32,8 @@ if [[ -n "$(git -C "${SCRIPT_DIR}" status -s)" ]]; then
     [[ "${FLAG_DIFF}" == 'y' ]] && git -C "${SCRIPT_DIR}" diff HEAD
     echo -n "write the new commit name: "
     read -r msg </dev/tty
-    if [[ -n "${msg}" ]]; then
-        git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}"
-        git -C "${SCRIPT_DIR}" commit -m "${msg}"
-        git -C "${SCRIPT_DIR}" push 
-    fi
+    git -C "${SCRIPT_DIR}" add "${SCRIPT_DIR}"
+    git -C "${SCRIPT_DIR}" commit -m "${msg}"
+    git -C "${SCRIPT_DIR}" push 
+    git -C "${SCRIPT_DIR}" restore --staged "${SCRIPT_DIR}"
 fi

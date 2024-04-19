@@ -21,7 +21,10 @@ return {
 			-- Disable "format_on_save lsp_fallback" for languages that don't
 			-- have a well standardized coding style. You can add additional
 			-- languages here or re-enable it for the disabled ones.
-			local disable_filetypes = { c = true, cpp = true }
+			local disable_filetypes = {
+				-- c = true,
+				-- cpp = true
+			}
 			return {
 				timeout_ms = 500,
 				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -38,7 +41,7 @@ return {
 		},
 	},
 	init = function()
-		vim.g.disable_autoformat = true -- set default behavior
+		vim.g.disable_autoformat = false -- set default behavior
 		vim.api.nvim_create_user_command("AutoFormatToggle", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			if vim.g.disable_autoformat then
