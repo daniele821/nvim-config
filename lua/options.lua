@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- disable auto-comment (hacky fix)
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 	callback = function()
 		vim.opt.formatoptions:remove({ "c", "r", "o" })
 	end,
