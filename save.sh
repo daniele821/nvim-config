@@ -25,8 +25,22 @@ while getopts ':dh' OPTION; do
     esac
 done
 
+# assure git name and email are added
+while [[ -z "$(git config user.name)" ]]; do
+    echo -n 'WARNING: user name missing! write user name: '
+    read -r name </dev/tty
+    git config user.name "${name}"
+done
+while [[ -z "$(git config user.email)" ]]; do
+    echo -n 'WARNING: user email missing! write user email: '
+    read -r email </dev/tty
+    git config user.email "${email}"
+done
+
+# git updates
 git -C "${SCRIPT_DIR}" pull
 git -C "${SCRIPT_DIR}" remote prune origin
+git -C "${SCRIPT_DIR}" push 
 if [[ -n "$(git -C "${SCRIPT_DIR}" status -s)" ]]; then
     git -C "${SCRIPT_DIR}" status -s 
     [[ "${FLAG_DIFF}" == 'y' ]] && git -C "${SCRIPT_DIR}" diff HEAD
