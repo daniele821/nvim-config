@@ -54,9 +54,9 @@ return {
 			},
 			---@diagnostic disable-next-line: missing-fields
 			formatting = {
-				fields = { "abbr", "kind", "menu" },
+				fields = { "kind", "abbr", "menu" },
 				format = lspkind.cmp_format({
-					mode = "symbol_text",
+					mode = "symbol",
 					preset = "codicons",
 					menu = {
 						nvim_lsp = "[LSP]",
