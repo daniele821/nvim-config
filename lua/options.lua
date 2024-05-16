@@ -32,3 +32,6 @@ vim.opt.splitbelow = true
 
 -- highlight cursor current line
 vim.opt.cursorline = false
+
+-- set maximum height for complete menu
+vim.opt.pumheight = 15

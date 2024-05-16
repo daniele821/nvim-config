@@ -34,11 +34,16 @@ return {
 		--  into multiple repos for maintenance purposes.
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
+
+		-- completion icons
+		"onsails/lspkind.nvim",
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
+
 		luasnip.config.setup({})
 
 		cmp.setup({
@@ -46,6 +51,19 @@ return {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
+			},
+			---@diagnostic disable-next-line: missing-fields
+			formatting = {
+				fields = { "abbr", "kind", "menu" },
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					preset = "codicons",
+					menu = {
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snp]",
+						path = "[Pth]",
+					},
+				}),
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
 
