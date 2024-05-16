@@ -44,6 +44,14 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+				-- add mapping to toggle inlay hints
+				local client = vim.lsp.get_client_by_id(event.data.client_id)
+				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+					map("<leader>th", function()
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+					end, "[T]oggle Inlay [H]ints")
+				end
 			end,
 		})
 
