@@ -26,10 +26,6 @@ vim.opt.hlsearch = false
 -- keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
--- set where to open split windows
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
 -- highlight cursor current line
 vim.opt.cursorline = false
 

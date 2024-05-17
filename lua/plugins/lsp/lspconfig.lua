@@ -14,44 +14,23 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- set diagnostic symbols in the signcolumn
-		local function diagnostic_sign(name, icon)
-			vim.fn.sign_define(name, { text = icon, texthl = name })
-		end
-		diagnostic_sign("DiagnosticSignError", "󰅚")
-		diagnostic_sign("DiagnosticSignWarn", "󰀪")
-		diagnostic_sign("DiagnosticSignInfo", "󰋽")
-		-- Diagnostic keymaps
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-		vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-		vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
 		--  This function gets run when an LSP attaches to a particular buffer.
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
+				local telescope_builtin = require("telescope.builtin")
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				map("gl", require("telescope.builtin").lsp_implementations, "[G]oto imp[L]ementation")
-				map("gt", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("gd", telescope_builtin.lsp_definitions, "[G]oto [D]efinition")
+				map("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
+				map("gl", telescope_builtin.lsp_implementations, "[G]oto imp[L]ementation")
+				map("gt", telescope_builtin.lsp_type_definitions, "Type [D]efinition")
+				map("<leader>ds", telescope_builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("K", vim.lsp.buf.hover, "Hover Documentation")
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-				-- add mapping to toggle inlay hints
-				local client = vim.lsp.get_client_by_id(event.data.client_id)
-				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-					end, "[T]oggle Inlay [H]ints")
-				end
 			end,
 		})
 

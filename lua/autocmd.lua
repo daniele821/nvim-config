@@ -21,3 +21,6 @@ vim.api.nvim_create_autocmd("Filetype", {
 		vim.keymap.del("i", "<right>", { buffer = true })
 	end,
 })
+
+-- do not allow for editing an already open file
+vim.api.nvim_del_augroup_by_name("nvim_swapfile")
