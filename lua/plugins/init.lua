@@ -20,7 +20,6 @@ require("lazy").setup({
 		require("plugins/treesitter"),
 		require("plugins/comment"),
 		require("plugins/gitsigns"),
-		require("plugins/undotree"),
 		require("plugins/lsp"),
 	},
 })
