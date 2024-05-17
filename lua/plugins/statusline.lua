@@ -2,7 +2,9 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
 		"linrongbin16/lsp-progress.nvim",
-		opts = {},
+		opts = {
+			max_size = 80,
+		},
 	},
 	config = function()
 		require("lualine").setup({
