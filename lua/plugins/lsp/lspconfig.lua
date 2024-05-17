@@ -79,8 +79,8 @@ return {
 
 		-- create user command and keymap to toggle inlay hints
 		vim.api.nvim_create_user_command("ToggleInlayHints", function()
-			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-			if vim.lsp.inlay_hint.is_enabled() then
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+			if vim.lsp.inlay_hint.is_enabled({}) then
 				print("inlay hints are enabled")
 			else
 				print("inlay hints are enabled")
