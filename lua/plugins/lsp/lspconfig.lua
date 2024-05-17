@@ -63,14 +63,7 @@ return {
 
 		-- Ensure the servers specified are installed
 		require("mason").setup()
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"lua_ls",
-				"stylua",
-				"shellcheck",
-			},
-		})
-
+		require("mason-tool-installer").setup({})
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
@@ -94,5 +87,11 @@ return {
 			end
 		end, {})
 		vim.keymap.set("n", "<A-h>", ":ToggleInlayHints<CR>", {})
+
+		-- create user command to try to install all nice lsp
+		vim.api.nvim_create_user_command("StarterPackLsp", function()
+			require("mason")
+			vim.cmd(":MasonInstall stylua lua-language-server shellcheck clangd python-lsp-server")
+		end, {})
 	end,
 }
