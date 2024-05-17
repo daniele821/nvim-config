@@ -2,7 +2,14 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
 		"linrongbin16/lsp-progress.nvim",
-		opts = {},
+		opts = {
+			client_format = function(client_name, spinner, series_messages)
+				local len = #series_messages
+				return len > 0
+						and ("[" .. client_name .. "] " .. spinner .. " " .. table.concat(series_messages, ", ", 1, 1))
+					or nil
+			end,
+		},
 	},
 	config = function()
 		require("lualine").setup({
