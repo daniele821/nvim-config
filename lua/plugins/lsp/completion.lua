@@ -57,7 +57,7 @@ return {
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = lspkind.cmp_format({
-					mode = "symbol",
+					mode = "symbol_text",
 					preset = "codicons",
 					menu = {
 						nvim_lsp = "[LSP]",
