@@ -19,7 +19,6 @@ require("lazy").setup({
 		require("plugins/colorscheme"),
 		require("plugins/statusline"),
 		require("plugins/treesitter"),
-		require("plugins/comment"),
 		require("plugins/gitsigns"),
 		require("plugins/lsp"),
 	},
