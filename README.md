@@ -12,7 +12,7 @@ git clone https://github.com/daniele821 "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
     - [ ] add toggle for inlay hints
     - [x] remove now default lsp mapping, like `K`, `[d`, `]d`, ...
     - [ ] consider switching to builtin commenting system (some features may be missing, though!)
-    - [ ] see how to deal with E325 (multiple programs opening the same file)
+    - [x] see how to deal with E325 (multiple programs opening the same file)
     - [ ] try out lualine progress replacement for fidget
     - check all plugins for possible changes 
 
