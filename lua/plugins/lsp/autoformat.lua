@@ -1,17 +1,7 @@
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
-	lazy = false,
-	keys = {
-		{
-			"<leader>f",
-			function()
-				require("conform").format({ async = true, lsp_fallback = true })
-			end,
-			mode = "",
-			desc = "[F]ormat buffer",
-		},
-	},
+	event = "BufReadPre",
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
@@ -34,6 +24,11 @@ return {
 		},
 	},
 	init = function()
+		-- add mapping to format file
+		vim.keymap.set("n", "<leader>f", function()
+			require("conform").format({ async = true, lsp_fallback = true })
+		end, {})
+
 		-- set autoformats by default
 		vim.g.disable_autoformat = false
 		vim.api.nvim_create_user_command("AutoFormatToggle", function()
