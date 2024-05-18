@@ -18,14 +18,9 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
-				local telescope_builtin = require("telescope.builtin")
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
-				map("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
-				map("gl", telescope_builtin.lsp_implementations, "[G]oto imp[L]ementation")
-				map("<leader>ds", telescope_builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 				map("gt", vim.lsp.buf.type_definition, "Type [D]efinition")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
