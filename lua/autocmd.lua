@@ -23,4 +23,4 @@ vim.api.nvim_create_autocmd("Filetype", {
 })
 
 -- do not allow for editing an already open file
-vim.api.nvim_del_augroup_by_name("nvim_swapfile")
+pcall(vim.api.nvim_del_augroup_by_name, "nvim_swapfile")
