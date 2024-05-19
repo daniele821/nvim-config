@@ -11,6 +11,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- set where to open split windows
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- do not show current mode in status line
 vim.opt.showmode = false
 
