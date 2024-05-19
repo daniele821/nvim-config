@@ -84,7 +84,6 @@ return {
 
 		-- create user command to try to install all nice lsp
 		vim.api.nvim_create_user_command("StarterPackLsp", function()
-			require("mason")
 			vim.cmd(":MasonInstall stylua lua-language-server shellcheck clangd python-lsp-server")
 		end, {})
 	end,
