@@ -6,7 +6,6 @@ return {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- Useful status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
@@ -59,7 +58,6 @@ return {
 
 		-- Ensure the servers specified are installed
 		require("mason").setup()
-		require("mason-tool-installer").setup({})
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
