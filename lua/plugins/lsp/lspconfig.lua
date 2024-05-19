@@ -9,7 +9,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- Useful status updates for LSP.
-		-- { "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim", opts = {} },
 
 		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 		{ "folke/neodev.nvim", opts = {} },
