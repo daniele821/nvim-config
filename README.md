@@ -8,7 +8,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 # TODO
 
-- transition from neovim 0.9.5 to 0.10.0:
+- [x] transition from neovim 0.9.5 to 0.10.0:
     - [x] add toggle for inlay hints
     - [x] remove now default lsp mapping, like `K`, `[d`, `]d`, ...
     - [x] consider switching to builtin commenting system
