@@ -1,6 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = "BufReadPre",
+	event = { "BufReadPre", "BufNewFile", "BufWritePost" },
 	opts = {
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
