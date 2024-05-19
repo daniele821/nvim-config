@@ -15,3 +15,10 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [x] see how to deal with E325 (multiple programs opening the same file)
     - [x] try out lualine progress replacement for fidget
     - [x] remove all ensure installed lsp, and provide an user command to download them instead
+
+- [ ] lazy load -> have only lazy, colorscheme and statusline when running `nvim`:
+    - [ ] find way to lazily load lspconfig
+    - [x] lazy load lsplint (on filetype)
+    - [x] lazy load conform (on filetype and `LspAttach`)
+    - [x] lazy load completions (on `InsertEnter`)
+    - [x] lazy load gitsigns and treesitter only if currently editing a file
