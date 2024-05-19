@@ -79,7 +79,7 @@ return {
 			if vim.lsp.inlay_hint.is_enabled({}) then
 				print("inlay hints are enabled")
 			else
-				print("inlay hints are enabled")
+				print("inlay hints are disabled")
 			end
 		end, {})
 		vim.keymap.set("n", "<A-h>", ":ToggleInlayHints<CR>", {})
