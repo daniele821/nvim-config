@@ -1,8 +1,15 @@
+-- configurable variables
+local formatters_by_ft = {
+	lua = { "stylua" },
+
+	-- add new formatters here!
+}
+
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
 	event = "LspAttach",
-	ft = { "lua" },
+	ft = vim.tbl_keys(formatters_by_ft),
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
@@ -21,9 +28,7 @@ return {
 				}
 			end,
 			-- set formatters by filetype
-			formatters_by_ft = {
-				lua = { "stylua" },
-			},
+			formatters_by_ft = formatters_by_ft,
 		})
 
 		-- add mapping to format file
