@@ -1,7 +1,8 @@
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
-	event = "BufReadPre",
+	event = "LspAttach",
+	ft = { "lua" },
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
