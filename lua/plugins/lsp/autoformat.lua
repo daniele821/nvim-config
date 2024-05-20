@@ -35,7 +35,8 @@ return {
 		vim.keymap.set("n", "<leader>f", function()
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, {})
-
+	end,
+	init = function()
 		-- set autoformats by default
 		vim.g.disable_autoformat = false
 		vim.api.nvim_create_user_command("AutoFormatToggle", function()
