@@ -13,6 +13,13 @@ local servers = {
 		},
 	},
 }
+local starterpack_lsp = {
+	"stylua",
+	" lua-language-server",
+	"shellcheck",
+	"clangd",
+	"python-lsp-server",
+}
 
 return {
 	-- LSP Configuration & Plugins
@@ -84,7 +91,7 @@ return {
 
 		-- create user command to try to install all nice lsp
 		vim.api.nvim_create_user_command("StarterPackLsp", function()
-			vim.cmd(":MasonInstall stylua lua-language-server shellcheck clangd python-lsp-server")
+			vim.cmd(":MasonInstall " .. table.concat(starterpack_lsp, " "))
 		end, {})
 	end,
 }
