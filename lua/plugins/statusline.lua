@@ -8,10 +8,13 @@ return {
 					function()
 						-- invoke lsp progress here
 						local lsp = vim.lsp.get_clients({ bufnr = 0 })
-						if #lsp == 1 then
-							return " " .. lsp[1].name
-						elseif #lsp > 1 then
-							return " LSP [" .. #lsp .. "]"
+						if #lsp >= 1 then
+							local lsp_names = vim.iter(ipairs(lsp))
+								:map(function(_, elem)
+									return elem.name
+								end)
+								:join(", ")
+							return " " .. lsp_names
 						else
 							return ""
 						end
