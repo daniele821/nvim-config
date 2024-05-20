@@ -17,6 +17,7 @@ local starterpack_lsp = {
 	"stylua",
 	" lua-language-server",
 	"shellcheck",
+	"bash-language-server",
 	"clangd",
 	"python-lsp-server",
 }
