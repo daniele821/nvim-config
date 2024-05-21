@@ -41,3 +41,4 @@ in directory `lua/custom`:
 # FIXES
 
 - [x] `:StarterPackLsp` should not reinstall already installed lsp
+- [x] init crashes if user.lua file exists but doesn't return a table
