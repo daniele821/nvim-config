@@ -12,7 +12,11 @@ return {
 							return elem.name
 						end
 						if #lsp >= 1 then
-							return " " .. vim.iter(lsp):map(_map):join(", ")
+							local icon = " "
+							if vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }) then
+								icon = " "
+							end
+							return icon .. vim.iter(lsp):map(_map):join(", ")
 						end
 						return ""
 					end,
