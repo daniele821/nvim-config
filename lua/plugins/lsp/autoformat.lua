@@ -17,14 +17,9 @@ return {
 				if vim.g.disable_autoformat then
 					return
 				end
-				-- set disabled filetypes
-				local disable_filetypes = {
-					c = true,
-					cpp = true,
-				}
 				return {
 					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					lsp_fallback = true,
 				}
 			end,
 			-- set formatters by filetype
