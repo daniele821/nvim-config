@@ -29,4 +29,4 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 # FIXES
 
-- [ ] `:StarterPackLsp` should not reinstall already installed lsp
+- [x] `:StarterPackLsp` should not reinstall already installed lsp
