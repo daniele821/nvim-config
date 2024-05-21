@@ -32,9 +32,11 @@ in directory `lua/custom`:
     - [x] show active lsp
     - [x] show active formatters
     - [x] show if autoformat is enabled
+    - [x] show if inlay hints are enabled
 
 - [x] create module for editable variables:
     - [x] it should provide a list of defaults, and a separate place to overwrite them
+    - [x] provide presets to easily customize options
 
 # FIXES
 
