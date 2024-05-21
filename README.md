@@ -8,9 +8,9 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 # customizations
 
-in directory `lua/custom`:
-    - `defaults.lua` -> stores all default values (table default are all just empty tables)
-    - `user.lua` -> stores all customized values (not tracked by git)
+in directory `lua/custom`:    
+    - `defaults.lua` -> stores all default values (table default are all just empty tables)    
+    - `user.lua` -> stores all customized values (not tracked by git)     
 
 # TODO
 
