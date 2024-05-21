@@ -31,6 +31,7 @@ look at file `lua/settings/init.lua`
     - [x] show active formatters
     - [x] show if autoformat is enabled
     - [x] show if inlay hints are enabled
+    - [x] show immediatly autofmt, inlay hints toggle
 
 - [x] create module for editable variables:
     - [x] it should provide a list of defaults, and a separate place to overwrite them
@@ -39,4 +40,3 @@ look at file `lua/settings/init.lua`
 # FIXES
 
 - [x] `:StarterPackLsp` should not reinstall already installed lsp
-- [x] init crashes if user.lua file exists but doesn't return a table
