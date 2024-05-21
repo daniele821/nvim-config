@@ -27,7 +27,11 @@ return {
 							return elem.name
 						end
 						if #fmt >= 1 then
-							return "󰉿 " .. vim.iter(fmt):map(_map):join(", ")
+							local symbol = "󰉿 "
+							if not vim.g.disable_autoformat then
+								symbol = " "
+							end
+							return symbol .. vim.iter(fmt):map(_map):join(", ")
 						end
 						return ""
 					end,
