@@ -1,11 +1,3 @@
--- configurable variables
-local formatters_by_ft = {
-	lua = { "stylua" },
-	sh = { "shfmt" },
-	bash = { "shfmt" },
-}
-local disable_autoformat = true
-
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",

@@ -1,28 +1,3 @@
--- configurable variables
-local servers = {
-	lua_ls = {
-		settings = {
-			Lua = {
-				completion = {
-					callSnippet = "Replace",
-				},
-				hint = {
-					enable = true,
-				},
-			},
-		},
-	},
-}
-local starterpack_lsp = {
-	"stylua",
-	"lua-language-server",
-	"shellcheck",
-	"bash-language-server",
-	"shfmt",
-	"clangd",
-	"python-lsp-server",
-}
-
 return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
