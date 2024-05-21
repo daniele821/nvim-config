@@ -22,9 +22,10 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [x] lazy load completions (on `InsertEnter`)
     - [x] lazy load gitsigns and treesitter only if currently editing a file
 
-- [x] update statusline:
+- [ ] update statusline:
     - [x] show active lsp
     - [x] show active formatters
+    - [ ] show if autoformat is enabled
 
 # FIXES
 
