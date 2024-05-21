@@ -88,7 +88,7 @@ return {
 			vim.cmd(":MasonInstall " .. table.concat(starterpack_lsp, " "))
 		end, {})
 
-		-- create user command and keymap to toggle inlay hints
+		-- create keymap to toggle inlay hints
 		vim.keymap.set("n", "<A-h>", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 			if vim.lsp.inlay_hint.is_enabled({}) then

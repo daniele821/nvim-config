@@ -36,7 +36,7 @@ return {
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, {})
 
-		-- set autoformats by default
+		-- create keymap to toggle autoformat
 		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			if vim.g.disable_autoformat then
