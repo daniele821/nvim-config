@@ -35,11 +35,9 @@ return {
 		vim.keymap.set("n", "<leader>f", function()
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, {})
-	end,
-	init = function()
+
 		-- set autoformats by default
-		vim.g.disable_autoformat = false
-		vim.api.nvim_create_user_command("AutoFormatToggle", function()
+		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			if vim.g.disable_autoformat then
 				print("autoformat on save is disabled")
@@ -47,6 +45,5 @@ return {
 				print("autoformat on save is enabled")
 			end
 		end, {})
-		vim.keymap.set("n", "<A-f>", ":AutoFormatToggle<CR>", {})
 	end,
 }
