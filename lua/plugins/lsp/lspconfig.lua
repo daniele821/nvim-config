@@ -25,10 +25,14 @@ local starterpack_lsp = {
 return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
+	event = { "BufReadPre", "BufWritePost", "BufNewFile" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+
+		-- gaps the bridge between completion engine and lsp
+		"hrsh7th/cmp-nvim-lsp",
 
 		-- Useful status updates for LSP.
 		-- { "j-hui/fidget.nvim", opts = {} },

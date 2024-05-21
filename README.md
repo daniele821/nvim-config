@@ -17,7 +17,8 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [x] remove all ensure installed lsp, and provide an user command to download them instead
 
 - [ ] lazy load -> have only lazy, colorscheme and statusline when running `nvim`:
-    - [ ] find way to lazily load lspconfig (some commands like Mason,LspInfo,.. MUST always be available)
+    - [x] find way to lazily load lspconfig 
+    - [ ] some commands like Mason,LspInfo,.. should always be available
     - [x] lazy load lsplint (on filetype)
     - [x] lazy load conform (on filetype and `LspAttach`)
     - [x] lazy load completions (on `InsertEnter`)
