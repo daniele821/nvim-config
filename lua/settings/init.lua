@@ -1,6 +1,31 @@
-local defaults = require("settings.defaults")
-local status, user = pcall(require,"settings.user")
-if not status or type(user) ~= "table" then
-    return defaults
-end
-return vim.tbl_deep_extend("force", defaults, user)
+return {
+	servers = {
+		lua_ls = {
+			settings = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+					hint = {
+						enable = true,
+					},
+				},
+			},
+		},
+	},
+	starterpack_lsp = {
+		"stylua",
+		"lua-language-server",
+		"shellcheck",
+		"bash-language-server",
+		"shfmt",
+		"clangd",
+		"python-lsp-server",
+	},
+	formatters_by_ft = {
+		lua = { "stylua" },
+		sh = { "shfmt" },
+		bash = { "shfmt" },
+	},
+	disable_autoformat = true,
+}
