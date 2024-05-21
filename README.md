@@ -18,7 +18,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 - [x] lazy load -> have only lazy, colorscheme and statusline when running `nvim`:
     - [x] find way to lazily load lspconfig 
-    - [x] lazy load lsplint (on filetype)
     - [x] lazy load conform (on filetype and `LspAttach`)
     - [x] lazy load completions (on `InsertEnter`)
     - [x] lazy load gitsigns and treesitter only if currently editing a file
