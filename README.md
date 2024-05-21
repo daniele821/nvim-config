@@ -27,6 +27,9 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [x] show active formatters
     - [x] show if autoformat is enabled
 
+- [ ] create module for editable variables:
+    - [ ] it should provide a list of defaults, and a separate place to overwrite them
+
 # FIXES
 
 - [x] `:StarterPackLsp` should not reinstall already installed lsp
