@@ -4,6 +4,7 @@ local formatters_by_ft = {
 	sh = { "shfmt" },
 	bash = { "shfmt" },
 }
+local disable_autoformat = true
 
 return {
 	-- Autoformat
@@ -13,7 +14,7 @@ return {
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
-			format_on_save = function(bufnr)
+			format_on_save = function(_)
 				if vim.g.disable_autoformat then
 					return
 				end
@@ -32,6 +33,7 @@ return {
 		end, {})
 
 		-- create keymap to toggle autoformat
+		vim.g.disable_autoformat = disable_autoformat
 		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			if vim.g.disable_autoformat then
