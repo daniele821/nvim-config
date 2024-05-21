@@ -29,11 +29,6 @@ return {
 		vim.g.disable_autoformat = require('custom').disable_autoformat
 		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
-			if vim.g.disable_autoformat then
-				print("autoformat on save is disabled")
-			else
-				print("autoformat on save is enabled")
-			end
 		end, {})
 	end,
 }
