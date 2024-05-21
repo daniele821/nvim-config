@@ -3,28 +3,23 @@ return {
 	event = { "BufReadPre", "BufWritePost" },
 	opts = {
 		on_attach = function(bufnr)
-			local gs = package.loaded.gitsigns
+			local gitsigns = require("gitsigns")
 
-			-- Navigation
-			vim.keymap.set({ "n", "v" }, "]c", function()
+			vim.keymap.set("n", "]c", function()
 				if vim.wo.diff then
-					return "]c"
+					vim.cmd.normal({ "]c", bang = true })
+				else
+					gitsigns.nav_hunk("next")
 				end
-				vim.schedule(function()
-					gs.next_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true, desc = "Jump to next hunk", buffer = bufnr })
+			end, { buffer = bufnr })
 
-			vim.keymap.set({ "n", "v" }, "[c", function()
+			vim.keymap.set("n", "[c", function()
 				if vim.wo.diff then
-					return "[c"
+					vim.cmd.normal({ "[c", bang = true })
+				else
+					gitsigns.nav_hunk("prev")
 				end
-				vim.schedule(function()
-					gs.prev_hunk()
-				end)
-				return "<Ignore>"
-			end, { expr = true, desc = "Jump to previous hunk", buffer = bufnr })
+			end, { buffer = bufnr })
 		end,
 	},
 }
