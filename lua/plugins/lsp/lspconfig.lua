@@ -18,6 +18,7 @@ local starterpack_lsp = {
 	"lua-language-server",
 	"shellcheck",
 	"bash-language-server",
+	"shfmt",
 	"clangd",
 	"python-lsp-server",
 }

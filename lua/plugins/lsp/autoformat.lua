@@ -1,8 +1,8 @@
 -- configurable variables
 local formatters_by_ft = {
 	lua = { "stylua" },
-
-	-- add new formatters here!
+	sh = { "shfmt" },
+	bash = { "shfmt" },
 }
 
 return {
