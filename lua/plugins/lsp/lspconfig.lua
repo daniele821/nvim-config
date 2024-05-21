@@ -15,7 +15,7 @@ local servers = {
 }
 local starterpack_lsp = {
 	"stylua",
-	" lua-language-server",
+	"lua-language-server",
 	"shellcheck",
 	"bash-language-server",
 	"clangd",
@@ -85,7 +85,16 @@ return {
 
 		-- create user command to try to install all nice lsp
 		vim.api.nvim_create_user_command("StarterPackLsp", function()
-			vim.cmd(":MasonInstall " .. table.concat(starterpack_lsp, " "))
+			local installed_lsp = require("mason-registry").get_installed_package_names()
+			local toinstall_lsp = vim.iter(starterpack_lsp)
+				:filter(function(lsp)
+					return not vim.tbl_contains(installed_lsp, lsp, {})
+				end)
+				:totable()
+			if #toinstall_lsp == 0 then
+				return
+			end
+			vim.cmd(":MasonInstall " .. table.concat(toinstall_lsp, " "))
 		end, {})
 
 		-- create keymap to toggle inlay hints

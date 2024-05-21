@@ -27,3 +27,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [x] update statusline:
     - [x] show active lsp
     - [x] show active formatters
+
+# FIXES
+
+- [ ] `:StarterPackLsp` should not reinstall already installed lsp
