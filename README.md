@@ -6,6 +6,12 @@ neovim configuration directory (written 100% by myself)
 git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
+# customizations
+
+in directory `lua/custom`:
+    - `defaults.lua` -> stores all default values (table default are all just empty tables)
+    - `user.lua` -> stores all customized values (not tracked by git)
+
 # TODO
 
 - [x] transition from neovim 0.9.5 to 0.10.0:
