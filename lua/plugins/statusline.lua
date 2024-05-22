@@ -27,7 +27,7 @@ return {
 						end
 						local fmt = require("conform").list_formatters(0)
 						if #fmt >= 1 then
-							return "󰉿 " .. vim.iter(fmt):map(get_param("name")):join(", ")
+							return " " .. vim.iter(fmt):map(get_param("name")):join(", ")
 						end
 						return ""
 					end,
