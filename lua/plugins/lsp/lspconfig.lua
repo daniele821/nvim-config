@@ -14,7 +14,7 @@ local servers = {
 	bashls = {
 		settings = {
 			bashIde = {
-				shellcheckPath = "",
+				shellcheckPath = "shellcheck",
 			},
 		},
 	},
