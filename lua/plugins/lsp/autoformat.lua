@@ -1,9 +1,14 @@
-local settings = require("settings")
+local formatters_by_ft = {
+	lua = { "stylua" },
+	sh = { "shfmt" },
+	bash = { "shfmt" },
+}
+local disable_autoformat = true
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
 	event = "LspAttach",
-	ft = vim.tbl_keys(settings.formatters_by_ft),
+	ft = vim.tbl_keys(formatters_by_ft),
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
@@ -17,7 +22,7 @@ return {
 				}
 			end,
 			-- set formatters by filetype
-			formatters_by_ft = settings.formatters_by_ft,
+			formatters_by_ft = formatters_by_ft,
 		})
 
 		-- add mapping to format file
@@ -26,7 +31,7 @@ return {
 		end, {})
 
 		-- create keymap to toggle autoformat
-		vim.g.disable_autoformat = settings.disable_autoformat
+		vim.g.disable_autoformat = disable_autoformat
 		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			require("lualine").refresh({})

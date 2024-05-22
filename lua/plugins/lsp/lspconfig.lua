@@ -1,4 +1,34 @@
-local settings = require("settings")
+local servers = {
+	lua_ls = {
+		settings = {
+			Lua = {
+				completion = {
+					callSnippet = "Replace",
+				},
+				hint = {
+					enable = true,
+				},
+			},
+		},
+	},
+	bashls = {
+		settings = {
+			bashIde = {
+				shellcheckPath = "",
+			},
+		},
+	},
+}
+local starterpack_lsp = {
+	"stylua",
+	"lua-language-server",
+	"shellcheck",
+	"bash-language-server",
+	"shfmt",
+	"clangd",
+	"python-lsp-server",
+}
+
 return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
@@ -35,7 +65,7 @@ return {
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
-					local server = settings.servers[server_name] or {}
+					local server = servers[server_name] or {}
 					-- This handles overriding only values explicitly passed
 					-- by the server configuration above. Useful when disabling
 					-- certain features of an LSP (for example, turning off formatting for tsserver)
@@ -63,7 +93,7 @@ return {
 		-- create user command to try to install all nice lsp
 		vim.api.nvim_create_user_command("StarterPackLsp", function()
 			local installed_lsp = require("mason-registry").get_installed_package_names()
-			local toinstall_lsp = vim.iter(settings.starterpack_lsp)
+			local toinstall_lsp = vim.iter(starterpack_lsp)
 				:filter(function(lsp)
 					return not vim.tbl_contains(installed_lsp, lsp, {})
 				end)
