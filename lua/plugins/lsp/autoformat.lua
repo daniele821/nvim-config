@@ -3,7 +3,7 @@ local formatters_by_ft = {
 	sh = { "shfmt" },
 	bash = { "shfmt" },
 }
-local disable_autoformat = true
+local disable_autoformat = false
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
@@ -34,6 +34,9 @@ return {
 		vim.g.disable_autoformat = disable_autoformat
 		vim.keymap.set("n", "<A-f>", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
+			if package.loaded["lualine"] then
+				require("lualine").refresh({})
+			end
 		end, {})
 	end,
 }

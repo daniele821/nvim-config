@@ -11,7 +11,11 @@ return {
 						local lsp_msg = ""
 						local fmt_msg = ""
 						if #lsp >= 1 then
-							lsp_msg = " "
+							local icon = " "
+							if vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }) then
+								icon = " "
+							end
+							lsp_msg = icon
 								.. vim.iter(lsp)
 									:map(function(elem)
 										return elem.name
@@ -22,7 +26,11 @@ return {
 						if package.loaded["conform"] then
 							local fmt = require("conform").list_formatters(0)
 							if #fmt >= 1 then
-								fmt_msg = " "
+								local icon = "󰉿 "
+								if not vim.g.disable_autoformat then
+									icon = " "
+								end
+								fmt_msg = icon
 									.. vim.iter(fmt)
 										:map(function(elem)
 											return elem.name
