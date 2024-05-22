@@ -10,3 +10,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 look at file `lua/settings/init.lua`
 
+# TODO
+
+- [ ] add active linter in lualine
