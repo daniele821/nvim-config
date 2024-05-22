@@ -12,6 +12,13 @@ return {
 				},
 			},
 		},
+		bashls = {
+			settings = {
+				bashIde = {
+					shellcheckPath = "",
+				},
+			},
+		},
 	},
 	starterpack_lsp = {
 		"stylua",
