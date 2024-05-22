@@ -107,7 +107,6 @@ return {
 		-- create keymap to toggle inlay hints
 		vim.keymap.set("n", "<A-h>", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-			require("lualine").refresh({})
 		end, {})
 	end,
 }
