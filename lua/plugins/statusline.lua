@@ -1,3 +1,10 @@
+-- second order function (spooky)
+local get_param = function(arg)
+	return function(elem)
+		return elem[arg]
+	end
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
@@ -8,15 +15,12 @@ return {
 					function()
 						-- invoke lsp progress here
 						local lsp = vim.lsp.get_clients({ bufnr = 0 })
-						local _map = function(elem)
-							return elem.name
-						end
 						if #lsp >= 1 then
 							local icon = " "
 							if vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }) then
 								icon = " "
 							end
-							return icon .. vim.iter(lsp):map(_map):join(", ")
+							return icon .. vim.iter(lsp):map(get_param("name")):join(", ")
 						end
 						return ""
 					end,
@@ -25,17 +29,13 @@ return {
 						if not package.loaded["conform"] then
 							return ""
 						end
-						local conform = require("conform")
-						local fmt = conform.list_formatters(0)
-						local _map = function(elem)
-							return elem.name
-						end
+						local fmt = require("conform").list_formatters(0)
 						if #fmt >= 1 then
 							local symbol = "󰉿 "
 							if not vim.g.disable_autoformat then
 								symbol = " "
 							end
-							return symbol .. vim.iter(fmt):map(_map):join(", ")
+							return symbol .. vim.iter(fmt):map(get_param("name")):join(", ")
 						end
 						return ""
 					end,
