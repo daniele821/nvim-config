@@ -15,21 +15,26 @@ return {
 					function()
 						-- invoke lsp progress here
 						local lsp = vim.lsp.get_clients({ bufnr = 0 })
+						local lsp_msg = ""
+						local fmt_msg = ""
+						local lint_msg = ""
 						if #lsp >= 1 then
-							return " " .. vim.iter(lsp):map(get_param("name")):join(", ")
+							lsp_msg = " " .. vim.iter(lsp):map(get_param("name")):join(", ") .. " "
 						end
-						return ""
-					end,
-					function()
-						-- show active formatters in current buffer
-						if not package.loaded["conform"] then
-							return ""
+						if package.loaded["conform"] then
+							local fmt = require("conform").list_formatters(0)
+							if #fmt >= 1 then
+								fmt_msg = " " .. vim.iter(fmt):map(get_param("name")):join(", ") .. " "
+							end
 						end
-						local fmt = require("conform").list_formatters(0)
-						if #fmt >= 1 then
-							return " " .. vim.iter(fmt):map(get_param("name")):join(", ")
+						if package.loaded["lint"] then
+							local fmt = require("lint").linters_by_ft[vim.bo[0].filetype]
+							if #fmt >= 1 then
+								-- todo: filter out not existing linters
+								lint_msg = " " .. vim.iter(fmt):join(", ") .. " "
+							end
 						end
-						return ""
+						return lsp_msg .. fmt_msg .. lint_msg
 					end,
 				},
 			},
