@@ -18,9 +18,6 @@ vim.opt.splitbelow = true
 -- do not show current mode in status line
 vim.opt.showmode = false
 
--- use system clipboard
-vim.opt.clipboard = "unnamedplus"
-
 -- ignore case in searches
 vim.opt.ignorecase = true
 
