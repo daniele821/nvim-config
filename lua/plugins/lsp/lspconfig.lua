@@ -33,6 +33,7 @@ return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufWritePost", "BufNewFile" },
+	cmd = { "Mason", "StarterPackLsp" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
