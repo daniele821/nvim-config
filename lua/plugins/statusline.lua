@@ -25,7 +25,7 @@ return {
 						end
 						if package.loaded["conform"] then
 							local fmt = require("conform").list_formatters(0)
-							if #fmt >= 1 then
+							if #fmt >= 1 or #lsp >= 1 then
 								local icon = "󰉿 "
 								if not vim.g.disable_autoformat then
 									icon = " "
