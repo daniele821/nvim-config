@@ -30,13 +30,17 @@ return {
 								if not vim.g.disable_autoformat then
 									icon = " "
 								end
-								fmt_msg = icon
-									.. vim.iter(fmt)
-										:map(function(elem)
-											return elem.name
-										end)
-										:join(", ")
-									.. " "
+								if #fmt >= 1 then
+									fmt_msg = icon
+										.. vim.iter(fmt)
+											:map(function(elem)
+												return elem.name
+											end)
+											:join(", ")
+										.. " "
+								else
+									fmt_msg = icon .. "[LSP] "
+								end
 							end
 						end
 						return lsp_msg .. fmt_msg
