@@ -12,4 +12,4 @@ look at file `lua/settings/init.lua`
 
 # BUGS
 
-- autocmd error if lua treesitter is not installed -> just install lua treesitter parser 
+- autocmd error if parser not installed for certain languages -> just install lua, vimdoc, markdown treesitter parser 
