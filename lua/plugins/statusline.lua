@@ -38,7 +38,7 @@ return {
 											end)
 											:join(", ")
 										.. " "
-								else
+								elseif not vim.g.disable_lspformat[vim.bo[0].filetype] then
 									fmt_msg = icon .. "[LSP] "
 								end
 							end
