@@ -80,14 +80,11 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
-				local map = function(keys, func, desc)
-					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-				end
-				map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-				map("gt", vim.lsp.buf.type_definition, "Type [D]efinition")
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				local opts = { buffer = event.buf }
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set({ "n", "i" }, "<c-h>", vim.lsp.buf.signature_help, opts)
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 			end,
 		})
 
