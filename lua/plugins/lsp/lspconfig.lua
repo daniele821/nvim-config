@@ -82,7 +82,6 @@ return {
 			callback = function(event)
 				local opts = { buffer = event.buf }
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set({ "n", "i" }, "<c-h>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 			end,
