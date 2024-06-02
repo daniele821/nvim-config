@@ -1,5 +1,4 @@
 vim.g.disable_lspformat = {
-	lua = true,
 	bash = true,
 	sh = true,
 }
