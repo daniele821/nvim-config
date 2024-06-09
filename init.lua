@@ -22,8 +22,5 @@ require("lazy").setup({
 		require("plugins.statusline"),
 		require("plugins.treesitter"),
 		require("plugins.gitsigns"),
-		require("plugins.lsp.lspconfig"),
-		require("plugins.lsp.completion"),
-		require("plugins.lsp.autoformat"),
 	},
 })
