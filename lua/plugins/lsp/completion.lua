@@ -32,7 +32,10 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 
-		luasnip.config.setup({})
+		luasnip.config.setup({
+			exit_roots = false,
+			link_children = true,
+		})
 
 		cmp.setup({
 			snippet = {
