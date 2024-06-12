@@ -8,6 +8,9 @@ local servers = {
 				hint = {
 					enable = true,
 				},
+				diagnostics = {
+					globals = { "vim" },
+				},
 			},
 		},
 	},
@@ -41,12 +44,6 @@ return {
 
 		-- gaps the bridge between completion engine and lsp
 		"hrsh7th/cmp-nvim-lsp",
-
-		-- Useful status updates for LSP.
-		-- { "j-hui/fidget.nvim", opts = {} },
-
-		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		-- LSP servers and clients are able to communicate to each other what features they support.
