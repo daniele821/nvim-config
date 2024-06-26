@@ -32,3 +32,6 @@ vim.opt.cursorline = false
 
 -- set maximum height for complete menu
 vim.opt.pumheight = 15
+
+-- disable right click popup
+vim.opt.mousemodel = "extend"
