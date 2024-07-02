@@ -99,7 +99,7 @@ return {
 		end, {})
 
 		-- create keymap to toggle inlay hints
-		vim.keymap.set("n", "<leader>h", function()
+		vim.keymap.set("n", "<a-h>", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 			if package.loaded["lualine"] then
 				require("lualine").refresh({})

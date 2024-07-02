@@ -22,5 +22,11 @@ return {
 				require("telescope.builtin").git_status()
 			end,
 		},
+		{
+			"<A-d>",
+			function()
+				require("telescope.builtin").diagnostics()
+			end,
+		},
 	},
 }
