@@ -35,7 +35,7 @@ return {
 		end, {})
 
 		-- create keymap to toggle autoformat
-		vim.keymap.set("n", "<A-f>", function()
+		vim.keymap.set("n", "<leader>a", function()
 			vim.g.disable_autoformat = not vim.g.disable_autoformat
 			if package.loaded["lualine"] then
 				require("lualine").refresh({})
