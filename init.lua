@@ -21,6 +21,7 @@ require("lazy").setup({
 		require("plugins.colorscheme.onedark"),
 		require("plugins.statusline"),
 		require("plugins.treesitter"),
+		require("plugins.telescope"),
 		require("plugins.gitsigns"),
 		require("plugins.lsp.lspconfig"),
 		require("plugins.lsp.completion"),
