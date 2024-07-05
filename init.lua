@@ -1,3 +1,4 @@
+-- builtin customization
 require("options")
 require("autocmd")
 
@@ -9,22 +10,11 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
--- install plugins
-require("lazy").setup({
-	{
-		require("plugins.colorscheme.onedark"),
-		require("plugins.statusline"),
-		require("plugins.treesitter"),
-		require("plugins.telescope"),
-		require("plugins.gitsigns"),
-		require("plugins.lsp.lspconfig"),
-		require("plugins.lsp.completion"),
-		require("plugins.lsp.autoformat"),
-	},
-})
+-- plugin customization
+require("lazy").setup("plugins")
