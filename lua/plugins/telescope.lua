@@ -11,6 +11,19 @@ return {
 			end,
 		},
 		{
+			"<A-t>",
+			function()
+				require("telescope.builtin").find_files({
+					find_command = {
+						"rg",
+						"--files",
+						"--hidden",
+						"--glob=!**/.git/*",
+					},
+				})
+			end,
+		},
+		{
 			"<A-b>",
 			function()
 				require("telescope.builtin").buffers()
