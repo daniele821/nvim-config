@@ -17,15 +17,9 @@ return {
 			end,
 		},
 		{
-			"<A-c>",
+			"<A-g>",
 			function()
-				require("telescope.builtin").git_status()
-			end,
-		},
-		{
-			"<A-d>",
-			function()
-				require("telescope.builtin").diagnostics()
+				require("telescope.builtin").live_grep()
 			end,
 		},
 	},
