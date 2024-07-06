@@ -44,12 +44,6 @@ return {
 				require("telescope.builtin").diagnostics()
 			end,
 		},
-		{
-			"<A-c>",
-			function()
-				require("telescope.builtin").git_status()
-			end,
-		},
 	},
 	config = function()
 		require("telescope").setup({
