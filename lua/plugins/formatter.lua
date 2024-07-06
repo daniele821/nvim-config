@@ -30,7 +30,7 @@ return {
 		})
 
 		-- add mapping to format file
-		vim.keymap.set("n", "<leader>f", function()
+		vim.keymap.set("n", "gff", function()
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, {})
 

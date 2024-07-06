@@ -1,7 +1,3 @@
--- set leader key (useful for plugins)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- show row numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
