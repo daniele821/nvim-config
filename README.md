@@ -14,6 +14,3 @@ look at file `lua/settings/init.lua`
 
 - autocmd error if parser not installed for certain languages -> just install lua, vimdoc, markdown treesitter parser 
 
-# TODO
-
-- write a session manager, which allows to save/load/delete sessions using :mksession and telescope
