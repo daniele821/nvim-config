@@ -56,8 +56,12 @@ return {
 		require("telescope").setup({
 			defaults = {
 				mappings = {
+					i = {
+						["<C-q>"] = require("telescope.actions").close,
+					},
 					n = {
 						["<C-c>"] = require("telescope.actions").close,
+						["<C-q>"] = require("telescope.actions").close,
 						["<C-w><C-q>"] = require("telescope.actions").close,
 					},
 				},
