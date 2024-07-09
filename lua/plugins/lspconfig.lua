@@ -75,6 +75,9 @@ return {
 			},
 		})
 
+		-- force install lsp once after plugin is loaded
+		vim.cmd(":MasonToolsInstall")
+
 		--  This function gets run when an LSP attaches to a particular buffer.
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
