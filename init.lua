@@ -1,7 +1,6 @@
 -- builtin customization
 require("configs.options")
 require("configs.autocmd")
-require("configs.keymaps")
 
 -- bootstrap lazy-nvim and load plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

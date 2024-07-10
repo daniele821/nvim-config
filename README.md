@@ -16,4 +16,4 @@ look at file `lua/settings/init.lua`
 
 # TODO
 
-- [ ] fix qqq not immediatly exiting macro recording (probably a plugin mapping)
+- [x] fix qqq not immediatly exiting macro recording
