@@ -10,10 +10,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 look at file `lua/settings/init.lua`
 
-# BUGS
-
-- autocmd error if parser not installed for certain languages -> just install lua, vimdoc, markdown treesitter parser 
-
 # TODO
 
+- [x] autoinstall ts parsers which would otherwise cause errors (vim, vimdoc, markdown, lua, query, ...)
 - [x] fix qqq not immediatly exiting macro recording
