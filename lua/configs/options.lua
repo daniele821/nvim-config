@@ -7,9 +7,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- copy to system clipboard
-vim.opt.clipboard = "unnamedplus"
-
 -- set where to open split windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true
