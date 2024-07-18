@@ -52,12 +52,8 @@ return {
 		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 		local client_cap = vim.lsp.protocol.make_client_capabilities()
-		local status, server_cap = pcall(require, "cmp_nvim_lsp")
-		local cap = {}
-		if status then
-			server_cap = server_cap.default_capabilities()
-			cap = vim.tbl_deep_extend("force", client_cap, server_cap)
-		end
+		local server_cap = require("cmp_nvim_lsp").default_capabilities()
+		local cap = vim.tbl_deep_extend("force", client_cap, server_cap)
 
 		-- setup mason in this order, otherwise it might break!
 		require("mason").setup()
