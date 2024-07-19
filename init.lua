@@ -24,7 +24,7 @@ require("lazy").setup({
 	require("plugins.gitsigns"),
 	require("plugins.telescope"),
 	require("plugins.treesitter"),
-	require("plugins.lspconfig"),
-	require("plugins.completions"),
-	require("plugins.formatter"),
+	require("plugins.lsp.lspconfig"),
+	require("plugins.lsp.completions"),
+	require("plugins.lsp.formatter"),
 })
