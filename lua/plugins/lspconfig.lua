@@ -75,6 +75,7 @@ return {
 		vim.cmd(":MasonToolsInstall")
 
 		--  This function gets run when an LSP attaches to a particular buffer.
+		-- REMOVE IN NEOVIM 0.11
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -84,13 +85,5 @@ return {
 				vim.keymap.set("n", "gra", vim.lsp.buf.code_action, opts)
 			end,
 		})
-
-		-- create keymap to toggle inlay hints
-		vim.keymap.set("n", "<a-h>", function()
-			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-			if package.loaded["lualine"] then
-				require("lualine").refresh({})
-			end
-		end, {})
 	end,
 }

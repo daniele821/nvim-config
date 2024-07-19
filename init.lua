@@ -18,8 +18,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false,
-	},
+require("lazy").setup({
+	require("plugins.colorscheme"),
+	require("plugins.statusline"),
+	require("plugins.gitsigns"),
+	require("plugins.telescope"),
+	require("plugins.treesitter"),
+	require("plugins.lspconfig"),
+	require("plugins.completions"),
+	require("plugins.formatter"),
 })
