@@ -23,6 +23,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 
 		-- completion icons
 		"onsails/lspkind.nvim",
@@ -58,6 +59,7 @@ return {
 			},
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
 				{ name = "path" },
 			},
