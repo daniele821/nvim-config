@@ -26,6 +26,9 @@ vim.opt.signcolumn = "yes"
 -- highlight cursor current line
 vim.opt.cursorline = false
 
+-- global statusline
+vim.opt.laststatus = 3
+
 -- set maximum height for complete menu
 vim.opt.pumheight = 15
 
