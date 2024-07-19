@@ -22,7 +22,7 @@ local servers = {
 		},
 	},
 }
-local ensure_installed = {
+local starterpack_lsp = {
 	"stylua",
 	"lua-language-server",
 	"shellcheck",
@@ -41,7 +41,6 @@ return {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- gaps the bridge between completion engine and lsp
 		"hrsh7th/cmp-nvim-lsp",
@@ -57,7 +56,6 @@ return {
 
 		-- setup mason in this order, otherwise it might break!
 		require("mason").setup()
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
@@ -72,7 +70,18 @@ return {
 		})
 
 		-- force install lsp once after plugin is loaded
-		vim.cmd(":MasonToolsInstall")
+		vim.api.nvim_create_user_command("StarterPackLsp", function()
+			local installed_lsp = require("mason-registry").get_installed_package_names()
+			local toinstall_lsp = vim.iter(starterpack_lsp)
+				:filter(function(lsp)
+					return not vim.tbl_contains(installed_lsp, lsp, {})
+				end)
+				:totable()
+			if #toinstall_lsp == 0 then
+				return
+			end
+			vim.cmd(":MasonInstall " .. table.concat(toinstall_lsp, " "))
+		end, {})
 
 		--  This function gets run when an LSP attaches to a particular buffer.
 		-- REMOVE IN NEOVIM 0.11
