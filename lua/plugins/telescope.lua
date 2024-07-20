@@ -25,12 +25,6 @@ return {
 				require("telescope.builtin").live_grep()
 			end,
 		},
-		{
-			"<A-d>",
-			function()
-				require("telescope.builtin").diagnostics()
-			end,
-		},
 	},
 	config = function()
 		local actions = require("telescope.actions")
