@@ -52,8 +52,8 @@ return {
 					preset = "codicons",
 					menu = {
 						nvim_lsp = "[LSP]",
-						luasnip = "[Snp]",
-						path = "[Pth]",
+						luasnip = "[SNIP]",
+						path = "[PATH]",
 					},
 				}),
 			},
