@@ -22,7 +22,6 @@ return {
 		-- Adds other completion capabilities.
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 
 		-- completion icons
@@ -53,7 +52,6 @@ return {
 					menu = {
 						nvim_lsp = "[LSP]",
 						luasnip = "[SNIP]",
-						path = "[PATH]",
 					},
 				}),
 			},
@@ -61,7 +59,6 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
-				{ name = "path" },
 			},
 			completion = { completeopt = "menu,menuone,noselect" },
 			mapping = cmp.mapping.preset.insert({

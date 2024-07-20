@@ -5,32 +5,12 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
 	},
 	keys = {
 		{
 			"<A-f>",
 			function()
 				require("telescope.builtin").find_files()
-			end,
-		},
-		{
-			"<A-t>",
-			function()
-				require("telescope.builtin").find_files({
-					find_command = {
-						"rg",
-						"--files",
-						"--hidden",
-						"--glob=!**/.git/*",
-					},
-				})
 			end,
 		},
 		{
@@ -68,6 +48,5 @@ return {
 				},
 			},
 		})
-		require("telescope").load_extension("fzf")
 	end,
 }
