@@ -28,4 +28,20 @@ require("lazy").setup({
 	require("plugins.lsp.lspconfig"),
 	require("plugins.lsp.completions"),
 	require("plugins.lsp.formatter"),
+}, {
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+				"tarPlugin",
+				"osc52",
+				"shada",
+				"spellfile",
+				"man",
+			},
+		},
+	},
 })
