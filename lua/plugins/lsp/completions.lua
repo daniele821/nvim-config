@@ -31,6 +31,10 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+		local highlight = {
+			border = "rounded",
+			winhighlight = "FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+		}
 
 		luasnip.config.setup({
 			exit_roots = false,
@@ -39,8 +43,8 @@ return {
 
 		cmp.setup({
 			window = {
-				completion = cmp.config.window.bordered({ border = "rounded" }),
-				documentation = cmp.config.window.bordered({ border = "rounded" }),
+				completion = cmp.config.window.bordered(highlight),
+				documentation = cmp.config.window.bordered(highlight),
 			},
 			snippet = {
 				expand = function(args)
