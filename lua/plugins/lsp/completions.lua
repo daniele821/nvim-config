@@ -31,6 +31,8 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+
+		-- fix cmp highlight groups and borders
 		local highlight = {
 			border = "rounded",
 			winhighlight = "FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
