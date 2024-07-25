@@ -34,8 +34,8 @@ return {
 
 		-- fix cmp highlight groups and borders
 		local highlight = {
-			border = "rounded",
-			winhighlight = "FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+			border = "single",
+			winhighlight = "Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None",
 		}
 
 		luasnip.config.setup({
