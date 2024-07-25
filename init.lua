@@ -45,3 +45,9 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- add borders
+local border = { border = "rounded" }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, border)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, border)
+vim.diagnostic.config({ float = border })
