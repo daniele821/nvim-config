@@ -13,7 +13,7 @@ return {
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
-			globalstatus = true,
+			globalstatus = false,
 		},
 		sections = {
 			lualine_a = { "mode" },
