@@ -21,7 +21,7 @@ return {
 					return
 				end
 				return {
-					timeout_ms = 500,
+					timeout_ms = 50,
 					lsp_fallback = not vim.g.disable_lspformat[vim.bo[bufnr].filetype],
 				}
 			end,
