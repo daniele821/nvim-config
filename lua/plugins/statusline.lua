@@ -62,7 +62,6 @@ return {
 				end,
 			},
 			lualine_x = {
-				"diff",
 				"diagnostics",
 				"filetype",
 			},
