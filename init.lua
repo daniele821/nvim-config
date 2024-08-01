@@ -41,7 +41,7 @@ require("lazy").setup({
 				"shada",
 				"spellfile",
 				"man",
-				-- "editorconfig",
+				"editorconfig",
 				"netrwPlugin",
 				"rplugin",
 				"matchit",
