@@ -68,10 +68,13 @@ return {
 			},
 			lualine_y = {
 				function()
-					if vim.fn.getcwd() == "/" then
-						return "/"
-					end
-					return vim.fs.basename(vim.fn.getcwd())
+					local cwd = vim.fn.getcwd()
+					local home = os.getenv("HOME")
+					local remaps = {
+						["/"] = "/",
+						[home] = "~",
+					}
+					return remaps[cwd] or vim.fs.basename(cwd)
 				end,
 			},
 			lualine_z = { "location" },
