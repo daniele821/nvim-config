@@ -66,7 +66,14 @@ return {
 				"diagnostics",
 				"filetype",
 			},
-			lualine_y = { "progress" },
+			lualine_y = {
+				function()
+					if vim.fn.getcwd() == "/" then
+						return "/"
+					end
+					return vim.fs.basename(vim.fn.getcwd())
+				end,
+			},
 			lualine_z = { "location" },
 		},
 	},
