@@ -12,6 +12,9 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		default_file_explorer = false,
+		view_options = {
+			show_hidden = true,
+		},
 		keymaps = {
 			["g?"] = "actions.show_help",
 			["<CR>"] = "actions.select",
