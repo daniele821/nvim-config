@@ -26,6 +26,7 @@ return {
 			["_"] = "actions.open_cwd",
 			["`"] = "actions.cd",
 			["g\\"] = "actions.toggle_trash",
+			["<C-l>"] = "actions.refresh",
 		},
 	},
 }
