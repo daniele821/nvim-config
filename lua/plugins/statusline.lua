@@ -73,7 +73,7 @@ return {
 					local home = os.getenv("HOME")
 					local path_hypr = vim.fn.resolve(vim.fs.normalize("~/.config/hypr"))
 					local path_nvim = vim.fn.resolve(vim.fs.normalize("~/.config/nvim"))
-					local symbol = "  "
+					local symbol = "  "
 					local dirname = basename
 					if cwd == "/" then
 						dirname = "/"
