@@ -8,7 +8,7 @@ return {
 			ensure_installed = { "lua", "markdown", "markdown_inline", "vim", "vimdoc", "query", "c", "bash" },
 			auto_install = true,
 			highlight = { enable = true },
-			indent = { enable = false },
+			indent = { enable = true },
 		})
 	end,
 }
