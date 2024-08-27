@@ -1,3 +1,8 @@
+vim.g.disable_lspformat = {
+	bash = true,
+	sh = true,
+	lua = true,
+}
 vim.g.disable_autoformat = false
 local formatters_by_ft = {
 	lua = { "stylua" },
@@ -12,9 +17,15 @@ return {
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
-			format_on_save = function(_)
+			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
 					return nil
+				end
+				if vim.g.disable_lspformat[vim.bo[bufnr].filetype] then
+					return {
+						timeout_ms = 500,
+						lsp_format = "never",
+					}
 				else
 					return {
 						timeout_ms = 500,
