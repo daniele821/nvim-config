@@ -1,7 +1,3 @@
-vim.g.disable_lspformat = {
-	bash = true,
-	sh = true,
-}
 vim.g.disable_autoformat = false
 local formatters_by_ft = {
 	lua = { "stylua" },
@@ -16,14 +12,15 @@ return {
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
-			format_on_save = function(bufnr)
+			format_on_save = function(_)
 				if vim.g.disable_autoformat then
-					return
+					return nil
+				else
+					return {
+						timeout_ms = 500,
+						lsp_format = "fallback",
+					}
 				end
-				return {
-					timeout_ms = 500,
-					lsp_fallback = not vim.g.disable_lspformat[vim.bo[bufnr].filetype],
-				}
 			end,
 			-- set formatters by filetype
 			formatters_by_ft = formatters_by_ft,
@@ -31,7 +28,7 @@ return {
 
 		-- add mapping to format file
 		vim.keymap.set("n", "gff", function()
-			require("conform").format({ async = true, lsp_fallback = true })
+			require("conform").format({ async = true, lsp_format = "fallback" })
 		end, {})
 
 		-- create keymap to toggle autoformat
