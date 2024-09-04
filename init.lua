@@ -26,7 +26,6 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.explorer"),
 	require("plugins.treesitter"),
-	require("plugins.terminal"),
 	require("plugins.lsp.lspconfig"),
 	require("plugins.lsp.lspnvim"),
 	require("plugins.lsp.completions"),
