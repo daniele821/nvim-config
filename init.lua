@@ -26,33 +26,11 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.explorer"),
 	require("plugins.treesitter"),
+	require("plugins.gitgraph"),
 	require("plugins.lsp.lspconfig"),
 	require("plugins.lsp.lspnvim"),
 	require("plugins.lsp.completions"),
 	require("plugins.lsp.formatter"),
-	{
-		"isakbm/gitgraph.nvim",
-		opts = {
-			symbols = {
-				merge_commit = "M",
-				commit = "*",
-			},
-			format = {
-				timestamp = "%H:%M:%S %d-%m-%Y",
-				fields = { "hash", "timestamp", "author", "branch_name", "tag" },
-			},
-			hooks = {
-				on_select_commit = function(commit)
-					print("selected commit:", commit.hash)
-				end,
-				on_select_range_commit = function(from, to)
-					print("selected range:", from.hash, to.hash)
-				end,
-			},
-		},
-		-- HOW TO DRAW GIT GRAPH
-		-- require("gitgraph").draw({}, { all = true, max_count = 5000 })
-	},
 }, {
 	performance = {
 		rtp = {
