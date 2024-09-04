@@ -25,6 +25,12 @@ return {
 				require("telescope.builtin").live_grep()
 			end,
 		},
+		{
+			"<A-t>",
+			function()
+				require("telescope.builtin").help_tags()
+			end,
+		},
 	},
 	config = function()
 		local actions = require("telescope.actions")

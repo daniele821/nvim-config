@@ -43,19 +43,19 @@ return {
 					if package.loaded["conform"] then
 						local fmt = require("conform").list_formatters(0)
 						local icon = fmt_icon
+						local text = "[LSP]"
+						if not vim.g.disable_autoformat then
+							icon = auto_icon
+						end
+						if #fmt >= 1 then
+							text = vim.iter(fmt)
+								:map(function(elem)
+									return elem.name
+								end)
+								:join(", ")
+						end
 						if #fmt >= 1 or #lsp >= 1 then
-							if not vim.g.disable_autoformat then
-								icon = auto_icon
-							end
-							if #fmt >= 1 then
-								fmt_msg = icon
-									.. vim.iter(fmt)
-										:map(function(elem)
-											return elem.name
-										end)
-										:join(", ")
-									.. " "
-							end
+							fmt_msg = icon .. text .. " "
 						end
 					end
 					return lsp_msg .. fmt_msg
@@ -73,17 +73,18 @@ return {
 					local home = os.getenv("HOME")
 					local path_hypr = vim.fn.resolve(vim.fs.normalize("~/.config/hypr"))
 					local path_nvim = vim.fn.resolve(vim.fs.normalize("~/.config/nvim"))
+					local symbol = "  "
+					local dirname = basename
 					if cwd == "/" then
-						return "/"
+						dirname = "/"
 					elseif cwd == home then
-						return "~"
+						dirname = "~"
 					elseif string.sub(cwd, 1, string.len(path_hypr)) == path_hypr then
-						return " " .. basename
+						symbol = "  "
 					elseif string.sub(cwd, 1, string.len(path_nvim)) == path_nvim then
-						return " " .. basename
-					else
-						return basename
+						symbol = "  "
 					end
+					return symbol .. dirname
 				end,
 			},
 			lualine_z = { "location" },

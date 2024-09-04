@@ -19,13 +19,16 @@ return {
 			["<CR>"] = "actions.select",
 			["<C-s>"] = { "actions.select", opts = { vertical = true } },
 			["<C-h>"] = { "actions.select", opts = { horizontal = true } },
-			["<C-p>"] = "actions.preview",
 			["<C-c>"] = "actions.close",
 			["<C-w><C-q>"] = "actions.close",
 			["-"] = "actions.parent",
 			["_"] = "actions.open_cwd",
-			["`"] = "actions.cd",
+			["`"] = function()
+				require("oil.actions").cd.callback({})
+				require("lualine").refresh({})
+			end,
 			["g\\"] = "actions.toggle_trash",
+			["<C-l>"] = "actions.refresh",
 		},
 	},
 }
