@@ -29,6 +29,7 @@ require("lazy").setup({
 	require("plugins.lsp.lspconfig"),
 	require("plugins.lsp.completions"),
 	require("plugins.lsp.formatter"),
+	require("plugins.lsp.linter"),
 }, {
 	performance = {
 		rtp = {
