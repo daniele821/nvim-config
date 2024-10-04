@@ -69,22 +69,14 @@ return {
 			lualine_y = {
 				function()
 					local cwd = vim.fn.getcwd()
-					local basename = vim.fs.basename(cwd)
+					local dirname = vim.fs.basename(cwd)
 					local home = os.getenv("HOME")
-					local path_hypr = vim.fn.resolve(vim.fs.normalize("~/.config/hypr"))
-					local path_nvim = vim.fn.resolve(vim.fs.normalize("~/.config/nvim"))
-					local symbol = "  "
-					local dirname = basename
 					if cwd == "/" then
 						dirname = "/"
 					elseif cwd == home then
 						dirname = "~"
-					elseif string.sub(cwd, 1, string.len(path_hypr)) == path_hypr then
-						symbol = "  "
-					elseif string.sub(cwd, 1, string.len(path_nvim)) == path_nvim then
-						symbol = "  "
 					end
-					return symbol .. dirname
+					return "  " .. dirname
 				end,
 			},
 			lualine_z = { "location" },
