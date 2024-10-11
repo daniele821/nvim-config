@@ -88,6 +88,14 @@ return {
 						luasnip.jump(-1)
 					end
 				end, { "i", "s" }),
+				["<Down>"] = cmp.mapping(function(fallback)
+					cmp.close()
+					fallback()
+				end, { "i" }),
+				["<Up>"] = cmp.mapping(function(fallback)
+					cmp.close()
+					fallback()
+				end, { "i" }),
 			}),
 		})
 	end,
