@@ -21,17 +21,14 @@ return {
 				if vim.g.disable_autoformat then
 					return nil
 				end
+				local lspformat = "fallback"
 				if vim.g.disable_lspformat[vim.bo[bufnr].filetype] then
-					return {
-						timeout_ms = 500,
-						lsp_format = "never",
-					}
-				else
-					return {
-						timeout_ms = 500,
-						lsp_format = "fallback",
-					}
+					lspformat = "never"
 				end
+				return {
+					timeout_ms = 100,
+					lsp_format = lspformat,
+				}
 			end,
 			-- set formatters by filetype
 			formatters_by_ft = formatters_by_ft,
