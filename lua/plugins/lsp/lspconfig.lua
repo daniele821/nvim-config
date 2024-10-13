@@ -30,13 +30,15 @@ local starterpack_lsp = {
 	"shfmt",
 	"clangd",
 	"python-lsp-server",
+	"gopls",
+	"html-lsp",
 }
 
 return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufWritePost", "BufNewFile" },
-	cmd = { "Mason", "StarterPackLsp" },
+	cmd = { "Mason", "MasonUninstallAll", "StarterPackLsp" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
