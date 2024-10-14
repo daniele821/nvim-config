@@ -8,6 +8,7 @@ local formatters_by_ft = {
 	lua = { "stylua" },
 	sh = { "shfmt" },
 	bash = { "shfmt" },
+	go = { "goimports" },
 }
 return {
 	-- Autoformat

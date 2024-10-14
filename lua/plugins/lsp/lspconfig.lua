@@ -47,6 +47,7 @@ local starterpack_lsp = {
 	"clangd",
 	"python-lsp-server",
 	"gopls",
+	"goimports",
 	"html-lsp",
 }
 
