@@ -1,4 +1,7 @@
 local servers = {
+
+	-- LUA_LS documentation:
+	-- https://luals.github.io/wiki/settings/
 	lua_ls = {
 		settings = {
 			Lua = {
@@ -14,14 +17,27 @@ local servers = {
 			},
 		},
 	},
-	bashls = {
+
+	-- GOPLS documentations:
+	-- https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+	gopls = {
 		settings = {
-			bashIde = {
-				shellcheckPath = "shellcheck",
+			gopls = {
+				["ui.completion.usePlaceholders"] = false,
+				["ui.inlayhint.hints"] = {
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					constantValues = true,
+					functionTypeParameters = true,
+					rangeVariableTypes = true,
+					parameterNames = true,
+				},
 			},
 		},
 	},
 }
+
 local starterpack_lsp = {
 	"stylua",
 	"lua-language-server",
