@@ -49,6 +49,7 @@ local starterpack_lsp = {
 	"gopls",
 	"goimports",
 	"html-lsp",
+	"css-lsp",
 }
 
 return {
