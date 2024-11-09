@@ -115,16 +115,23 @@ return {
 			require("lualine").refresh({})
 		end, {})
 
+		-- signcolumn diagnostic signs
+		local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		end
+
 		--  This function gets run when an LSP attaches to a particular buffer.
 		-- REMOVE IN NEOVIM 0.11
-		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
-			callback = function(event)
-				local opts = { buffer = event.buf }
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "gra", vim.lsp.buf.code_action, opts)
-			end,
-		})
+		-- vim.api.nvim_create_autocmd("LspAttach", {
+		-- 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+		-- 	callback = function(event)
+		-- 		local opts = { buffer = event.buf }
+		-- 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		-- 		vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
+		-- 		vim.keymap.set("n", "gra", vim.lsp.buf.code_action, opts)
+		-- 	end,
+		-- })
 	end,
 }
