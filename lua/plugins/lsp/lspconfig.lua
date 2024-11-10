@@ -116,12 +116,13 @@ return {
 		end, {})
 
 		-- signcolumn diagnostic signs
-		local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			-- DEPRECATED: replace with vim.diagnostic.config()
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
+		-- COMMENTED OUT BECAUSE 'vim.fn.sign_define' is deprecated
+		-- local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+		-- for type, icon in pairs(signs) do
+		-- 	local hl = "DiagnosticSign" .. type
+		-- 	-- DEPRECATED: replace with vim.diagnostic.config()
+		-- 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		-- end
 
 		--  This function gets run when an LSP attaches to a particular buffer.
 		-- REMOVE IN NEOVIM 0.11
