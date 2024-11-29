@@ -50,6 +50,7 @@ local starterpack_lsp = {
 	"goimports",
 	"html-lsp",
 	"css-lsp",
+	"typescript-language-server",
 }
 
 return {
