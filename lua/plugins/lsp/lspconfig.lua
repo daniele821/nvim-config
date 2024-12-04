@@ -51,6 +51,8 @@ local starterpack_lsp = {
 	"html-lsp",
 	"css-lsp",
 	"typescript-language-server",
+	"jq",
+	"json-lsp",
 }
 
 return {

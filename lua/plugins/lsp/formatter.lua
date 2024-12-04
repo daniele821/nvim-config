@@ -9,6 +9,7 @@ local formatters_by_ft = {
 	sh = { "shfmt" },
 	bash = { "shfmt" },
 	go = { "goimports" },
+	json = { "jq" },
 }
 return {
 	-- Autoformat
