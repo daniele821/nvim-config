@@ -47,7 +47,7 @@ require("lazy").setup({
 				"netrwPlugin",
 				"rplugin",
 				-- "matchit",
-				-- "matchparen",
+				"matchparen",
 			},
 		},
 	},
