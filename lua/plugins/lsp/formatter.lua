@@ -10,6 +10,7 @@ local formatters_by_ft = {
 	bash = { "shfmt" },
 	go = { "goimports" },
 	json = { "jq" },
+	php = { "pretty-php" },
 }
 return {
 	-- Autoformat
@@ -28,7 +29,7 @@ return {
 					lspformat = "never"
 				end
 				return {
-					timeout_ms = 100,
+					timeout_ms = 500,
 					lsp_format = lspformat,
 				}
 			end,

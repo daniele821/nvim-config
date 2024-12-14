@@ -53,6 +53,7 @@ local starterpack_lsp = {
 	"typescript-language-server",
 	"jq",
 	"json-lsp",
+	"pretty-php",
 }
 
 return {
