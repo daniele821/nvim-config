@@ -10,7 +10,6 @@ local formatters_by_ft = {
 	bash = { "shfmt" },
 	go = { "goimports" },
 	json = { "jq" },
-	php = { "pretty-php" },
 }
 return {
 	-- Autoformat
