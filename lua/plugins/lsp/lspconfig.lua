@@ -36,6 +36,20 @@ local servers = {
 			},
 		},
 	},
+
+	-- PYTHON-LSP documentation:
+	-- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+	pylsp = {
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						maxLineLength = 120,
+					},
+				},
+			},
+		},
+	},
 }
 
 local starterpack_lsp = {
