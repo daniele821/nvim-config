@@ -1,6 +1,6 @@
 -- show row numbers
 vim.opt.number = true
-vim.opt.relativenumber = not true
+vim.opt.relativenumber = true
 
 -- space vs tab
 vim.opt.tabstop = 4
