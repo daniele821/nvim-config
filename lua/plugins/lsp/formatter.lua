@@ -28,7 +28,7 @@ return {
 					lspformat = "never"
 				end
 				return {
-					timeout_ms = 500,
+					timeout_ms = 100,
 					lsp_format = lspformat,
 				}
 			end,
