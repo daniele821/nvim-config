@@ -10,32 +10,19 @@ vim.keymap.set("t", "<C-l>", function()
 end)
 
 -- navigate quickfix
-local function navigate_qflist(next)
-	local function fmt_elem(index, elements)
-		print(string.format("(%d of %d): %s", index, elements, vim.fn.getqflist()[index].text))
-	end
+local function navigate_qflist(step)
 	return function()
 		local elements = #vim.fn.getqflist()
 		if elements == 0 then
+			vim.api.nvim_echo({}, false, {})
 			return
 		end
 		local index = vim.fn.getqflist({ idx = 0 }).idx
-		if next then
-			if index < elements then
-				vim.api.nvim_command("cnext")
-			else
-				fmt_elem(index, elements)
-			end
-		else
-			if index > 1 then
-				vim.api.nvim_command("cprev")
-			else
-				fmt_elem(index, elements)
-			end
-		end
+		local next = math.max(1, index + step)
+		vim.api.nvim_command(string.format("cc %d", next))
 	end
 end
-vim.keymap.set("n", "<a-left>", navigate_qflist(false))
-vim.keymap.set("n", "<a-right>", navigate_qflist(true))
+vim.keymap.set("n", "<a-left>", navigate_qflist(-1))
+vim.keymap.set("n", "<a-right>", navigate_qflist(1))
 vim.keymap.set("n", "<a-up>", "<cmd>copen<CR>")
 vim.keymap.set("n", "<a-down>", "<cmd>cclose<CR>")
