@@ -31,3 +31,6 @@ vim.opt.pumheight = 15
 
 -- disable right click popup
 vim.opt.mousemodel = "extend"
+
+-- disable swap files
+vim.opt.swapfile = false
