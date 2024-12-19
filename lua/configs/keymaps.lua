@@ -10,7 +10,7 @@ vim.keymap.set("t", "<C-l>", function()
 end)
 
 -- navigate quickfix
-vim.keymap.set("n", "<a-up>", "<cmd>cprev<CR>")
-vim.keymap.set("n", "<a-down>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<a-left>", "<cmd>copen<CR>")
-vim.keymap.set("n", "<a-right>", "<cmd>cclose<CR>")
+vim.keymap.set("n", "<a-left>", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<a-right>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<a-up>", "<cmd>copen<CR>")
+vim.keymap.set("n", "<a-down>", "<cmd>cclose<CR>")
