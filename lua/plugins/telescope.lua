@@ -32,12 +32,14 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						["<C-q>"] = actions.close,
+						["<esc>"] = actions.close,
+						["<C-c>"] = actions.close,
+						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 					n = {
+						["<esc>"] = actions.close,
 						["<C-c>"] = actions.close,
-						["<C-q>"] = actions.close,
-						["<C-w><C-q>"] = actions.close,
+						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 				},
 			},
