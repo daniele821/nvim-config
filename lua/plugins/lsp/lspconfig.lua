@@ -50,6 +50,14 @@ local servers = {
 			},
 		},
 	},
+
+	-- INTELEPHENSE documentation:
+	-- https://github.com/bmewburn/intelephense-docs/blob/master/gettingStarted.md
+	intelephense = {
+		init_options = {
+			globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense",
+		},
+	},
 }
 
 local starterpack_lsp = {
