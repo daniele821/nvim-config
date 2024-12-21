@@ -14,6 +14,15 @@ return {
 			end,
 		},
 		{
+			"<A-s-f>",
+			function()
+				require("telescope.builtin").find_files({
+					file_ignore_patterns = { "%.git/" },
+					hidden = true,
+				})
+			end,
+		},
+		{
 			"<A-b>",
 			function()
 				require("telescope.builtin").buffers()
@@ -21,6 +30,12 @@ return {
 		},
 		{
 			"<A-g>",
+			function()
+				require("telescope.builtin").grep_string()
+			end,
+		},
+		{
+			"<A-s-g>",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
