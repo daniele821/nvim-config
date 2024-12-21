@@ -34,12 +34,10 @@ return {
 					i = {
 						["<esc>"] = actions.close,
 						["<C-c>"] = actions.close,
-						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 					n = {
 						["<esc>"] = actions.close,
 						["<C-c>"] = actions.close,
-						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 				},
 			},
