@@ -29,13 +29,13 @@ return {
 			end,
 		},
 		{
-			"<A-g>",
+			"<A-s>",
 			function()
 				require("telescope.builtin").grep_string()
 			end,
 		},
 		{
-			"<A-s-g>",
+			"<A-g>",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
