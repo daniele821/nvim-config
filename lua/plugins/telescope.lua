@@ -29,7 +29,7 @@ return {
 			end,
 		},
 		{
-			"<A-s>",
+			"<A-s-g>",
 			function()
 				require("telescope.builtin").grep_string()
 			end,
