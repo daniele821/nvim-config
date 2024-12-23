@@ -24,7 +24,7 @@ vim.opt.hlsearch = false
 vim.opt.signcolumn = "yes"
 
 -- highlight cursor current line
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 
 -- set maximum height for complete menu
 vim.opt.pumheight = 15
