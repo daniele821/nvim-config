@@ -18,12 +18,13 @@ local function navigate_qflist(step)
 			return
 		end
 		local index = vim.fn.getqflist({ idx = 0 }).idx
-		local next = index
-		local iter = index + step
-		local cycle = math.max(1, (iter + elements - 1) % elements + 1)
-		if iter == cycle then
-			next = iter
+		local next = index + step
+		local cycle = math.max(1, (next + elements - 1) % elements + 1)
+		if next ~= cycle then
+			next = math.max(1, math.min(next, elements))
 		end
+		-- uncomment next line to allow cycling through qflist
+		-- next = cycle
 		vim.api.nvim_command(string.format("cc %d", next))
 	end
 end
