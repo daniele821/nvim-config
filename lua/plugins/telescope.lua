@@ -12,6 +12,7 @@ return {
 			function()
 				require("telescope.builtin").find_files()
 			end,
+			mode = { "n", "v", "i" },
 		},
 		{
 			"<A-s-f>",
@@ -21,24 +22,28 @@ return {
 					hidden = true,
 				})
 			end,
+			mode = { "n", "v", "i" },
 		},
 		{
 			"<A-b>",
 			function()
 				require("telescope.builtin").buffers()
 			end,
+			mode = { "n", "v", "i" },
 		},
 		{
 			"<A-s-g>",
 			function()
 				require("telescope.builtin").grep_string()
 			end,
+			mode = { "n", "v", "i" },
 		},
 		{
 			"<A-g>",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
+			mode = { "n", "v", "i" },
 		},
 	},
 	config = function()
