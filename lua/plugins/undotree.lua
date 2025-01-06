@@ -8,4 +8,7 @@ return {
 			vim.cmd([[UndotreeFocus]])
 		end,
 	} },
+	config = function()
+		vim.g.undotree_SplitWidth = 40
+	end,
 }
