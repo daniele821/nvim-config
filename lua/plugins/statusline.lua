@@ -68,15 +68,14 @@ return {
 			},
 			lualine_y = {
 				function()
-					local cwd = vim.fn.getcwd()
-					local dirname = vim.fs.basename(cwd)
-					local home = os.getenv("HOME")
-					if cwd == "/" then
-						dirname = "/"
-					elseif cwd == home then
-						dirname = "~"
+					local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null"):match("^%s*(.-)%s*$")
+					local icon = " "
+					if branch == "HEAD" then
+						branch = vim.fn.system("git rev-parse --short HEAD 2>/dev/null"):match("^%s*(.-)%s*$")
+					elseif branch == "" then
+						branch = "<none>"
 					end
-					return "  " .. dirname
+					return icon .. branch
 				end,
 			},
 			lualine_z = { "location" },
