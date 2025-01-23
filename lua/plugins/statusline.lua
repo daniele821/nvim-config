@@ -13,6 +13,7 @@ return {
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
+			globalstatus = true,
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -60,23 +61,8 @@ return {
 					return lsp_msg .. fmt_msg
 				end,
 			},
-			lualine_x = {
-				"diff",
-				"diagnostics",
-				"filetype",
-			},
-			lualine_y = {
-				function()
-					local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null"):match("^%s*(.-)%s*$")
-					local icon = " "
-					if branch == "HEAD" then
-						branch = vim.fn.system("git rev-parse --short HEAD 2>/dev/null"):match("^%s*(.-)%s*$")
-					elseif branch == "" then
-						branch = "<none>"
-					end
-					return icon .. branch
-				end,
-			},
+			lualine_x = { "diff", "diagnostics", "filetype" },
+			lualine_y = { "branch" },
 			lualine_z = { "location" },
 		},
 	},
