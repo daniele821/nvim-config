@@ -10,6 +10,7 @@ local formatters_by_ft = {
 	bash = { "shfmt" },
 	go = { "goimports" },
 	json = { "jq" },
+	python = { "black" },
 }
 return {
 	-- Autoformat
@@ -19,6 +20,7 @@ return {
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
+			notify_no_formatters = false,
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
 					return nil
@@ -30,6 +32,7 @@ return {
 				return {
 					timeout_ms = 100,
 					lsp_format = lspformat,
+					quiet = true,
 				}
 			end,
 			-- set formatters by filetype

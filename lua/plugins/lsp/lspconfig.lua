@@ -37,20 +37,6 @@ local servers = {
 		},
 	},
 
-	-- PYTHON-LSP documentation:
-	-- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-	pylsp = {
-		settings = {
-			pylsp = {
-				plugins = {
-					pycodestyle = {
-						maxLineLength = 120,
-					},
-				},
-			},
-		},
-	},
-
 	-- INTELEPHENSE documentation:
 	-- https://github.com/bmewburn/intelephense-docs/blob/master/gettingStarted.md
 	intelephense = {
@@ -61,15 +47,20 @@ local servers = {
 }
 
 local starterpack_lsp = {
+	-- lua
 	"stylua",
 	"lua-language-server",
+	-- bash
 	"shellcheck",
 	"bash-language-server",
 	"shfmt",
-	"clangd",
-	"python-lsp-server",
+	-- python
+	"jedi-language-server",
+	"black",
+	-- go
 	"gopls",
 	"goimports",
+	-- html, css, javascript, json, php
 	"html-lsp",
 	"css-lsp",
 	"typescript-language-server",
