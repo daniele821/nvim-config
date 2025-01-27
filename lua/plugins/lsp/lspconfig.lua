@@ -72,12 +72,11 @@ local starterpack_lsp = {
 return {
 	-- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufWritePost", "BufNewFile" },
-	cmd = { "Mason", "MasonUninstallAll", "StarterPackLsp" },
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- gaps the bridge between completion engine and lsp
 		"hrsh7th/cmp-nvim-lsp",
@@ -111,20 +110,7 @@ return {
 				end,
 			},
 		})
-
-		-- force install lsp once after plugin is loaded
-		vim.api.nvim_create_user_command("StarterPackLsp", function()
-			local installed_lsp = require("mason-registry").get_installed_package_names()
-			local toinstall_lsp = vim.iter(starterpack_lsp)
-				:filter(function(lsp)
-					return not vim.tbl_contains(installed_lsp, lsp, {})
-				end)
-				:totable()
-			if #toinstall_lsp == 0 then
-				return
-			end
-			vim.cmd(":MasonInstall " .. table.concat(toinstall_lsp, " "))
-		end, {})
+		require("mason-tool-installer").setup({ ensure_installed = starterpack_lsp })
 
 		-- keymap to toggle inlay hints
 		vim.keymap.set("n", "<a-h>", function()
