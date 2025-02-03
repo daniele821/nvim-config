@@ -20,4 +20,3 @@ vim.opt.cursorline = true
 vim.opt.pumheight = 15
 vim.opt.mousemodel = "extend"
 vim.opt.swapfile = false
-vim.opt.scrolloff = 5
