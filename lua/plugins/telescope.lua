@@ -27,6 +27,8 @@ return {
 				require("telescope.builtin").find_files({
 					file_ignore_patterns = { "%.git/" },
 					hidden = true,
+					no_ignore = true,
+					no_ignore_parent = true,
 				})
 			end,
 			mode = { "n", "v", "i" },
