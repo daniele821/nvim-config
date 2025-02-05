@@ -12,6 +12,13 @@ local formatters_by_ft = {
 	json = { "jq" },
 	python = { "black" },
 }
+local formatters = {
+	black = {
+		command = "black",
+		inherit = true,
+		append_args = { "--line-length", "150" },
+	},
+}
 return {
 	-- Autoformat
 	"stevearc/conform.nvim",
@@ -37,6 +44,7 @@ return {
 			end,
 			-- set formatters by filetype
 			formatters_by_ft = formatters_by_ft,
+			formatters = formatters,
 		})
 
 		-- add mapping to format file
