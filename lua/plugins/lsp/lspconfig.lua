@@ -60,6 +60,8 @@ local starterpack_lsp = {
 	-- go
 	"gopls",
 	"goimports",
+	-- zig
+	"zls",
 	-- html, css, javascript, json, php
 	"html-lsp",
 	"css-lsp",
@@ -68,6 +70,9 @@ local starterpack_lsp = {
 	"json-lsp",
 	"intelephense",
 }
+
+-- disable painful autoformatting of zls.
+vim.g.zig_fmt_autosave = 0
 
 return {
 	-- LSP Configuration & Plugins
