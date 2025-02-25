@@ -55,8 +55,8 @@ local starterpack_lsp = {
 	"bash-language-server",
 	"shfmt",
 	-- python
-	"jedi-language-server",
-	"black",
+	-- "jedi-language-server",
+	-- "black",
 	-- go
 	"gopls",
 	"goimports",
@@ -68,7 +68,7 @@ local starterpack_lsp = {
 	"typescript-language-server",
 	"jq",
 	"json-lsp",
-	"intelephense",
+	-- "intelephense",
 }
 
 -- disable painful autoformatting of zls.
