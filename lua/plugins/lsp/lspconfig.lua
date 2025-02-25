@@ -55,8 +55,8 @@ local starterpack_lsp = {
 	"bash-language-server",
 	"shfmt",
 	-- python
-	-- "jedi-language-server",
-	-- "black",
+	"jedi-language-server",
+	"black",
 	-- go
 	"gopls",
 	"goimports",
