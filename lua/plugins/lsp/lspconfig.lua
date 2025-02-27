@@ -92,6 +92,8 @@ return {
 		function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 			opts = opts or {}
 			opts.border = opts.border or "double"
+			opts.max_width = opts.max_width or 100
+			opts.max_height = opts.max_height or 15
 			return orig_util_open_floating_preview(contents, syntax, opts, ...)
 		end
 
