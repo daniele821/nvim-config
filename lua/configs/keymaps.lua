@@ -29,26 +29,11 @@ local function navigate_qflist(step)
 	end
 end
 
--- toggle qflist
-local function open_qflist()
-	local function is_quickfix_open()
-		for _, win in ipairs(vim.fn.getwininfo()) do
-			if win.quickfix == 1 then
-				vim.api.nvim_set_current_win(win.winid)
-				return true
-			end
-		end
-		return false
-	end
-	if not is_quickfix_open() then
-		vim.cmd("copen")
-	end
-end
-local function close_qflist()
-	vim.cmd("cclose")
-end
-
 vim.keymap.set("n", "<a-left>", navigate_qflist(-1))
 vim.keymap.set("n", "<a-right>", navigate_qflist(1))
-vim.keymap.set("n", "<a-up>", open_qflist)
-vim.keymap.set("n", "<a-down>", close_qflist)
+vim.keymap.set("n", "<a-up>", function()
+	vim.cmd("copen")
+end)
+vim.keymap.set("n", "<a-down>", function()
+	vim.cmd("cclose")
+end)
