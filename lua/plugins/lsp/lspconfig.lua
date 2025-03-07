@@ -121,7 +121,6 @@ return {
 		})
 		require("mason-tool-installer").setup({
 			ensure_installed = starterpack_lsp,
-			auto_update = true,
 		})
 
 		-- keymap to toggle inlay hints
