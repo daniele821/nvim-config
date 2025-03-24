@@ -60,6 +60,8 @@ local starterpack_lsp = {
 	-- go
 	"gopls",
 	"goimports",
+	-- rust
+	"rust-analyzer",
 	-- html, css, javascript, json, php
 	"html-lsp",
 	"css-lsp",
