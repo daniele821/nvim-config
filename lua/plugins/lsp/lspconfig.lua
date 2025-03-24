@@ -45,6 +45,8 @@ local servers = {
 		},
 	},
 
+	-- RUST-ANALYZER documentation:
+	-- https://rust-analyzer.github.io/book/configuration.html
 	["rust-analyzer"] = {
 		settings = {
 			["rust-analyzer"] = {
