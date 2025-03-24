@@ -44,6 +44,16 @@ local servers = {
 			globalStoragePath = os.getenv("HOME") .. "/.local/share/intelephense",
 		},
 	},
+
+	["rust-analyzer"] = {
+		settings = {
+			["rust-analyzer"] = {
+				assist = {
+					inlayHints = true,
+				},
+			},
+		},
+	},
 }
 
 local starterpack_lsp = {
