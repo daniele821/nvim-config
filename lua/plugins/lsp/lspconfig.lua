@@ -47,11 +47,15 @@ local servers = {
 
 	-- RUST-ANALYZER documentation:
 	-- https://rust-analyzer.github.io/book/configuration.html
-	["rust-analyzer"] = {
+	rust_analyzer = {
 		settings = {
 			["rust-analyzer"] = {
 				assist = {
 					inlayHints = true,
+				},
+				checkOnSave = {
+					command = "clippy",
+					extraArgs = { "--", "-W", "clippy::pedantic" },
 				},
 			},
 		},
