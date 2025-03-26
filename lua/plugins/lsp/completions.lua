@@ -5,7 +5,7 @@ return {
 	opts = {
 		keymap = { preset = "default" },
 		appearance = {
-			nerd_font_variant = "mono",
+			nerd_font_variant = "normal",
 		},
 		completion = { documentation = { auto_show = false } },
 		sources = {
