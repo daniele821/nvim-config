@@ -97,7 +97,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- gaps the bridge between completion engine and lsp
-		"hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp",
 	},
 	config = function()
 		-- add borders
@@ -115,7 +115,7 @@ return {
 		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 		local client_cap = vim.lsp.protocol.make_client_capabilities()
-		local server_cap = require("cmp_nvim_lsp").default_capabilities()
+		local server_cap = require("blink.cmp").get_lsp_capabilities()
 		local cap = vim.tbl_deep_extend("force", client_cap, server_cap)
 
 		-- setup mason in this order, otherwise it might break!
