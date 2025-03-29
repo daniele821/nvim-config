@@ -6,13 +6,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- disable auto-comment (hacky fix)
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
-	callback = function()
-		vim.opt.formatoptions:remove({ "c", "r", "o" })
-	end,
-})
-
 -- when moving with arrows in sql files, it prints some garbage idk why
 vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "sql",
