@@ -156,6 +156,9 @@ return {
 			},
 		})
 
+		-- enable inlined diagnostic messages
+		vim.diagnostic.config({ virtual_text = true })
+
 		--  This function gets run when an LSP attaches to a particular buffer.
 		-- NEEDED, OTHERWISE GD WON'T ALWAYS WORK (maybe in a stable release)
 		-- GOLANG: gd in fmt.Println() doesn't work
