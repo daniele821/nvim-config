@@ -55,7 +55,6 @@ local servers = {
 				},
 				checkOnSave = {
 					command = "clippy",
-					extraArgs = { "--", "-W", "clippy::pedantic" },
 				},
 			},
 		},
