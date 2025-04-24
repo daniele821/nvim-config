@@ -53,9 +53,7 @@ local servers = {
 				assist = {
 					inlayHints = true,
 				},
-				checkOnSave = {
-					command = "clippy",
-				},
+				checkOnSave = true,
 			},
 		},
 	},
