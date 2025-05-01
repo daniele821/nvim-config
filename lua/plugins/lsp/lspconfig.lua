@@ -70,18 +70,10 @@ local starterpack_lsp = {
 	-- python
 	"jedi-language-server",
 	"black",
-	-- go
-	"gopls",
-	"goimports",
-	-- rust
-	"rust-analyzer",
 	-- html, css, javascript, json, php
 	"html-lsp",
 	"css-lsp",
 	"typescript-language-server",
-	"jq",
-	"json-lsp",
-	-- "intelephense",
 }
 
 return {
