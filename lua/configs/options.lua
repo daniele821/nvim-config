@@ -20,6 +20,3 @@ vim.opt.cursorline = false
 vim.opt.pumheight = 15
 vim.opt.mousemodel = "extend"
 vim.opt.swapfile = false
-
--- HACKY: disable deprecation warnings
-vim.deprecate = function() end
