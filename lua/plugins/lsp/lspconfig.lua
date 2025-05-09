@@ -74,6 +74,8 @@ local starterpack_lsp = {
 	"html-lsp",
 	"css-lsp",
 	"typescript-language-server",
+	-- rust
+	"rust-analyzer",
 }
 
 return {
