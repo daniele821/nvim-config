@@ -1,7 +1,7 @@
 -- core configurations
 require('configs')
 
--- plugins
+-- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -17,5 +17,29 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
+
+-- install plugins using lazy
 require("lazy").setup({
-	require('plugins')})
+	require('plugins')
+}, {
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				-- "tohtml",
+				"tutor",
+				"zipPlugin",
+				"tarPlugin",
+				"osc52",
+				"shada",
+				"spellfile",
+				"man",
+				"editorconfig",
+				-- "netrwPlugin",
+				"rplugin",
+				-- "matchit",
+				-- "matchparen",
+			},
+		},
+	},
+})
