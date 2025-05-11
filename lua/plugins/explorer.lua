@@ -2,12 +2,7 @@ return {
 	"stevearc/oil.nvim",
 	cmd = "Oil",
 	keys = {
-		{
-			"-",
-			function()
-				require("oil").open()
-			end,
-		},
+		{ "-", function() require("oil").open() end, },
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
@@ -24,7 +19,6 @@ return {
 			["-"] = "actions.parent",
 			["_"] = "actions.open_cwd",
 			["`"] = "actions.cd",
-			["g\\"] = "actions.toggle_trash",
 			["<C-l>"] = "actions.refresh",
 		},
 	},
