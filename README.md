@@ -12,6 +12,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [mason lsp list](https://davelage.com/posts/)
 - [neovim setup pluginless](https://boltless.me/posts/neovim-config-without-plugins-2025/)
 - [neovim config files](https://github.com/boltlessengineer/nvim_rocks)
+- [blink completions](https://cmp.saghen.dev/)
 
 # notes 
 
@@ -21,4 +22,4 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 # todo
 
 - [ ] manually add lsp configuration (use NO plugins)
-- [ ] completions (pluginless / blink / nvim-cmp ? )
+- [ ] completions (blink (lazy loaded on InsertEnter))
