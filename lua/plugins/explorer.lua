@@ -2,7 +2,8 @@ return {
 	"stevearc/oil.nvim",
 	cmd = "Oil",
 	keys = {
-		{ "-", function() require("oil").open() end, },
+        -- open file explorer ONLY if current buffer is NOT FLOATING
+		{ "-", function() if vim.api.nvim_win_get_config(0).relative == "" then require("oil").open() end end, },
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
