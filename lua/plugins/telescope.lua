@@ -7,10 +7,7 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     keys = {
-        {
-            "<A-f>",
-            function() require("telescope.builtin").find_files() end,
-        },
+        { "<A-f>", function() require("telescope.builtin").find_files() end, },
         {
             "<A-s-f>",
             function()
@@ -22,18 +19,9 @@ return {
                 })
             end,
         },
-        {
-            "<A-b>",
-            function() require("telescope.builtin").buffers() end,
-        },
-        {
-            "<A-s-g>",
-            function() require("telescope.builtin").grep_string() end,
-        },
-        {
-            "<A-g>",
-            function() require("telescope.builtin").live_grep() end,
-        },
+        { "<A-b>", function() require("telescope.builtin").buffers() end, },
+        { "<A-s-g>", function() require("telescope.builtin").grep_string() end, },
+        { "<A-g>", function() require("telescope.builtin").live_grep() end, },
     },
     config = function()
         local actions = require("telescope.actions")
@@ -53,7 +41,6 @@ return {
                                 no_ignore_parent = true,
                             })
                         end,
-
                         ["<A-b>"] = function() require("telescope.builtin").find_files() end,
                         ["<A-s-g>"] = function() require("telescope.builtin").grep_string() end,
                         ["<A-g>"] = function() require("telescope.builtin").live_grep() end,
