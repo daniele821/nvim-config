@@ -20,7 +20,8 @@ return {
             nerd_font_variant = 'mono'
         },
         completion = { 
-            documentation = { auto_show = false, auto_show_delay_ms = 0 },
+            documentation = { auto_show = false, auto_show_delay_ms = 0 , window = { border = 'single' }},
+            menu = { border = 'single' },
             list = { selection = { preselect = true, auto_insert = true } },
             ghost_text = { enabled = true },
         },
@@ -29,7 +30,7 @@ return {
         },
         fuzzy = { implementation = "lua" },
         cmdline = { enabled = false },
-        signature = { enabled = true },
+        signature = { enabled = true, window = { border = 'single' }},
     },
     opts_extend = { "sources.default" }
 }
