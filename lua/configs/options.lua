@@ -18,3 +18,5 @@ vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 -- space on the left
 vim.opt.signcolumn = "yes"
 
+-- netwr fixes
+vim.g.netrw_banner = 0
