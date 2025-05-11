@@ -17,6 +17,5 @@ vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 
 -- various
 vim.opt.signcolumn = "yes"
-vim.g.netrw_banner = 0
 vim.opt.showmode = false
 vim.opt.ignorecase = true

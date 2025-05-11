@@ -13,11 +13,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
       vim.highlight.on_yank()
   end,
 })
-
--- ctrl+c to close netrw buffer
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'netrw',
-  callback = function()
-    vim.keymap.set('n', '<C-c>', ':bd<CR>', { buffer = true,  silent = true, nowait = true })
-  end
-})

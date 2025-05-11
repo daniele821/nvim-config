@@ -1,6 +1,6 @@
   return {    
       "lewis6991/gitsigns.nvim",    
-      -- event = { "BufReadPre", "BufNewFile", "BufWritePost" },    
+      event = { "BufReadPre", "BufNewFile", "BufWritePost" },    
       opts = {                                                                                                                                                                                 
           signs_staged_enable = true,
           signcolumn = true,   
@@ -8,10 +8,6 @@
           auto_attach = true,
           attach_to_untracked = true,
           on_attach = function(bufnr)                                                                                                                                                          
-                local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-              if filetype == 'netrw' then
-                return false
-              end
               local gitsigns = require("gitsigns")                                                                                                                                             
               vim.keymap.set("n", "]c", function()                                                                                                                                             
                   if vim.wo.diff then                                                                                                                                                          
