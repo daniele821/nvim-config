@@ -15,8 +15,8 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 
--- space on the left
+-- various
 vim.opt.signcolumn = "yes"
-
--- netwr fixes
 vim.g.netrw_banner = 0
+vim.opt.showmode = false
+vim.opt.ignorecase = true
