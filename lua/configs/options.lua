@@ -13,7 +13,7 @@ vim.opt.splitbelow = true
 
 -- global statusline
 vim.opt.laststatus = 3
-vim.opt.statusline='%<%f %m%r%h%w%y%=%{&ff} %l:%v %P'
+vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 
 -- space on the left
 vim.opt.signcolumn = "yes"
