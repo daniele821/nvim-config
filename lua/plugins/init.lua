@@ -1,5 +1,6 @@
 return {
 	require('plugins/colorscheme'),
-	require('plugins/treesitter'),
 	require('plugins/gitsigns'),
+	require('plugins/treesitter'),
+    require('plugins/telescope')
 }
