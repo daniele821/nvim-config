@@ -1,8 +1,8 @@
 return {
-	'folke/tokyonight.nvim',
-	priority = 1000, 
+	"navarasu/onedark.nvim",
+	priority = 1000,
 	config = function()
-		require('tokyonight').setup({})
-		vim.cmd.colorscheme('tokyonight-night')
+		require("onedark").setup({ style = "deep" })
+		require("onedark").load()
 	end,
 }
