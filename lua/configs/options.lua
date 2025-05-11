@@ -19,3 +19,4 @@ vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.ignorecase = true
+vim.opt.mousemodel = "extend"
