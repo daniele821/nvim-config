@@ -18,8 +18,10 @@ return {
 			["<C-w><C-q>"] = "actions.close",
 			["-"] = "actions.parent",
 			["_"] = "actions.open_cwd",
-			["`"] = "actions.cd",
+			["~"] = "actions.cd",
 			["<C-l>"] = "actions.refresh",
+            ["gx"] = "actions.open_external",
+            ["gh"] = { "actions.toggle_hidden" },
 		},
 	},
 }
