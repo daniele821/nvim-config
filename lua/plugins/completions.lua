@@ -19,9 +19,17 @@ return {
         appearance = {
             nerd_font_variant = 'mono'
         },
-        completion = { 
-            documentation = { auto_show = false, auto_show_delay_ms = 0 , window = { border = 'single' }},
-            menu = { border = 'single' },
+        completion = {
+            accept = { auto_brackets = { enabled = true }, },
+            documentation = { 
+                auto_show = false, 
+                auto_show_delay_ms = 0 , 
+                window = { border = 'single' }},
+            menu = {
+                border = 'single',
+                auto_show = true ,
+                max_height = 15,
+            },
             list = { selection = { preselect = true, auto_insert = true } },
             ghost_text = { enabled = true },
         },
