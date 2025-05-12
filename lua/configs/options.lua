@@ -15,6 +15,10 @@ vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 vim.opt.statusline='%<%f %m%r%y%=%{&ff} %l:%v %P'
 
+-- whitespace symbols
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }       
+
 -- various
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false

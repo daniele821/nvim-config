@@ -20,26 +20,28 @@ vim.opt.rtp:prepend(lazypath)
 
 -- install plugins using lazy
 require("lazy").setup({
-	require('plugins')
+    spec = {
+        require('plugins')
+    },
 }, {
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-				"tarPlugin",
-				"osc52",
-				"shada",
-				"spellfile",
-				"man",
-				"editorconfig",
-				"netrwPlugin",
-				"rplugin",
-				-- "matchit",
-				-- "matchparen",
-			},
-		},
-	},
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+                "tarPlugin",
+                "osc52",
+                "shada",
+                "spellfile",
+                "man",
+                "editorconfig",
+                "netrwPlugin",
+                "rplugin",
+                -- "matchit",
+                -- "matchparen",
+            },
+        },
+    },
 })
