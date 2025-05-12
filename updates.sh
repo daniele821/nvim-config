@@ -24,8 +24,7 @@ if [[ "${#LSP_LIST[@]}" -gt 0 ]]; then
             echo -e "\e[1;33m$lsp\e[m: missing! file is being copied..."
             cp "$NEW_FILE" "$OLD_FILE"
         elif ! diff -sq "$NEW_FILE" "$OLD_FILE" &>/dev/null; then
-            echo -e "\e[1;33m$lsp\e[m: not up to date! file is being copied..."
-            cp "$NEW_FILE" "$OLD_FILE"
+            echo -e "\e[1;33m$lsp\e[m: not up to date!"
         else
             echo -e "\e[1;32m$lsp\e[m: up to date!"
         fi
