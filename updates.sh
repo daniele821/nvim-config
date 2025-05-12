@@ -5,11 +5,9 @@ set -e
 SCRIPT_PWD="$(realpath "${BASH_SOURCE[0]}")"
 SCRIPT_DIR="$(dirname "${SCRIPT_PWD}")"
 
-# configuration variables
+# 1) download / update lsp configs
 LSP_LIST=(
 )
-
-# download / update lsp configs
 if [[ "${#LSP_LIST[@]}" -gt 0 ]]; then
     REPO_URL="https://github.com/neovim/nvim-lspconfig"
     LSP_DIR="${SCRIPT_DIR}/lsp"
