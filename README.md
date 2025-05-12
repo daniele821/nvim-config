@@ -21,6 +21,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 # todo
 
-- [ ] manually add lsp configuration in `after/lsp` directory (use NO plugins)
+- [ ] manually add lsp configuration (use NO plugins)
 - [ ] how to customize lsp settings?
 - [ ] formatting? 
+- [ ] cleanup unused lsp
