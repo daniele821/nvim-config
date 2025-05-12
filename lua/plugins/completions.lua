@@ -30,8 +30,14 @@ return {
                 auto_show = true ,
                 max_height = 15,
             },
-            list = { selection = { preselect = true, auto_insert = true } },
-            ghost_text = { enabled = true },
+            list = { selection = { preselect = false, auto_insert = true } },
+            ghost_text = { 
+                enabled = true,
+                show_with_selection = true,
+                show_without_selection = true,
+                show_with_menu = true,
+                show_without_menu = true,
+            },
         },
         sources = {
             default = { 'lsp', 'snippets', 'buffer' },
