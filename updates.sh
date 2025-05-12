@@ -18,13 +18,13 @@ if [[ "${#LSP_LIST[@]}" -gt 0 ]]; then
         NEW_FILE="$TMP_DIR/lsp/$lsp.lua"
         OLD_FILE="$LSP_DIR/$lsp.lua"
         if [[ ! -f "$NEW_FILE" ]]; then
-            echo -e "\e[1;31m$lsp\e[m: "
-            echo "is not a known lsp!"
+            echo -e "\e[1;31m$lsp\e[m: is not a known lsp!"
         elif [[ ! -f "$OLD_FILE" ]]; then
             echo -e "\e[1;33m$lsp\e[m: missing! file is being copied..."
             cp "$NEW_FILE" "$OLD_FILE"
         elif ! diff -sq "$NEW_FILE" "$OLD_FILE" &>/dev/null; then
-            echo -e "\e[1;33m$lsp\e[m: not up to date!"
+            echo -e "\e[1;33m$lsp\e[m: not up to date! file is being copied..."
+            cp "$NEW_FILE" "$OLD_FILE"
         else
             echo -e "\e[1;32m$lsp\e[m: up to date!"
         fi
