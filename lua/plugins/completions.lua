@@ -22,8 +22,8 @@ return {
         completion = { 
             documentation = { auto_show = false, auto_show_delay_ms = 0 , window = { border = 'single' }},
             menu = { border = 'single' },
-            list = { selection = { preselect = true, auto_insert = true } },
-            ghost_text = { enabled = true },
+            list = { selection = { preselect = false, auto_insert = true } },
+            ghost_text = { enabled = false },
         },
         sources = {
             default = { 'lsp', 'snippets', 'buffer' },
