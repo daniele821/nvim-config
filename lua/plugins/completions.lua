@@ -69,7 +69,7 @@ return {
             ghost_text = { enabled = true },
         },
         sources = {
-            default = { 'lsp', 'snippets' },
+            default = { 'lsp', 'snippets', 'buffer', 'path' },
         },
         fuzzy = { implementation = "lua", },
         cmdline = { enabled = false },
