@@ -31,13 +31,7 @@ return {
                 max_height = 15,
             },
             list = { selection = { preselect = false, auto_insert = true } },
-            ghost_text = { 
-                enabled = true,
-                show_with_selection = true,
-                show_without_selection = true,
-                show_with_menu = true,
-                show_without_menu = true,
-            },
+            ghost_text = { enabled = false },
         },
         sources = {
             default = { 'lsp', 'snippets', 'buffer' },
