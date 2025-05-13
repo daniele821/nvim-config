@@ -44,10 +44,7 @@ return {
         sources = {
             default = { 'lsp', 'snippets', 'buffer', 'path' },
         },
-        fuzzy = {
-            implementation = "lua",
-            sorts = { 'exact', 'score', 'sort_text', },
-        },
+        fuzzy = { implementation = "lua", },
         cmdline = { enabled = false },
         signature = { enabled = true, window = { border = 'single' }},
     },
