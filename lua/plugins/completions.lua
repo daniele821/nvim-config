@@ -38,8 +38,8 @@ return {
                     }
                 },
             },
-            list = { selection = { preselect = false, auto_insert = true } },
-            ghost_text = { enabled = false },
+            list = { selection = { preselect = false, auto_insert = false } },
+            ghost_text = { enabled = true },
         },
         sources = {
             default = { 'lsp', 'snippets', 'buffer', 'path' },
