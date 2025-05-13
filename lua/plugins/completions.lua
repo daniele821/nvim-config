@@ -30,7 +30,7 @@ return {
                 auto_show = true ,
                 max_height = 15,
                 draw = {
-                    columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, {'source_name'} },
+                    columns = { { 'kind_icon' }, { 'label'  }, {'source_name'} },
                     components = {
                         source_name = {
                             text = function(ctx) return "[" .. ctx.source_name .. "]" end,
@@ -42,7 +42,7 @@ return {
             ghost_text = { enabled = true },
         },
         sources = {
-            default = { 'lsp', 'snippets', 'buffer', 'path' },
+            default = { 'lsp', 'snippets' },
         },
         fuzzy = { implementation = "lua", },
         cmdline = { enabled = false },
