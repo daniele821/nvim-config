@@ -29,12 +29,20 @@ return {
                 border = 'single',
                 auto_show = true ,
                 max_height = 15,
+                draw = {
+                    columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, {'source_name'} },
+                    components = {
+                        source_name = {
+                            text = function(ctx) return "[" .. ctx.source_name .. "]" end,
+                        }
+                    }
+                },
             },
             list = { selection = { preselect = false, auto_insert = true } },
             ghost_text = { enabled = false },
         },
         sources = {
-            default = { 'lsp', 'snippets', 'buffer' },
+            default = { 'lsp', 'snippets', 'buffer', 'path' },
         },
         fuzzy = { implementation = "lua" },
         cmdline = { enabled = false },
