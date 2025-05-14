@@ -27,7 +27,6 @@ require("lazy").setup({
     require('plugins.gitsigns'),
     require('plugins.telescope'),
     require('plugins.completions'),
-    -- require('plugins.treesitter'),
 }, {
     performance = {
         rtp = {
