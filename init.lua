@@ -22,12 +22,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- install plugins using lazy
 require("lazy").setup({
-    require('plugins/colorscheme'),
-    require('plugins/explorer'),
-    require('plugins/gitsigns'),
-    require('plugins/telescope'),
-    require('plugins/completions'),
-    -- require('plugins/treesitter'),
+    require('plugins.colorscheme'),
+    require('plugins.explorer'),
+    require('plugins.gitsigns'),
+    require('plugins.telescope'),
+    require('plugins.completions'),
+    -- require('plugins.treesitter'),
 }, {
     performance = {
         rtp = {
