@@ -66,7 +66,13 @@ return {
                 },
             },
             list = { selection = { preselect = false, auto_insert = false } },
-            ghost_text = { enabled = true },
+            ghost_text = { 
+                enabled = true,
+                show_with_selection = true,
+                show_without_selection = false,
+                show_with_menu = true,
+                show_without_menu = true,
+            },
         },
         sources = {
             default = { 'lsp', 'snippets', 'buffer' },
