@@ -30,3 +30,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [ ] formatting? 
     - [ ] no formatting on save, but i would like a `gff` binding
     - [ ] do i really want to use `Conform` again?
+- [ ] status line
+    - [ ] add count of diagnostic hint, info, warns, errors
+    - [ ] add amount of changed git lines
