@@ -26,7 +26,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [ ] manually add lsp configuration (use NO plugins)
     - [ ] how to customize lsp settings?
     - [ ] cleanup lsp on exit
-    - [ ] :Commands which wrap lua code to download and handle lsp servers?
 - [ ] formatting? 
     - [ ] no formatting on save, but i would like a `gff` binding
     - [ ] do i really want to use `Conform` again?
