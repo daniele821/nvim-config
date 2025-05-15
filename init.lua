@@ -28,6 +28,7 @@ require("lazy").setup({
     require('plugins.telescope'),
     require('plugins.treesitter'),
     require('plugins.completions'),
+    require('plugins.mason'),
 }, {
     performance = {
         rtp = {
