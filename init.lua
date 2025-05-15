@@ -1,7 +1,7 @@
 -- core configurations
-require('configs.options')
-require('configs.autocmd')
-require('configs.keymaps')
+require('thebest.configs.options')
+require('thebest.configs.autocmd')
+require('thebest.configs.keymaps')
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -22,13 +22,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- install plugins using lazy
 require("lazy").setup({
-    require('plugins.colorscheme'),
-    require('plugins.explorer'),
-    require('plugins.gitsigns'),
-    require('plugins.telescope'),
-    require('plugins.treesitter'),
-    require('plugins.completions'),
-    require('plugins.mason'),
+    require('thebest.plugins.colorscheme'),
+    require('thebest.plugins.explorer'),
+    require('thebest.plugins.gitsigns'),
+    require('thebest.plugins.telescope'),
+    require('thebest.plugins.treesitter'),
+    require('thebest.plugins.completions'),
+    require('thebest.plugins.mason'),
 }, {
     performance = {
         rtp = {
