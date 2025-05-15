@@ -11,8 +11,9 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [mason lsp list](https://mason-registry.dev/registry/list)
 - [lspconfig lsp list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
 - [neovim setup pluginless](https://boltless.me/posts/neovim-config-without-plugins-2025/)
-- [list of treesitters](https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers) 
-- [manually add treesitters](https://thevaluable.dev/tree-sitter-neovim-overview/) 
+- [list of treesitters](https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers)
+- [manually add treesitters](https://thevaluable.dev/tree-sitter-neovim-overview/)
+- [vim spell files](https://www.vim.org/mirrors.php) 
 
 # notes 
 
