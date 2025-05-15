@@ -15,6 +15,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [neovim config files](https://github.com/boltlessengineer/nvim_rocks)
 - [blink completions](https://cmp.saghen.dev/)
 - [list of treesitters](https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers) 
+- [manually add treesitters](https://thevaluable.dev/tree-sitter-neovim-overview/) 
 
 # notes 
 
