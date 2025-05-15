@@ -14,6 +14,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 - [list of treesitters](https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers)
 - [manually add treesitters](https://thevaluable.dev/tree-sitter-neovim-overview/)
 - [vim spell files](https://www.vim.org/mirrors.php) 
+- [linting article](https://www.josean.com/posts/neovim-linting-and-formatting)
 
 # notes 
 
