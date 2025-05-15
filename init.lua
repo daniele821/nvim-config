@@ -26,6 +26,7 @@ require("lazy").setup({
     require('plugins.explorer'),
     require('plugins.gitsigns'),
     require('plugins.telescope'),
+    require('plugins.treesitter'),
     require('plugins.completions'),
 }, {
     performance = {
