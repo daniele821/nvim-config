@@ -8,8 +8,7 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 # ideas
 
-- [neovim 0.11 lsp setup](https://davelage.com/posts/neovim-lsp-0.11/)
-- [mason lsp list](https://davelage.com/posts/)
+- [mason lsp list](https://mason-registry.dev/registry/list)
 - [lspconfig lsp list](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md)
 - [neovim setup pluginless](https://boltless.me/posts/neovim-config-without-plugins-2025/)
 - [neovim config files](https://github.com/boltlessengineer/nvim_rocks)
