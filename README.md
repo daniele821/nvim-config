@@ -36,3 +36,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
     - [ ] add count of diagnostic hint, info, warns, errors
     - [ ] add amount of changed git lines
 - [ ] cmd to autoinstall all treesitter parser (:TSInstall) and lsps (:MasonInstall)
+- [ ] linter?
+    - [ ] [lsp wrapper](https://github.com/mattn/efm-langserver)
+    - [ ] [nvim-lint](https://github.com/mfussenegger/nvim-lint) 
