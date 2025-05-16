@@ -18,7 +18,15 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     end
 })
 
--- configure lsp and diagnostics
+-- additional keymaps
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(event)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
+    end
+})
+
+
+-- configure diagnostics
 vim.diagnostic.config {
     severity_sort = true,
     virtual_text = true,
@@ -32,6 +40,8 @@ vim.diagnostic.config {
         },
     },
 }
+
+-- configure lsp floating windows
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
