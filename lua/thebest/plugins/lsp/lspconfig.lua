@@ -9,7 +9,7 @@ vim.lsp.enable({
     "html",
 })
 
--- close lsp servers on exit
+-- create autocmd
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
         for _, client in ipairs(vim.lsp.get_clients()) do
@@ -17,8 +17,6 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
         end
     end
 })
-
--- additional keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
@@ -43,6 +41,7 @@ vim.diagnostic.config {
 
 -- configure lsp floating windows
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+---@diagnostic disable-next-line: duplicate-set-field
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
     opts.border = opts.border or "single"
