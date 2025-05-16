@@ -48,16 +48,17 @@ return {
         },
         completion = {
             accept = { auto_brackets = { enabled = true }, },
-            documentation = { 
-                auto_show = false, 
-                auto_show_delay_ms = 0 , 
-                window = { border = 'single' }},
+            documentation = {
+                auto_show = false,
+                auto_show_delay_ms = 0,
+                window = { border = 'single' }
+            },
             menu = {
                 border = 'single',
-                auto_show = true ,
+                auto_show = true,
                 max_height = 15,
                 draw = {
-                    columns = { { 'kind_icon' }, { 'label'  }, {'source_name'} },
+                    columns = { { 'kind_icon' }, { 'label' }, { 'source_name' } },
                     components = {
                         source_name = {
                             text = function(ctx) return "[" .. ctx.source_name .. "]" end,
@@ -66,7 +67,7 @@ return {
                 },
             },
             list = { selection = { preselect = false, auto_insert = false } },
-            ghost_text = { 
+            ghost_text = {
                 enabled = true,
                 show_with_selection = true,
                 show_without_selection = false,
@@ -77,9 +78,29 @@ return {
         sources = {
             default = { 'lsp', 'snippets', 'buffer' },
         },
-        fuzzy = { implementation = "lua", },
+        fuzzy = {
+            implementation = "lua",
+            sorts = {
+                function(a, b)
+                    local order = {
+                        lsp = 1,
+                        snippets = 2,
+                        buffer = 3,
+                    }
+                    local order_a = order[a.source_id]
+                    local order_b = order[b.source_id]
+                    if order_a and order_b then
+                        if order_a ~= order_b then
+                            return order_a < order_b
+                        end
+                    end
+                end,
+                'score',
+                'sort_text',
+            },
+        },
         cmdline = { enabled = false },
-        signature = { enabled = true, window = { border = 'single' }},
+        signature = { enabled = true, window = { border = 'single' } },
     },
     opts_extend = { "sources.default" }
 }
