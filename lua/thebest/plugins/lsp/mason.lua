@@ -13,9 +13,9 @@ vim.api.nvim_create_user_command("StarterPack", function()
     local installed_lsps = require("mason-registry").get_installed_package_names()
     local missing_lsps = vim.iter(to_install_lsps):filter(function(elem)
         return not vim.tbl_contains(installed_lsps, elem)
-    end)
-    if #missing_lsps > 0 then
-        vim.cmd("MasonInstall " .. missing_lsps:join(" "))
+    end):join(" ")
+    if missing_lsps ~= "" then
+        vim.cmd("MasonInstall " .. missing_lsps)
     end
 end, {})
 
