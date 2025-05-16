@@ -1,3 +1,4 @@
+-- DOCUMENTATION: https://luals.github.io/wiki/settings/
 local function is_nvim_project()
   local config_dir = vim.fn.resolve(vim.fn.stdpath("config"))
   local cwd = vim.fn.resolve(vim.loop.cwd())

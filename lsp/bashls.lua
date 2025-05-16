@@ -1,3 +1,4 @@
+-- DOCUMENTATION: https://github.com/bash-lsp/bash-language-server/blob/main/server/src/config.ts
 return {
   cmd = { 'bash-language-server', 'start' },
   settings = {

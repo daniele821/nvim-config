@@ -1,3 +1,4 @@
+-- NO DOCUMENTATION!
 return {
   cmd = { 'vscode-html-language-server', '--stdio' },
   filetypes = { 'html', 'templ' },

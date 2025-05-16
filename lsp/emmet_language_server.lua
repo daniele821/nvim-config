@@ -1,3 +1,4 @@
+-- DOCUMENTATION: https://docs.emmet.io/
 return {
   cmd = { 'emmet-language-server', '--stdio' },
   filetypes = {
