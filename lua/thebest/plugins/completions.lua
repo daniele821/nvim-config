@@ -82,17 +82,20 @@ return {
             implementation = "lua",
             sorts = {
                 function(a, b)
+                    -- order by: 
+                    -- 1) source
+                    -- 2) put _* at the end
                     local order = {
                         lsp = 1,
-                        snippets = 2,
-                        buffer = 3,
+                        snippets = 3,
+                        buffer = 5,
                     }
                     local order_a = order[a.source_id]
                     local order_b = order[b.source_id]
-                    if order_a and order_b then
-                        if order_a ~= order_b then
+                    if a.label:sub(1,1) == "_" then order_a = order_a + 1 end
+                    if b.label:sub(1,1) == "_" then order_b = order_b + 1 end
+                    if order_a and order_b and order_a ~= order_b then
                             return order_a < order_b
-                        end
                     end
                 end,
                 'score',
