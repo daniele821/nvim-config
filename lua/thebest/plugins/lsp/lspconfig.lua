@@ -30,7 +30,7 @@ end
 -- create autocmd
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
-        vim.iter(vim.lsp.get_clients()):each(function (client)
+        vim.iter(vim.lsp.get_clients()):each(function(client)
             client:stop()
         end)
     end
@@ -41,5 +41,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set('n', 'grf', vim.lsp.buf.format, { buffer = event.buf })
     end
 })
+
+-- statusline with lsp servers
+function Test()
+    local lsps = vim.lsp.get_clients({ bufnr = 0 })
+    if #lsps > 0 then
+        local lsp_names = vim.iter(lsps):map(function(elem)
+            return elem.name
+        end):join(", ")
+        return " " .. lsp_names
+    end
+    return ""
+end
+vim.opt.statusline = '%<%t %m%r%y %{v:lua.Test()} %= %{&ff} %l:%v %P'
 
 return {}
