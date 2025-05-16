@@ -29,6 +29,7 @@ require("lazy").setup({
     require('thebest.plugins.lsp.treesitter'),
     require('thebest.plugins.lsp.completions'),
     require('thebest.plugins.lsp.mason'),
+    require('thebest.plugins.lsp.lspconfig'),
 }, {
     performance = {
         rtp = {
