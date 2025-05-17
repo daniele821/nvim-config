@@ -5,7 +5,7 @@ require("configs.core.keymaps")
 
 -- extra configurations
 require("configs.extra.statusline")
-require("configs.extra.windows")
+require("configs.extra.various")
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
