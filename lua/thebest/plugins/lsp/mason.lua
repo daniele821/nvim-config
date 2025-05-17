@@ -14,6 +14,10 @@ vim.api.nvim_create_user_command("StarterPack", function()
         "bash-language-server",
         "shellcheck",
         "shfmt",
+        -- rust 
+        "rust-analyzer",
+        -- json
+        "jq",
     }
 
     local installed_lsps = require("mason-registry").get_installed_package_names()
