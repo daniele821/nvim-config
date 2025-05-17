@@ -1,4 +1,4 @@
--- statusline util functions
+-- get string with list of active lsp in current buffer
 function LspList()
     local lsps = vim.lsp.get_clients({ bufnr = 0 })
     if #lsps > 0 then
@@ -11,14 +11,14 @@ function LspList()
     return ""
 end
 
+-- get string with list of active linters in current buffer
 function LinterList()
-    local ok, lint = pcall(require, "lint")
-    if not ok then
+    if not package.loaded["lint"] then
         return ""
     end
-    local linters = vim.iter(lint.linters_by_ft[vim.bo.filetype] or {}):filter(function (linter)
-            return vim.fn.executable(linter) == 1
-        end):totable()
+    local linters = vim.iter(require("lint").linters_by_ft[vim.bo.filetype] or {}):filter(function(linter)
+        return vim.fn.executable(linter) == 1
+    end):totable()
     if #linters > 0 then
         local lint_icon = "󰕥 "
         local linter_names = vim.iter(linters):join(" " .. lint_icon)
