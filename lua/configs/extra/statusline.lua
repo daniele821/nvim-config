@@ -59,8 +59,18 @@ function Filename()
 end
 
 -- statusline + autocmd to refresh when necessary
-vim.opt.statusline =
-	"%<%{%v:lua.Filename()%} %m%r%y %= %{v:lua.LspList()} %{v:lua.LinterList()} %{v:lua.FormatterList()} %= %{&ff} %l:%v %P"
+vim.opt.statusline = vim.iter({
+	"%<%{%v:lua.Filename()%}",
+	"%m%r%y",
+	"%=",
+	"%{v:lua.LspList()}",
+	"%{v:lua.LinterList()}",
+	"%{v:lua.FormatterList()}",
+	"%=",
+	"%{&ff}",
+	"%l:%v",
+	"%P",
+}):join(" ")
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		vim.cmd("redrawstatus")
