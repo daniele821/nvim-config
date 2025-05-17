@@ -22,16 +22,16 @@ vim.opt.rtp:prepend(lazypath)
 
 -- install plugins using lazy
 require("lazy").setup({
-    require("lua.thebest.plugins.core.colorscheme"),
-    require("lua.thebest.plugins.core.explorer"),
-    require("lua.thebest.plugins.core.gitsigns"),
-    require("lua.thebest.plugins.core.telescope"),
-    require("lua.thebest.plugins.core.treesitter"),
-    require("lua.thebest.plugins.lsp.completions"),
-    require("lua.thebest.plugins.lsp.linters"),
-    require("lua.thebest.plugins.lsp.lspconfig"),
-    require("lua.thebest.plugins.lsp.mason"),
-    require("lua.thebest.plugins.lsp.statusline"),
+    require("thebest.plugins.core.colorscheme"),
+    require("thebest.plugins.core.explorer"),
+    require("thebest.plugins.core.gitsigns"),
+    require("thebest.plugins.core.telescope"),
+    require("thebest.plugins.core.treesitter"),
+    require("thebest.plugins.lsp.completions"),
+    require("thebest.plugins.lsp.linters"),
+    require("thebest.plugins.lsp.lspconfig"),
+    require("thebest.plugins.lsp.mason"),
+    require("thebest.plugins.lsp.statusline"),
 }, {
     performance = {
         rtp = {
