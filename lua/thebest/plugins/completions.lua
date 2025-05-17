@@ -7,7 +7,7 @@ return {
             version = 'v2.*',
             build = "make install_jsregexp",
             cond = function()
-                return vim.fn.executable 'make' == 1
+                return vim.fn.executable('make') == 1
             end,
             dependencies = {
                 'rafamadriz/friendly-snippets',

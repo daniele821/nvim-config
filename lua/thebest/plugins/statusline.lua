@@ -16,7 +16,9 @@ function LinterList()
     if not ok then
         return ""
     end
-    local linters = lint.linters_by_ft[vim.bo.filetype] or {}
+    local linters = vim.iter(lint.linters_by_ft[vim.bo.filetype] or {}):filter(function (linter)
+            return vim.fn.executable(linter) == 1
+        end):totable()
     if #linters > 0 then
         local lint_icon = "󰕥 "
         local linter_names = vim.iter(linters):join(" " .. lint_icon)
