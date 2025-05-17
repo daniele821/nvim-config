@@ -1,9 +1,4 @@
-local formatters_by_ft = {
-    lua = { "stylua" },
-    sh = { "shfmt" },
-    bash = { "shfmt" },
-    json = { "jq" },
-}
+local formatters_by_ft = require("utils.configs").formatters_by_ft
 return {
     "stevearc/conform.nvim",
     event = "LspAttach",

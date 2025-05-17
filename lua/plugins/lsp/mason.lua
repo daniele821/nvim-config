@@ -1,29 +1,7 @@
 -- create user command
 vim.api.nvim_create_user_command("StarterPack", function()
-    local to_install_lsps = {
-        -- webdev
-        "html-lsp",
-        "emmet-language-server",
-        "css-lsp",
-        -- python
-        "ruff",
-        -- lua
-        "lua-language-server",
-        "stylua",
-        -- bash
-        "bash-language-server",
-        "shellcheck",
-        "shfmt",
-        -- rust 
-        "rust-analyzer",
-        -- json
-        "jq",
-    }
-    local use_local_lsp = {
-        ["rust-analyzer"] = "rust-analyzer",
-        ["jq"] = "jq",
-    }
-
+    local to_install_lsps = require("utils.configs").mason_to_install
+    local use_local_lsp = require("utils.configs").mason_use_local
     local installed_lsps = require("mason-registry").get_installed_package_names()
     local missing_lsps = vim.iter(to_install_lsps):filter(function(elem)
         return not vim.tbl_contains(installed_lsps, elem)

@@ -1,17 +1,14 @@
-local linters_by_ft = {
-    sh = { "shellcheck" },
-    bash = { "shellcheck" },
-}
+local linters_by_ft = require("utils.configs").linters_by_ft
 return {
-    "mfussenegger/nvim-lint",
-    ft = vim.tbl_keys(linters_by_ft),
-    config = function()
-        local lint = require("lint")
-        lint.linters_by_ft = linters_by_ft
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "CursorMoved", "CursorMovedI" }, {
-            callback = function()
-                lint.try_lint(nil, { ignore_errors = true })
-            end,
-        })
-    end,
+	"mfussenegger/nvim-lint",
+	ft = vim.tbl_keys(linters_by_ft),
+	config = function()
+		local lint = require("lint")
+		lint.linters_by_ft = linters_by_ft
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "CursorMoved", "CursorMovedI" }, {
+			callback = function()
+				lint.try_lint(nil, { ignore_errors = true })
+			end,
+		})
+	end,
 }

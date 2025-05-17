@@ -1,5 +1,5 @@
 -- enable lsp servers
-vim.lsp.enable({ "lua_ls", "bashls", "ruff", "rust_analyzer", "cssls", "emmet_language_server", "html" })
+vim.lsp.enable(require("utils.configs").lsp_to_enable)
 
 -- configure diagnostics
 vim.diagnostic.config {
