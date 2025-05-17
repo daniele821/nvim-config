@@ -7,7 +7,8 @@ vim.api.nvim_create_user_command("StarterPack", function()
         "css-lsp",
         "ruff",
         "lua-language-server",
-        "shellcheck"
+        "shellcheck",
+        "shfmt",
     }
 
     local installed_lsps = require("mason-registry").get_installed_package_names()
