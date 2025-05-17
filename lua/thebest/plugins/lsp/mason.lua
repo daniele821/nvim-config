@@ -19,10 +19,17 @@ vim.api.nvim_create_user_command("StarterPack", function()
         -- json
         "jq",
     }
+    local use_local_lsp = {
+        ["rust-analyzer"] = "rust-analyzer",
+        ["jq"] = "jq",
+    }
 
     local installed_lsps = require("mason-registry").get_installed_package_names()
     local missing_lsps = vim.iter(to_install_lsps):filter(function(elem)
         return not vim.tbl_contains(installed_lsps, elem)
+    end):filter(function (elem)
+        local local_lsp = use_local_lsp[elem]
+        return not local_lsp or vim.fn.executable(local_lsp) == 0
     end):join(" ")
     if missing_lsps ~= "" then
         vim.cmd("MasonInstall " .. missing_lsps)
