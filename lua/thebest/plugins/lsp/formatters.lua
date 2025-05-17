@@ -2,6 +2,7 @@ local formatters_by_ft = {
     lua = { "stylua" },
     sh = { "shfmt" },
     bash = { "shfmt" },
+    json = { "jq" },
 }
 return {
     "stevearc/conform.nvim",
