@@ -45,21 +45,15 @@ end
 
 -- get string of last component of filename
 function Filename()
-    local res = ""
-    local path = vim.fn.expand("%:t")
-    if #path == 0 then
-        res = vim.fn.expand("%:f")
-    else
-        res = path
+    local bufname = vim.api.nvim_buf_get_name(0)
+    if bufname:match("^.*://") then
+        return "%f"
     end
-    if #res > 0 then
-        res = res .. " "
-    end
-    return res
+    return "%t"
 end
 
 -- statusline + autocmd to refresh when necessary
-vim.opt.statusline = '%<%{v:lua.Filename()}%m%r%y %= %{v:lua.LspList()} %{v:lua.LinterList()} %{v:lua.FormatterList()} %= %{&ff} %l:%v %P'
+vim.opt.statusline = '%<%{%v:lua.Filename()%} %m%r%y %= %{v:lua.LspList()} %{v:lua.LinterList()} %{v:lua.FormatterList()} %= %{&ff} %l:%v %P'
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
         vim.cmd("redrawstatus")
