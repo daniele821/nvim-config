@@ -1,12 +1,17 @@
 -- create user command
 vim.api.nvim_create_user_command("StarterPack", function()
     local to_install_lsps = {
+        -- webdev
         "html-lsp",
         "emmet-language-server",
-        "bash-language-server",
         "css-lsp",
+        -- python
         "ruff",
+        -- lua
         "lua-language-server",
+        "stylua",
+        -- bash
+        "bash-language-server",
         "shellcheck",
         "shfmt",
     }

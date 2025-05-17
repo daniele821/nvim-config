@@ -27,8 +27,24 @@ function LinterList()
     return ""
 end
 
+-- get string with list of active formatters in current buffer
+function FormatterList()
+    if not package.loaded["conform"] then
+        return ""
+    end
+    local formatters = vim.iter(require("conform").list_formatters(0)):map(function(formatter)
+        return formatter.name
+    end):totable()
+    if #formatters > 0 then
+        local formatter_icon = " "
+        local formatter_names = vim.iter(formatters):join(" " .. formatter_icon)
+        return formatter_icon .. formatter_names
+    end
+    return ""
+end
+
 -- statusline + autocmd to refresh when necessary
-vim.opt.statusline = '%<%t %m%r%y %= %{v:lua.LspList()} %{v:lua.LinterList()} %= %{&ff} %l:%v %P'
+vim.opt.statusline = '%<%t %m%r%y %= %{v:lua.LspList()} %{v:lua.LinterList()} %{v:lua.FormatterList()} %= %{&ff} %l:%v %P'
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
         vim.cmd("redrawstatus")
