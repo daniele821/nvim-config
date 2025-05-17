@@ -65,4 +65,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-return {}
+return {
+    { "j-hui/fidget.nvim", opts = {}, event = "LspAttach" },
+}
