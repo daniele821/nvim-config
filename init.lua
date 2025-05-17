@@ -28,6 +28,7 @@ require("lazy").setup({
     require('thebest.plugins.telescope'),
     require('thebest.plugins.treesitter'),
     require('thebest.plugins.completions'),
+    require('thebest.plugins.statusline'),
     require('thebest.plugins.mason'),
     require('thebest.plugins.lspconfig'),
     require('thebest.plugins.linters'),
