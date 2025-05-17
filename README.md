@@ -10,6 +10,6 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 
 - oil.nvim can be set as default file explorer IF NOT LAZY LOADED. 
     ```sh
-    nvim oil-ssh@example.com/file
+    nvim oil-ssh://[username@]hostname[:port]/[path]
     ```
 - [vim spell files](https://www.vim.org/mirrors.php) 
