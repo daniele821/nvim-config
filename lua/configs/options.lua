@@ -45,4 +45,3 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts.max_height = opts.max_height or 15
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
-
