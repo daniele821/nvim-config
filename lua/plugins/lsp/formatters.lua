@@ -10,10 +10,5 @@ return {
 			format_on_save = false,
 			formatters_by_ft = formatters_by_ft,
 		})
-
-		-- add mapping to format file
-		vim.keymap.set("n", "grf", function()
-			require("conform").format({ async = true, lsp_format = "fallback" })
-		end, {})
 	end,
 }
