@@ -27,7 +27,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
--- create autocmd
+-- stop lsp on exit
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
         vim.iter(vim.lsp.get_clients()):each(function(client)
@@ -35,6 +35,8 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
         end)
     end
 })
+
+-- additional keymaps for buffers with lsp attached
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf })
@@ -42,7 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
--- statusline with lsp servers
+-- statusline util functions
 function Test()
     local lsps = vim.lsp.get_clients({ bufnr = 0 })
     if #lsps > 0 then
@@ -53,6 +55,13 @@ function Test()
     end
     return ""
 end
+
+-- statusline + autocmd to refresh when necessary
 vim.opt.statusline = '%<%t %m%r%y %{v:lua.Test()} %= %{&ff} %l:%v %P'
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function()
+        vim.cmd("redrawstatus")
+    end
+})
 
 return {}
