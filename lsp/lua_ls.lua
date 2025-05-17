@@ -1,7 +1,7 @@
 -- DOCUMENTATION: https://luals.github.io/wiki/settings/
 local function is_nvim_project()
 	local config_dir = vim.fn.resolve(vim.fn.stdpath("config"))
----@diagnostic disable-next-line: undefined-field
+	---@diagnostic disable-next-line: undefined-field
 	local cwd = vim.fn.resolve(vim.uv.cwd())
 	return cwd:sub(1, #config_dir) == config_dir
 end
