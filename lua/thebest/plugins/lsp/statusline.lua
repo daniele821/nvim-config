@@ -20,7 +20,7 @@ function LinterList()
         return vim.fn.executable(linter) == 1
     end):totable()
     if #linters > 0 then
-        local lint_icon = "󰕥 "
+        local lint_icon = " "
         local linter_names = vim.iter(linters):join(" " .. lint_icon)
         return lint_icon .. linter_names
     end
@@ -36,7 +36,7 @@ function FormatterList()
         return formatter.name
     end):totable()
     if #formatters > 0 then
-        local formatter_icon = " "
+        local formatter_icon = " "
         local formatter_names = vim.iter(formatters):join(" " .. formatter_icon)
         return formatter_icon .. formatter_names
     end
