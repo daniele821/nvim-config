@@ -28,13 +28,14 @@ function refresh_nvim() {
 }
 
 if [[ -v "FULL_OUTPUT" ]]; then
-    refresh_nvim 
+    refresh_nvim
+    echo
 else
     tput rmam
     refresh_nvim 2>&1 | while read -r line; do
         if [[ -n "$line" ]]; then
             echo -ne "\r\033[2K"
-            echo -n $line
+            echo -n "$line"
         fi
     done
     echo -ne "\r\033[2K"
