@@ -26,10 +26,10 @@ require("lazy").setup({
     require('thebest.plugins.explorer'),
     require('thebest.plugins.gitsigns'),
     require('thebest.plugins.telescope'),
-    require('thebest.plugins.lsp.treesitter'),
-    require('thebest.plugins.lsp.completions'),
-    require('thebest.plugins.lsp.mason'),
-    require('thebest.plugins.lsp.lspconfig'),
+    require('thebest.plugins.treesitter'),
+    require('thebest.plugins.completions'),
+    require('thebest.plugins.mason'),
+    require('thebest.plugins.lspconfig'),
 }, {
     performance = {
         rtp = {
