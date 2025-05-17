@@ -5,7 +5,7 @@ function LspList()
         local lsp_icon = " "
         local lsp_names = vim.iter(lsps):map(function(elem)
             return elem.name
-        end):join(" " .. lsp_icon)
+        end):join(", ")
         return lsp_icon .. lsp_names
     end
     return ""
@@ -21,7 +21,7 @@ function LinterList()
     end):totable()
     if #linters > 0 then
         local lint_icon = " "
-        local linter_names = vim.iter(linters):join(" " .. lint_icon)
+        local linter_names = vim.iter(linters):join(", ")
         return lint_icon .. linter_names
     end
     return ""
@@ -37,7 +37,7 @@ function FormatterList()
     end):totable()
     if #formatters > 0 then
         local formatter_icon = " "
-        local formatter_names = vim.iter(formatters):join(" " .. formatter_icon)
+        local formatter_names = vim.iter(formatters):join(", ")
         return formatter_icon .. formatter_names
     end
     return ""
