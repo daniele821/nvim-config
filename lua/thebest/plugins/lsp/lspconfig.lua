@@ -48,16 +48,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 function Test()
     local lsps = vim.lsp.get_clients({ bufnr = 0 })
     if #lsps > 0 then
+        local lsp_icon = " "
         local lsp_names = vim.iter(lsps):map(function(elem)
             return elem.name
-        end):join(", ")
-        return " " .. lsp_names
+        end):join(" " .. lsp_icon)
+        return lsp_icon .. lsp_names
     end
     return ""
 end
 
 -- statusline + autocmd to refresh when necessary
-vim.opt.statusline = '%<%t %m%r%y %{v:lua.Test()} %= %{&ff} %l:%v %P'
+vim.opt.statusline = '%<%t %m%r%y %= %{v:lua.Test()} %= %{&ff} %l:%v %P'
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
         vim.cmd("redrawstatus")
