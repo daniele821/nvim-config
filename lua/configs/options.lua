@@ -11,10 +11,6 @@ vim.opt.expandtab = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- whitespace symbols
-vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-
 -- various
 vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
