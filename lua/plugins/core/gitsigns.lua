@@ -1,6 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufReadPre", "BufNewFile", "BufWritePost" },
+	event = { "VeryLazy" },
 	opts = {
 		signs_staged_enable = true,
 		signcolumn = true,
