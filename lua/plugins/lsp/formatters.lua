@@ -9,7 +9,7 @@ return {
 			end,
 		},
 	},
-    cmd = "ConformInfo",
+	cmd = "ConformInfo",
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,
