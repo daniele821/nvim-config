@@ -1,8 +1,15 @@
 local formatters_by_ft = require("utils.configs").formatters_by_ft
 return {
 	"stevearc/conform.nvim",
-	event = "LspAttach",
-	ft = vim.tbl_keys(formatters_by_ft),
+	keys = {
+		{
+			"grf",
+			function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end,
+		},
+	},
+    cmd = "ConformInfo",
 	config = function()
 		require("conform").setup({
 			notify_on_error = false,

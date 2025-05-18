@@ -23,12 +23,3 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts.max_height = opts.max_height or 15
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
-
--- add mapping to format file
-vim.keymap.set("n", "grf", function()
-	if package.loaded["conform"] then
-		require("conform").format({ async = true, lsp_format = "fallback" })
-	else
-		vim.lsp.buf.format()
-	end
-end, {})
