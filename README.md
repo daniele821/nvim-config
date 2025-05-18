@@ -9,7 +9,11 @@ git clone https://github.com/daniele821/nvim-config "${XDG_CONFIG_HOME:-$HOME/.c
 # notes 
 
 - oil.nvim can be set as default file explorer IF NOT LAZY LOADED. 
-    ```sh
-    nvim oil-ssh://[username@]hostname[:port]/[path]
-    ```
+```sh
+nvim oil-ssh://[username@]hostname[:port]/[path]
+```
 - [vim spell files](https://www.vim.org/mirrors.php) 
+
+# todo
+
+- integrate lsp progress in statusline (example: ` rust_analyzer (3%)`)
