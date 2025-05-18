@@ -30,9 +30,6 @@ end
 
 -- get string with list of active formatters in current buffer
 function FormatterList()
-	if not package.loaded["conform"] then
-		return ""
-	end
 	local formatters = vim.iter(require("utils.configs").formatters_by_ft[vim.bo.filetype] or {})
 		:filter(function(linter)
 			return vim.fn.executable(linter) == 1
