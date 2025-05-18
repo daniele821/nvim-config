@@ -21,6 +21,9 @@ return {
 	},
 	settings = {
 		Lua = {
+			completion = {
+				autoRequire = false,
+			},
 			workspace = {
 				checkThirdParty = false,
 				-- black magic to show vim api in ~/.config/nvim and nowhere else!
