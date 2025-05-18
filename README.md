@@ -16,4 +16,5 @@ nvim oil-ssh://[username@]hostname[:port]/[path]
 
 # todo
 
-- integrate lsp progress in statusline (example: ` rust_analyzer (3%)`)
+- [x] integrate lsp progress in statusline (example: ` rust_analyzer (3%)`)
+    - [ ] use local variables, to avoid collision problems
