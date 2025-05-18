@@ -7,7 +7,7 @@ return {
 		lint.linters_by_ft = linters_by_ft
 
 		-- autocmd to lint on changes
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
 			callback = function()
 				lint.try_lint(nil, { ignore_errors = true })
 			end,
