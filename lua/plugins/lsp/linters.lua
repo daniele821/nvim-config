@@ -1,6 +1,7 @@
 local linters_by_ft = require("utils.configs").linters_by_ft
 return {
 	"mfussenegger/nvim-lint",
+    ft = vim.tbl_keys(linters_by_ft),
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = linters_by_ft
