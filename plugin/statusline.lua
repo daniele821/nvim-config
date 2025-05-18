@@ -124,3 +124,9 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 		vim.cmd("redrawstatus")
 	end
 end
+
+return {
+	setup = function()
+		vim.notify("TODO: statusline local plugin using local variable, instead of globals!", vim.log.levels.WARN)
+	end,
+}
