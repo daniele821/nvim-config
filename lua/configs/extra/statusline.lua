@@ -79,13 +79,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
------------------ TO DELETE -----------------
-io.open("/tmp/test", "w"):close()
-local function log_to_file(data)
-	io.open("/tmp/test", "a"):write(vim.inspect(data) .. "\n"):close()
-end
------------------ TO DELETE -----------------
-
 -- handle progress messages
 LspProgress = {}
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
@@ -95,26 +88,39 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	if not client or not token or not value then
 		return
 	end
-
 	local is_end_kind = value.kind == "end"
 	local percentage = value.percentage
 
 	-- calculations
-	local new_token = vim.tbl_get(LspProgress, client.name, token)
-	local new_msg = ""
-	if percentage then
-		new_msg = " (" .. percentage .. "%)"
+	local old_token = vim.tbl_get(LspProgress, client.name, "token")
+	local old_msg = vim.tbl_get(LspProgress, client.name, "message")
+	local new_token = old_token
+	local new_msg = old_msg
+	if not old_token then
+		if percentage then
+			new_token = token
+			new_msg = " (" .. percentage .. "%)"
+		end
+	else
+		if old_token == token then
+			if is_end_kind then
+				new_token = nil
+				new_msg = ""
+			elseif percentage then
+				new_msg = " (" .. percentage .. "%)"
+			end
+		end
 	end
 
 	-- set new status
-	LspProgress = {
-		[client.name] = {
-			token = new_token,
-			message = new_msg,
-		},
+	LspProgress = LspProgress or {}
+	LspProgress[client.name] = {
+		token = new_token,
+		message = new_msg,
 	}
 
-	vim.cmd("redrawstatus")
-
-	log_to_file(LspProgress)
+	-- refresh statusline if necessary
+	if old_msg ~= new_msg then
+		vim.cmd("redrawstatus")
+	end
 end
