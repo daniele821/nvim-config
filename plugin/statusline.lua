@@ -1,5 +1,3 @@
-local plugin_name = "utils.statusline"
-
 local M = {}
 
 M._lspProgress = {}
@@ -7,12 +5,12 @@ M._lspProgress = {}
 function M.setup()
 	-- set statusline
 	vim.opt.statusline = vim.iter({
-		'%<%{%v:lua.require("' .. plugin_name .. '").filename()%}',
+		'%<%{%v:lua._G.Statusline.filename()%}',
 		"%m%r%y",
 		"%=",
-		'%<%{v:lua.require("' .. plugin_name .. '").lspList()}',
-		'%<%{v:lua.require("' .. plugin_name .. '").linterList()}',
-		'%<%{v:lua.require("' .. plugin_name .. '").formatterList()}',
+		'%<%{v:lua._G.Statusline.lspList()}',
+		'%<%{v:lua._G.Statusline.linterList()}',
+		'%<%{v:lua._G.Statusline.formatterList()}',
 		"%=",
 		"%{&ff}",
 		"%l:%v",
@@ -125,4 +123,6 @@ function M.filename()
 	return "%t"
 end
 
-return M
+_G.Statusline = M
+
+M.setup()

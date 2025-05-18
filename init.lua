@@ -4,9 +4,6 @@ require("configs.autocmd")
 require("configs.keymaps")
 require("configs.various")
 
--- run local plugins
-require("utils.statusline").setup()
-
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
