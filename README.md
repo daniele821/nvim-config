@@ -18,3 +18,5 @@ nvim oil-ssh://[username@]hostname[:port]/[path]
 
 - [x] integrate lsp progress in statusline (example: ` rust_analyzer (3%)`)
     - [ ] use local variables, to avoid collision problems
+
+- [ ] compact dir structure (just remove subdirs of configs and plugins in lua)
