@@ -15,6 +15,8 @@ function refresh_nvim() {
     'gitcommit',        \
     'gitignore',        \
     'go',               \
+    'gomod',            \
+    'gosum',            \
     'html',             \
     'javascript',       \
     'php',              \
