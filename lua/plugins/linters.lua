@@ -1,6 +1,7 @@
 local linters_by_ft = require("utils.configs").linters_by_ft
 return {
 	"mfussenegger/nvim-lint",
+    event = "VeryLazy",
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = linters_by_ft
@@ -11,5 +12,6 @@ return {
 				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
+        lint.try_lint(nil, { ignore_errors = true })
 	end,
 }
