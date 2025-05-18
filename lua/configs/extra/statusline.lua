@@ -71,4 +71,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-return {}
+io.open("/tmp/test", "w"):close()
+local function log_to_file(data)
+	io.open("/tmp/test", "a"):write(vim.inspect(data) .. "\n"):close()
+end
+
+vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+	local client = vim.lsp.get_client_by_id(ctx.client_id)
+	if not client then
+		return
+	end
+	local client_name = client.name
+
+	local old_progress = vim.g.lsp_progresses or {}
+	local value = result.value or {}
+	vim.g.lsp_progresses = {
+		[client_name] = {
+			token = result.token or "",
+			percentage = value.percentage or "",
+			kind = value.kind or "",
+		},
+	}
+
+	log_to_file(vim.g.lsp_progresses)
+end
