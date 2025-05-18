@@ -7,6 +7,12 @@ function LspList()
 			:map(function(elem)
 				return elem.name
 			end)
+			:map(function(lsp)
+				local msg = vim.g.lsp_progresses or {}
+				msg = msg[lsp] or {}
+				msg = msg.message or ""
+				return lsp .. msg
+			end)
 			:join(", ")
 		return lsp_icon .. lsp_names
 	end
@@ -78,20 +84,47 @@ end
 
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local client = vim.lsp.get_client_by_id(ctx.client_id)
+	local value = result.value
 	if not client then
 		return
 	end
-	local client_name = client.name
+	if not value then
+		return
+	end
 
+	-- get old status
 	local old_progress = vim.g.lsp_progresses or {}
-	local value = result.value or {}
+	local old_lsp = old_progress[client.name] or {}
+	local old_token = old_progress.token
+	local old_percentage = old_progress.percentage
+	local old_message = old_progress.message
+
+	-- calculations
+	local new_token = ""
+	local new_msg = ""
+    local is_kind_end = value.kind == "end"
+	if old_token then
+        if is_kind_end then
+            new_token = old_token
+        end
+		new_token = old_token
+        new_msg = "(" .. value.progress .. ")"
+    else
+        if value.progress then
+            new_token = result.token
+            new_msg = value.progress
+        end
+	end
+
+	-- set new status
 	vim.g.lsp_progresses = {
-		[client_name] = {
-			token = result.token or "",
-			percentage = value.percentage or "",
-			kind = value.kind or "",
+		[client.name] = {
+			token = new_token,
+			message = new_msg,
 		},
 	}
+
+	vim.cmd("redrawstatus")
 
 	log_to_file(vim.g.lsp_progresses)
 end
