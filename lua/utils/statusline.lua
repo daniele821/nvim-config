@@ -1,15 +1,36 @@
 local plugin_name = "utils.statusline"
 
--- autocmd to refresh statusline when necessary
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function()
-		vim.cmd("redrawstatus")
-	end,
-})
+local M = {}
 
--- handle progress messages
-vim.lsp.handlers["$/progress"] = function(_, result, ctx)
-	local plugin = require(plugin_name)
+M._lspProgress = {}
+
+function M.setup()
+	-- set statusline
+	vim.opt.statusline = vim.iter({
+		'%<%{%v:lua.require("' .. plugin_name .. '").filename()%}',
+		"%m%r%y",
+		"%=",
+		'%<%{v:lua.require("' .. plugin_name .. '").lspList()}',
+		'%<%{v:lua.require("' .. plugin_name .. '").linterList()}',
+		'%<%{v:lua.require("' .. plugin_name .. '").formatterList()}',
+		"%=",
+		"%{&ff}",
+		"%l:%v",
+		"%P",
+	}):join(" ")
+
+	-- intercept progress messages
+	vim.lsp.handlers["$/progress"] = M.progressHandler
+
+	-- autocmd to refresh statusline when necessary
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function()
+			vim.cmd("redrawstatus")
+		end,
+	})
+end
+
+function M.progressHandler(_, result, ctx)
 	local client = vim.lsp.get_client_by_id(ctx.client_id)
 	local token = result.token
 	local value = result.value
@@ -19,9 +40,8 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 	local is_end_kind = value.kind == "end"
 	local percentage = value.percentage
 
-	-- calculations
-	local old_token = vim.tbl_get(plugin._lspProgress, client.name, "token")
-	local old_msg = vim.tbl_get(plugin._lspProgress, client.name, "message")
+	local old_token = vim.tbl_get(M._lspProgress, client.name, "token")
+	local old_msg = vim.tbl_get(M._lspProgress, client.name, "message")
 	local new_token = old_token
 	local new_msg = old_msg
 	if not old_token then
@@ -40,35 +60,14 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 		end
 	end
 
-	-- set new status
-	plugin._lspProgress[client.name] = {
+	M._lspProgress[client.name] = {
 		token = new_token,
 		message = new_msg,
 	}
 
-	-- refresh statusline if necessary
 	if old_msg ~= new_msg then
 		vim.cmd("redrawstatus")
 	end
-end
-
-local M = {}
-
-M._lspProgress = {}
-
-function M.setup()
-	vim.opt.statusline = vim.iter({
-		'%<%{%v:lua.require("' .. plugin_name .. '").filename()%}',
-		"%m%r%y",
-		"%=",
-		'%<%{v:lua.require("' .. plugin_name .. '").lspList()}',
-		'%<%{v:lua.require("' .. plugin_name .. '").linterList()}',
-		'%<%{v:lua.require("' .. plugin_name .. '").formatterList()}',
-		"%=",
-		"%{&ff}",
-		"%l:%v",
-		"%P",
-	}):join(" ")
 end
 
 function M.lspList()
