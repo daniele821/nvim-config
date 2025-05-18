@@ -8,9 +8,9 @@ function LspList()
 				return elem.name
 			end)
 			:map(function(lsp)
-				local msg = vim.g.lsp_progresses or {}
-				msg = msg[lsp] or {}
-				msg = msg.message or ""
+				local tmp = LspProgress or {}
+				tmp = tmp[lsp] or {}
+				local msg = tmp.message or ""
 				return lsp .. msg
 			end)
 			:join(", ")
@@ -58,7 +58,7 @@ function Filename()
 	return "%t"
 end
 
--- statusline + autocmd to refresh when necessary
+-- statusline
 vim.opt.statusline = vim.iter({
 	"%<%{%v:lua.Filename()%}",
 	"%m%r%y",
@@ -71,27 +71,24 @@ vim.opt.statusline = vim.iter({
 	"%l:%v",
 	"%P",
 }):join(" ")
+
+-- autocmd to refresh statusline when necessary
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		vim.cmd("redrawstatus")
 	end,
 })
 
+----------------- TO DELETE -----------------
 io.open("/tmp/test", "w"):close()
 local function log_to_file(data)
 	io.open("/tmp/test", "a"):write(vim.inspect(data) .. "\n"):close()
 end
+----------------- TO DELETE -----------------
 
+-- handle progress messages
+LspProgress = {}
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
-	-- {
-	--   token = "some-token-id",
-	--   value = {
-	--     kind = "begin" | "report" | "end",
-	--     title = "string",
-	--     message = "string",
-	--     percentage = number
-	--   }
-	-- }
 	local client = vim.lsp.get_client_by_id(ctx.client_id)
 	local token = result.token
 	local value = result.value
@@ -99,22 +96,25 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 		return
 	end
 
+	local is_end_kind = value.kind == "end"
 	local percentage = value.percentage
 
 	-- calculations
+	local new_token = vim.tbl_get(LspProgress, client.name, token)
 	local new_msg = ""
 	if percentage then
 		new_msg = " (" .. percentage .. "%)"
 	end
 
 	-- set new status
-	vim.g.lsp_progresses = {
+	LspProgress = {
 		[client.name] = {
+			token = new_token,
 			message = new_msg,
 		},
 	}
 
 	vim.cmd("redrawstatus")
 
-	log_to_file(vim.g.lsp_progresses)
+	log_to_file(LspProgress)
 end
