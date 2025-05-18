@@ -35,7 +35,7 @@ if [[ -v "FULL_OUTPUT" ]]; then
 else
     tput rmam
     refresh_nvim 2>&1 | while read -r line; do
-        if [[ -n "$line" ]]; then
+        if ! [[ $line =~ ^[[:space:]]*$ ]]; then
             echo -ne "\r\033[2K"
             echo -n "$line"
         fi
