@@ -15,10 +15,7 @@ end
 
 -- get string with list of active linters in current buffer
 function LinterList()
-	if not package.loaded["lint"] then
-		return ""
-	end
-	local linters = vim.iter(require("lint").linters_by_ft[vim.bo.filetype] or {})
+	local linters = vim.iter(require("utils.configs").linters_by_ft[vim.bo.filetype] or {})
 		:filter(function(linter)
 			return vim.fn.executable(linter) == 1
 		end)
@@ -36,9 +33,9 @@ function FormatterList()
 	if not package.loaded["conform"] then
 		return ""
 	end
-	local formatters = vim.iter(require("conform").list_formatters(0))
-		:map(function(formatter)
-			return formatter.name
+	local formatters = vim.iter(require("utils.configs").formatters_by_ft[vim.bo.filetype] or {})
+		:filter(function(linter)
+			return vim.fn.executable(linter) == 1
 		end)
 		:totable()
 	if #formatters > 0 then
