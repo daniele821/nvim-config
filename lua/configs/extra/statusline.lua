@@ -83,43 +83,33 @@ local function log_to_file(data)
 end
 
 vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+	-- {
+	--   token = "some-token-id",
+	--   value = {
+	--     kind = "begin" | "report" | "end",
+	--     title = "string",
+	--     message = "string",
+	--     percentage = number
+	--   }
+	-- }
 	local client = vim.lsp.get_client_by_id(ctx.client_id)
+	local token = result.token
 	local value = result.value
-	if not client then
-		return
-	end
-	if not value then
+	if not client or not token or not value then
 		return
 	end
 
-	-- get old status
-	local old_progress = vim.g.lsp_progresses or {}
-	local old_lsp = old_progress[client.name] or {}
-	local old_token = old_progress.token
-	local old_percentage = old_progress.percentage
-	local old_message = old_progress.message
+	local percentage = value.percentage
 
 	-- calculations
-	local new_token = ""
 	local new_msg = ""
-    local is_kind_end = value.kind == "end"
-	if old_token then
-        if is_kind_end then
-            new_token = old_token
-        end
-		new_token = old_token
-        new_msg = "(" .. value.progress .. ")"
-    else
-        if value.progress then
-            new_token = result.token
-            new_msg = value.progress
-        end
+	if percentage then
+		new_msg = " (" .. percentage .. "%)"
 	end
 
 	-- set new status
 	vim.g.lsp_progresses = {
 		[client.name] = {
-			token = new_token,
 			message = new_msg,
 		},
 	}
