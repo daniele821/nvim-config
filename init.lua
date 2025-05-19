@@ -51,3 +51,6 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- automagically install all needed goodies
+vim.cmd("StarterPack")
