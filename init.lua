@@ -23,7 +23,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- install plugins using lazy
-require("lazy").setup("plugins", {
+require("lazy").setup({
+	{ import = "plugins" },
+}, {
+	change_detection = {
+		enabled = false,
+		notify = false,
+	},
 	performance = {
 		rtp = {
 			disabled_plugins = {
