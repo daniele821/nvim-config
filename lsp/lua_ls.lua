@@ -23,11 +23,15 @@ return {
 		Lua = {
 			completion = {
 				autoRequire = false,
+				callSnippet = "Both",
 			},
 			workspace = {
 				checkThirdParty = false,
 				-- black magic to show vim api in ~/.config/nvim and nowhere else!
 				library = is_nvim_project() and { vim.env.VIMRUNTIME } or {},
+			},
+			hint = {
+				enable = true,
 			},
 		},
 	},

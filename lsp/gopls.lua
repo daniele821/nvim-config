@@ -1,3 +1,4 @@
+-- DOCUMENTATION: https://github.com/golang/tools/blob/master/gopls/doc/settings.md
 local mod_cache = nil
 local function get_root(fname)
 	if mod_cache and fname:sub(1, #mod_cache) == mod_cache then
@@ -30,4 +31,18 @@ return {
 			end
 		end)
 	end,
+	settings = {
+		gopls = {
+			["ui.completion.usePlaceholders"] = false,
+			["ui.inlayhint.hints"] = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				rangeVariableTypes = true,
+				parameterNames = true,
+			},
+		},
+	},
 }

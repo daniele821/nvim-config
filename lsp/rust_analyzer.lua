@@ -1,4 +1,4 @@
---- DOCUMENTATION: https://rust-analyzer.github.io/book/configuration.html
+-- DOCUMENTATION: https://rust-analyzer.github.io/book/configuration.html
 local function reload_workspace(bufnr)
 	local clients = vim.lsp.get_clients({ bufnr = bufnr, name = "rust_analyzer" })
 	for _, client in ipairs(clients) do

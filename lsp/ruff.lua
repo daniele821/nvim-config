@@ -1,4 +1,4 @@
---- DOCUMENTATION: https://docs.astral.sh/ruff/editors/
+-- DOCUMENTATION: https://docs.astral.sh/ruff/editors/
 return {
 	cmd = { "ruff", "server" },
 	filetypes = { "python" },
