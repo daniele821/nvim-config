@@ -63,6 +63,6 @@ if not vim.uv.fs_stat(first_run_marker) then
 	first_run = true
     io.open(first_run_marker, "w"):write("Hi!"):close()
 end
-if not first_run then
+if first_run then
 	vim.cmd("StarterPack")
 end
