@@ -4,12 +4,12 @@ return {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			-- dependencies = {
-			-- 	"rafamadriz/friendly-snippets",
-			-- 	config = function()
-			-- 		require("luasnip.loaders.from_vscode").lazy_load()
-			-- 	end,
-			-- },
+			dependencies = {
+				"rafamadriz/friendly-snippets",
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+				end,
+			},
 		},
 	},
 	opts = {
@@ -60,7 +60,7 @@ return {
 		completion = {
 			accept = { auto_brackets = { enabled = true } },
 			documentation = {
-				auto_show = false,
+				auto_show = true,
 				auto_show_delay_ms = 0,
 				window = { border = "single" },
 			},
