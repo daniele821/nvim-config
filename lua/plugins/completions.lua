@@ -58,7 +58,7 @@ return {
 			},
 		},
 		completion = {
-			accept = { auto_brackets = { enabled = true } },
+			accept = { auto_brackets = { enabled = false } },
 			documentation = {
 				auto_show = false,
 				auto_show_delay_ms = 0,
