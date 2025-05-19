@@ -23,7 +23,6 @@ return {
 		Lua = {
 			completion = {
 				autoRequire = false,
-				callSnippet = "Both",
 			},
 			workspace = {
 				checkThirdParty = false,

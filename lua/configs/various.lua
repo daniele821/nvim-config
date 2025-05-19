@@ -54,3 +54,14 @@ vim.api.nvim_create_user_command("StarterPack", function()
 		treesitter_configs.setup({ ensure_installed = {}, sync_install = false })
 	end
 end, {})
+
+-- command to toggle inlay hints
+vim.api.nvim_create_user_command("InlayHintsToggle", function()
+	local hints = vim.lsp.inlay_hint.is_enabled()
+	if hints then
+		print("hints are now DISABLED!")
+	else
+		print("hints are now ENABLED!")
+	end
+    vim.lsp.inlay_hint.enable(not hints)
+end, {})
