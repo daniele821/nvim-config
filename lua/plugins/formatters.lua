@@ -10,12 +10,10 @@ return {
 		},
 	},
 	cmd = "ConformInfo",
-	config = function()
-		require("conform").setup({
-			notify_on_error = false,
-			notify_no_formatters = false,
-			format_on_save = false,
-			formatters_by_ft = formatters_by_ft,
-		})
-	end,
+	opts = {
+		notify_on_error = false,
+		notify_no_formatters = false,
+		format_on_save = false,
+		formatters_by_ft = formatters_by_ft,
+	},
 }
