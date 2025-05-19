@@ -59,9 +59,9 @@ end, {})
 vim.api.nvim_create_user_command("InlayHintsToggle", function()
 	local hints = vim.lsp.inlay_hint.is_enabled()
 	if hints then
-		print("hints are now DISABLED!")
+		vim.api.nvim_echo({ { "hints are now DISABLED!", "" } }, false, {})
 	else
-		print("hints are now ENABLED!")
+		vim.api.nvim_echo({ { "hints are now ENABLED!", "" } }, false, {})
 	end
-    vim.lsp.inlay_hint.enable(not hints)
+	vim.lsp.inlay_hint.enable(not hints)
 end, {})
