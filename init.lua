@@ -52,5 +52,9 @@ require("lazy").setup({
 	},
 })
 
--- automagically install all needed goodies
+-- autoinit
+local lazy_buf = require("lazy.view").view
+if lazy_buf then
+	vim.api.nvim_buf_delete(lazy_buf.buf, {})
+end
 vim.cmd("StarterPack")
