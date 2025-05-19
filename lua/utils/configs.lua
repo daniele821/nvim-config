@@ -1,6 +1,7 @@
 return {
 	formatters_by_ft = {
 		bash = { "shfmt" },
+		go = { "goimports" },
 		json = { "jq" },
 		lua = { "stylua" },
 		sh = { "shfmt" },
@@ -23,6 +24,7 @@ return {
 		"bash-language-server",
 		"css-lsp",
 		"emmet-language-server",
+		"goimports",
 		"gopls",
 		"html-lsp",
 		"jq",
