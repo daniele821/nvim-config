@@ -59,15 +59,14 @@ if lazy_buf then
 end
 
 -- highlight strange characters
-vim.api.nvim_create_user_command("AsciiToggle", function()
-	local hlname = "NonAsciiCharacter"
-	if vim.fn.hlexists(hlname) == 0 then
-		vim.cmd([[
+local hlname = "NonAsciiCharacter"
+vim.api.nvim_create_user_command("AsciiEnable", function()
+	vim.cmd([[
 		    highlight ]] .. hlname .. [[ guifg=black guibg=red
-		    match ]] .. hlname .. [[ /[^\x00-\x7F]/
+		    match ]] .. hlname .. [[ /[^\x20-\x7E\x09]/
 		]])
-	else
-		vim.cmd(" highlight clear " .. hlname)
-	end
 end, {})
-vim.cmd("AsciiToggle")
+vim.api.nvim_create_user_command("AsciiDisable", function()
+	vim.cmd("highlight clear " .. hlname)
+end, {})
+vim.cmd("AsciiEnable")
