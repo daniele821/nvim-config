@@ -11,6 +11,7 @@ return {
 			function()
 				require("telescope.builtin").find_files()
 			end,
+			mode = { "n", "i" },
 		},
 		{
 			"<A-s-f>",
@@ -22,24 +23,28 @@ return {
 					no_ignore_parent = true,
 				})
 			end,
+			mode = { "n", "i" },
 		},
 		{
 			"<A-b>",
 			function()
 				require("telescope.builtin").buffers()
 			end,
+			mode = { "n", "i" },
 		},
 		{
 			"<A-s-g>",
 			function()
 				require("telescope.builtin").grep_string()
 			end,
+			mode = { "n", "i" },
 		},
 		{
 			"<A-g>",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
+			mode = { "n", "i" },
 		},
 	},
 	config = function()
@@ -50,26 +55,6 @@ return {
 					i = {
 						["<esc>"] = actions.close,
 						["<C-c>"] = actions.close,
-						["<A-f>"] = function()
-							require("telescope.builtin").find_files()
-						end,
-						["<A-s-f>"] = function()
-							require("telescope.builtin").find_files({
-								file_ignore_patterns = { "%.git/" },
-								hidden = true,
-								no_ignore = true,
-								no_ignore_parent = true,
-							})
-						end,
-						["<A-b>"] = function()
-							require("telescope.builtin").find_files()
-						end,
-						["<A-s-g>"] = function()
-							require("telescope.builtin").grep_string()
-						end,
-						["<A-g>"] = function()
-							require("telescope.builtin").live_grep()
-						end,
 					},
 					n = {
 						["<esc>"] = actions.close,
