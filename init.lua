@@ -56,13 +56,5 @@ require("lazy").setup({
 local lazy_buf = require("lazy.view").view
 if lazy_buf then
 	vim.api.nvim_buf_delete(lazy_buf.buf, {})
-end
-local first_run_marker = vim.fs.joinpath(vim.fn.stdpath("data"), ".first_run_done")
-local first_run = false
-if not vim.uv.fs_stat(first_run_marker) then
-	first_run = true
-    io.open(first_run_marker, "w"):write("Hi!"):close()
-end
-if first_run then
 	vim.cmd("StarterPack")
 end
