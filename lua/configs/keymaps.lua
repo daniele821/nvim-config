@@ -7,3 +7,4 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 -- disable useless history buffers
 vim.keymap.set('n', 'q:', '<nop>')
 vim.keymap.set('n', 'q/', '<nop>')
+vim.keymap.set('n', 'q?', '<nop>')
