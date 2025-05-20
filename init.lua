@@ -60,9 +60,15 @@ end
 
 -- highlight strange characters
 local hlname = "NonAsciiCharacter"
+vim.api.nvim_create_user_command("AsciiHide", function()
+	vim.cmd([[
+		    highlight ]] .. hlname .. [[ guifg=black guibg=black
+		    match ]] .. hlname .. [[ /[^\x20-\x7E\x09]/
+		]])
+end, {})
 vim.api.nvim_create_user_command("AsciiEnable", function()
 	vim.cmd([[
-		    highlight ]] .. hlname .. [[ guifg=black guibg=red
+		    highlight ]] .. hlname .. [[ guifg=black guibg=yellow
 		    match ]] .. hlname .. [[ /[^\x20-\x7E\x09]/
 		]])
 end, {})
