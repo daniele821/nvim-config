@@ -57,3 +57,17 @@ if lazy_buf then
 	vim.api.nvim_buf_delete(lazy_buf.buf, {})
 	vim.cmd("StarterPack")
 end
+
+-- highlight strange characters
+vim.api.nvim_create_user_command("AsciiToggle", function()
+	local hlname = "NonAsciiCharacter"
+	if vim.fn.hlexists(hlname) == 0 then
+		vim.cmd([[
+		    highlight ]] .. hlname .. [[ guifg=black guibg=red
+		    match ]] .. hlname .. [[ /[^\x00-\x7F]/
+		]])
+	else
+		vim.cmd(" highlight clear " .. hlname)
+	end
+end, {})
+vim.cmd("AsciiToggle")
