@@ -2,7 +2,6 @@
 require("configs.options")
 require("configs.autocmd")
 require("configs.keymaps")
-require("configs.various")
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
