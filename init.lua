@@ -57,22 +57,3 @@ if lazy_buf then
 	vim.api.nvim_buf_delete(lazy_buf.buf, {})
 	vim.cmd("StarterPack")
 end
-
--- highlight strange characters
-local hlname = "NonAsciiCharacter"
-vim.api.nvim_create_user_command("AsciiHide", function()
-	vim.cmd([[
-		    highlight ]] .. hlname .. [[ guifg=black guibg=black
-		    match ]] .. hlname .. [[ /[^\x20-\x7E\x09]/
-		]])
-end, {})
-vim.api.nvim_create_user_command("AsciiEnable", function()
-	vim.cmd([[
-		    highlight ]] .. hlname .. [[ guifg=black guibg=yellow
-		    match ]] .. hlname .. [[ /[^\x20-\x7E\x09]/
-		]])
-end, {})
-vim.api.nvim_create_user_command("AsciiDisable", function()
-	vim.cmd("highlight clear " .. hlname)
-end, {})
-vim.cmd("AsciiEnable")
