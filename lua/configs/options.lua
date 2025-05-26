@@ -19,4 +19,3 @@ vim.opt.ignorecase = true
 vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
-vim.opt.messagesopt = "wait:500,history:500"
