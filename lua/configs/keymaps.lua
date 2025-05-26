@@ -11,6 +11,4 @@ vim.keymap.set("n", "q?", "<nop>")
 
 -- add / remove tabs
 vim.keymap.set("n", "<a-t>", ":tabnew<CR>", { silent = true })
-vim.keymap.set("n", "<a-d>", ":tabclose<CR>", { silent = true })
-vim.keymap.set("n", "<C-Tab>", ":tabnext<CR>", { silent = true })
-vim.keymap.set("n", "<C-S-Tab>", ":tabprevious<CR>", { silent = true })
+vim.keymap.set("n", "<a-s-t>", ":tabclose<CR>", { silent = true })
