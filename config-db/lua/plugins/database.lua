@@ -22,5 +22,6 @@ return {
 				vim.keymap.set("n", "h", "<Plug>(DBUI_ToggleDetails)", { buffer = true })
 			end,
 		})
+        vim.keymap.set("n", "<a-s>", "<Plug>(DBUI_SaveQuery)")
     end
 }
