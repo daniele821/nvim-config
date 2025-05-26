@@ -8,6 +8,7 @@ return {
 	},
 	linters_by_ft = {
 		bash = { "shellcheck" },
+		json = { "jq" },
 		sh = { "shellcheck" },
 	},
 	lsp_to_enable = {
@@ -56,6 +57,7 @@ return {
 		"gosum",
 		"html",
 		"javascript",
+        "json",
 		"php",
 		"python",
 		"rust",
