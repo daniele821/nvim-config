@@ -8,6 +8,7 @@ return {
 	},
 	linters_by_ft = {
 		bash = { "shellcheck" },
+		json = { "jq" },
 		sh = { "shellcheck" },
 	},
 	lsp_to_enable = {
@@ -19,7 +20,7 @@ return {
 		"lua_ls",
 		"ruff",
 		"rust_analyzer",
-        "ts_ls",
+		"ts_ls",
 	},
 	mason_to_install = {
 		"bash-language-server",
@@ -35,7 +36,7 @@ return {
 		"shellcheck",
 		"shfmt",
 		"stylua",
-        "typescript-language-server",
+		"typescript-language-server",
 	},
 	mason_use_local = {
 		["jq"] = "jq",
