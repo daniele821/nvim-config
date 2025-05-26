@@ -90,6 +90,13 @@ return {
 		},
 		sources = {
 			default = { "lsp", "snippets", "buffer" },
+			per_filetype = {
+				sql = { "snippets", "dadbod", "buffer" },
+				javascript = { "dadbod", "lsp", "snippets", "buffer" },
+			},
+			providers = {
+				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+			},
 		},
 		fuzzy = {
 			implementation = "lua",
@@ -99,9 +106,10 @@ return {
 					-- 1) source
 					-- 2) put _* at the end
 					local order = {
-						lsp = 1,
-						snippets = 3,
-						buffer = 5,
+						dadbod = 1,
+						lsp = 3,
+						snippets = 5,
+						buffer = 7,
 					}
 					local order_a = order[a.source_id]
 					local order_b = order[b.source_id]
