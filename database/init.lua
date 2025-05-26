@@ -56,3 +56,6 @@ local lazy_buf = require("lazy.view").view
 if lazy_buf then
 	vim.api.nvim_buf_delete(lazy_buf.buf, {})
 end
+
+-- autolaunch dadbod-ui
+vim.cmd("DBUI")

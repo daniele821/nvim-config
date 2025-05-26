@@ -89,10 +89,7 @@ return {
 			},
 		},
 		sources = {
-			default = { "dadbod", "lsp", "snippets", "buffer" },
-			providers = {
-				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-			},
+			default = { "lsp", "snippets", "buffer" },
 		},
 		fuzzy = {
 			implementation = "lua",
