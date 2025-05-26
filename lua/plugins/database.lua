@@ -22,5 +22,8 @@ return {
 				vim.keymap.set("n", "h", "<Plug>(DBUI_ToggleDetails)", { buffer = true })
 			end,
 		})
+        -- for query file operations, run the following, whilst in the query buffer:
+        -- :execute "normal \<Plug>(DBUI_SaveQuery)"
+        -- :execute "normal \<Plug>(DBUI_EditBindParameters)"
 	end,
 }
