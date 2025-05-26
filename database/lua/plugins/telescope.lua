@@ -1,1 +1,1 @@
-../../../default/lua/plugins/telescope.lua
+../../../lua/plugins/telescope.lua

@@ -1,1 +1,1 @@
-../../../default/lua/plugins/explorer.lua
+../../../lua/plugins/explorer.lua

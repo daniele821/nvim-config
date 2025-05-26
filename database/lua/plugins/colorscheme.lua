@@ -1,1 +1,1 @@
-../../../default/lua/plugins/colorscheme.lua
+../../../lua/plugins/colorscheme.lua
