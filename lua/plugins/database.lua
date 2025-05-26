@@ -1,8 +1,8 @@
 return {
 	"kristijanhusak/vim-dadbod-ui",
 	dependencies = {
-		{ "tpope/vim-dadbod", lazy = true },
-		{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+		"tpope/vim-dadbod",
+		"kristijanhusak/vim-dadbod-completion",
 	},
 	cmd = {
 		"DBUI",
@@ -12,7 +12,7 @@ return {
 	},
 	init = function()
 		vim.g.db_ui_use_nerd_fonts = 1
-        -- disable hit-enter prompt
-        vim.cmd("set messagesopt=wait:0,history:500")
+		-- disable hit-enter prompt
+		vim.cmd("set messagesopt=wait:0,history:500")
 	end,
 }
