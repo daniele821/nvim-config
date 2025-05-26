@@ -19,6 +19,7 @@ return {
 		"lua_ls",
 		"ruff",
 		"rust_analyzer",
+        "ts_ls",
 	},
 	mason_to_install = {
 		"bash-language-server",
@@ -34,6 +35,7 @@ return {
 		"shellcheck",
 		"shfmt",
 		"stylua",
+        "typescript-language-server",
 	},
 	mason_use_local = {
 		["jq"] = "jq",
