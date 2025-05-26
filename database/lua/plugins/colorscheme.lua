@@ -1,0 +1,1 @@
+../../../default/lua/plugins/colorscheme.lua
