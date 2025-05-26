@@ -5,6 +5,10 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 
 -- disable useless history buffers
-vim.keymap.set('n', 'q:', '<nop>')
-vim.keymap.set('n', 'q/', '<nop>')
-vim.keymap.set('n', 'q?', '<nop>')
+vim.keymap.set("n", "q:", "<nop>")
+vim.keymap.set("n", "q/", "<nop>")
+vim.keymap.set("n", "q?", "<nop>")
+
+-- add / remove tabs
+vim.keymap.set("n", "<a-t>", ":tabnew<CR>", { silent = true })
+vim.keymap.set("n", "<a-d>", ":tabclose<CR>", { silent = true })
