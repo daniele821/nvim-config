@@ -12,7 +12,5 @@ return {
 	},
 	init = function()
 		vim.g.db_ui_use_nerd_fonts = 1
-		-- disable hit-enter prompt
-		vim.cmd("set messagesopt=wait:0,history:500")
 	end,
 }
