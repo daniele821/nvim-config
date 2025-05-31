@@ -5,7 +5,7 @@ vim.env.PATH = install_bin .. ":" .. vim.env.PATH
 
 return {
 	"mason-org/mason.nvim",
-	cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
+    lazy = true,
 	opts = {
 		install_root_dir = install_dir,
 		PATH = "skip",
