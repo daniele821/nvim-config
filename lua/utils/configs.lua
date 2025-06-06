@@ -1,10 +1,4 @@
 return {
-	formatters_by_ft = {
-		bash = { "shfmt" },
-		go = { "goimports" },
-		lua = { "stylua" },
-		sh = { "shfmt" },
-	},
 	lsp_to_enable = {
 		"bashls",
 		"cssls",

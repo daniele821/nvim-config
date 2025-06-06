@@ -4,7 +4,7 @@ return {
 		bashIde = {
 			globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
 			-- shellcheckPath = "",
-			shfmt = { path = "" },
+			-- shfmt = { path = "" },
 		},
 	},
 	filetypes = { "bash", "sh" },
