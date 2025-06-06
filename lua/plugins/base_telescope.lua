@@ -4,13 +4,6 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
 	},
 	keys = {
 		{
@@ -70,6 +63,5 @@ return {
 				},
 			},
 		})
-		require("telescope").load_extension("fzf")
 	end,
 }
