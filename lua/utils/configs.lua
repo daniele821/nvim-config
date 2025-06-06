@@ -8,8 +8,6 @@ return {
 	lsp_to_enable = {
 		"bashls",
 		"cssls",
-		"emmet_language_server",
-		"gopls",
 		"html",
 		"jsonls",
 		"lua_ls",
@@ -20,7 +18,6 @@ return {
 	mason_to_install = {
 		"bash-language-server",
 		"css-lsp",
-		"emmet-language-server",
 		"goimports",
 		"gopls",
 		"html-lsp",
