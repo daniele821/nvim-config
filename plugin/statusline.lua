@@ -64,3 +64,17 @@ vim.opt.statusline = vim.iter({
 	"%l:%v",
 	"%P",
 }):join(" ")
+
+-- autocmd to update statusline when necessary
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+	callback = function()
+		vim.cmd("redrawstatus")
+	end,
+})
+vim.api.nvim_create_autocmd({ "LspDetach" }, {
+	callback = function()
+		vim.defer_fn(function()
+			vim.cmd("redrawstatus")
+		end, 500)
+	end,
+})
