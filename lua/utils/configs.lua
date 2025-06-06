@@ -3,6 +3,7 @@ return {
 		"bashls",
 		"cssls",
 		"html",
+		"gopls",
 		"jsonls",
 		"lua_ls",
 		"ruff",
