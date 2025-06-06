@@ -45,7 +45,7 @@ end
 function M.filename()
 	local bufname = vim.api.nvim_buf_get_name(0)
 	if bufname:match("^.*://") then
-		return "%f"
+		return bufname:gsub("^.*://", "")
 	end
 	return "%t"
 end
