@@ -3,7 +3,7 @@ return {
 	settings = {
 		bashIde = {
 			globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
-			shellcheckPath = "",
+			-- shellcheckPath = "",
 			shfmt = { path = "" },
 		},
 	},

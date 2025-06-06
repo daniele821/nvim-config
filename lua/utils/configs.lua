@@ -2,14 +2,8 @@ return {
 	formatters_by_ft = {
 		bash = { "shfmt" },
 		go = { "goimports" },
-		json = { "jq" },
 		lua = { "stylua" },
 		sh = { "shfmt" },
-	},
-	linters_by_ft = {
-		bash = { "shellcheck" },
-		json = { "jq" },
-		sh = { "shellcheck" },
 	},
 	lsp_to_enable = {
 		"bashls",
@@ -17,6 +11,7 @@ return {
 		"emmet_language_server",
 		"gopls",
 		"html",
+		"jsonls",
 		"lua_ls",
 		"ruff",
 		"rust_analyzer",
@@ -29,7 +24,7 @@ return {
 		"goimports",
 		"gopls",
 		"html-lsp",
-		"jq",
+		"json-lsp",
 		"lua-language-server",
 		"ruff",
 		"rust-analyzer",
@@ -39,7 +34,6 @@ return {
 		"typescript-language-server",
 	},
 	mason_use_local = {
-		["jq"] = "jq",
 		["rust-analyzer"] = "rust-analyzer",
 	},
 	parsers = {
