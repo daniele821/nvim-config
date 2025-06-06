@@ -5,6 +5,7 @@ vim.lsp.enable(require("utils.configs").lsp_to_enable)
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf })
+		vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = event.buf })
 	end,
 })
 
