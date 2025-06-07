@@ -25,11 +25,25 @@ return {
         return res
     end)(),
     -- array of all lsp to enable
-    lsp_to_enable = (function()
+    to_enable_lsp = (function()
         local res = {}
         for _, opts in pairs(configs.lsps) do
             if opts.lsp ~= nil then
                 table.insert(res, opts.lsp)
+            end
+        end
+        return res
+    end)(),
+    -- array of all mason packages to install
+    to_install_packages = (function()
+        return vim.tbl_keys(configs.lsps)
+    end)(),
+    -- table of packages with the installed executable name
+    use_local_packages = (function()
+        local res = {}
+        for lsp, opts in pairs(configs.lsps) do
+            if opts.bin ~= nil then
+                res[lsp] = opts.bin
             end
         end
         return res

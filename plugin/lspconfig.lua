@@ -1,5 +1,5 @@
 -- enable lsp servers
-vim.lsp.enable(require("utils.confuncs").lsp_to_enable)
+vim.lsp.enable(require("utils.confuncs").to_enable_lsp)
 
 -- additional keymaps for buffers with lsp attached
 vim.api.nvim_create_autocmd("LspAttach", {
