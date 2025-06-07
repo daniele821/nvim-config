@@ -58,6 +58,7 @@ return {
         end
         return res
     end)(),
+    -- table of languages with the formatters to use
     formatters_by_ft = (function()
         local res = {}
         for _, opts in pairs(configs.lsps) do
