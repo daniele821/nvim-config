@@ -2,8 +2,8 @@ return {
 	lsp_to_enable = {
 		"bashls",
 		"cssls",
-		"html",
 		"gopls",
+		"html",
 		"jsonls",
 		"lua_ls",
 		"ruff",
@@ -13,7 +13,6 @@ return {
 	mason_to_install = {
 		"bash-language-server",
 		"css-lsp",
-		"goimports",
 		"gopls",
 		"html-lsp",
 		"json-lsp",
