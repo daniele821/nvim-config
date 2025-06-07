@@ -42,8 +42,12 @@ return {
     use_local_packages = (function()
         local res = {}
         for lsp, opts in pairs(configs.lsps) do
-            if opts.bin ~= nil then
-                res[lsp] = opts.bin
+            if opts.lcl then
+                if opts.bin then
+                    res[lsp] = opts.bin
+                else
+                    res[lsp] = lsp
+                end
             end
         end
         return res
