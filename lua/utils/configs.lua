@@ -12,7 +12,6 @@ return {
         ["ruff"] = { lsp = "ruff" },
         ["rust-analyzer"] = { lsp = "rust_analyzer", bin = "rust-analyzer" },
         ["shellcheck"] = {},
-        ["shfmt"] = {},
         ["typescript-language-server"] = { lsp = "ts_ls" },
     },
     -- languages for which to start treesitter parsers
