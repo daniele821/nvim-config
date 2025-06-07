@@ -1,14 +1,5 @@
 local configs = require("utils.configs")
 
--- fix configs data
-for lsp, opts in pairs(configs.lsps) do
-	if opts.bin == nil then
-		if opts.lcl ~= nil or opts.fmt ~= nil then
-			opts.bin = lsp
-		end
-	end
-end
-
 return {
 	all_language_parsers = (function()
 		return vim.tbl_keys(configs.parsers)
@@ -34,7 +25,7 @@ return {
 			end)
 	end)(),
 	to_enable_lsp = (function()
-		return vim.iter(configs.parsers)
+		return vim.iter(configs.lsps)
 			:filter(function(_, opts)
 				return opts.lsp ~= nil
 			end)
@@ -47,26 +38,28 @@ return {
 		return vim.tbl_keys(configs.lsps)
 	end)(),
 	use_local_packages = (function()
-		local res = {}
-		for lsp, opts in pairs(configs.lsps) do
-			if opts.lcl ~= nil then
-				res[lsp] = opts.bin
-			end
-		end
-		return res
+		return vim.iter(configs.lsps)
+			:filter(function(_, opts)
+				return opts.lcl ~= nil
+			end)
+			:fold({}, function(acc, lsp, opts)
+				acc[lsp] = opts.bin or lsp
+				return acc
+			end)
 	end)(),
 	formatters_by_ft = (function()
-		local res = {}
-		for _, opts in pairs(configs.lsps) do
-			if opts.fmt ~= nil then
+		return vim.iter(configs.lsps)
+			:filter(function(_, opts)
+				return opts.fmt ~= nil
+			end)
+			:fold({}, function(acc, lsp, opts)
 				for _, lang in ipairs(opts.fmt) do
-					if res[lang] == nil then
-						res[lang] = {}
+					if acc[lang] == nil then
+						acc[lang] = {}
 					end
-					table.insert(res[lang], opts.bin)
+					table.insert(acc[lang], opts.bin or lsp)
 				end
-			end
-		end
-		return res
+				return acc
+			end)
 	end)(),
 }
