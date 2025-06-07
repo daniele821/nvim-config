@@ -14,6 +14,20 @@ function M.lspList()
 	return ""
 end
 
+function M.formatterList()
+       local formatters = vim.iter(require("utils.confuncs").formatters_by_ft[vim.bo.filetype] or {})
+               :filter(function(linter)
+                       return vim.fn.executable(linter) == 1
+               end)
+               :totable()
+       if #formatters > 0 then
+               local formatter_icon = " "
+               local formatter_names = vim.iter(formatters):join(", ")
+               return formatter_icon .. formatter_names
+       end
+       return ""
+end
+
 function M.filename()
 	local bufname = vim.api.nvim_buf_get_name(0)
 	if bufname:match("^.*://") then
@@ -29,6 +43,7 @@ vim.opt.statusline = vim.iter({
 	"%m%r%y",
 	"%=",
 	"%<%{v:lua._G.Statusline.lspList()}",
+	"%<%{v:lua._G.Statusline.formatterList()}",
 	"%=",
 	"%{&ff}",
 	"%l:%v",
