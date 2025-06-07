@@ -16,7 +16,7 @@ return {
         local res = {}
         for lang, opts in pairs(configs.parsers) do
             if opts.map ~= nil then
-                table.insert(res, { [lang] = opts.map })
+                res[lang] = opts.map
             end
         end
         return res

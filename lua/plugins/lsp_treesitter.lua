@@ -1,6 +1,6 @@
 -- automagically launch treesitter in buffers
 local confuncs = require("utils.confuncs")
-for lang, parser in pairs(confunc.to_remap_parsers) do
+for lang, parser in pairs(confuncs.to_remap_parsers) do
 	vim.treesitter.language.register(parser, lang)
 end
 vim.api.nvim_create_autocmd("Filetype", {
