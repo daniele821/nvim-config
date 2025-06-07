@@ -14,31 +14,34 @@ return {
 		return vim.tbl_keys(configs.parsers)
 	end)(),
 	to_install_parsers = (function()
-		local res = {}
-		for lang, opts in pairs(configs.parsers) do
-			if opts.map == nil then
-				table.insert(res, lang)
-			end
-		end
-		return res
+		return vim.iter(configs.parsers)
+			:filter(function(_, opts)
+				return opts.map == nil
+			end)
+			:map(function(key, _)
+				return key
+			end)
+			:totable()
 	end)(),
 	to_remap_parsers = (function()
-		local res = {}
-		for lang, opts in pairs(configs.parsers) do
-			if opts.map ~= nil then
-				res[lang] = opts.map
-			end
-		end
-		return res
+		return vim.iter(configs.parsers)
+			:filter(function(_, opts)
+				return opts.map ~= nil
+			end)
+			:fold({}, function(acc, lang, opts)
+				acc[lang] = opts.map
+				return acc
+			end)
 	end)(),
 	to_enable_lsp = (function()
-		local res = {}
-		for _, opts in pairs(configs.lsps) do
-			if opts.lsp ~= nil then
-				table.insert(res, opts.lsp)
-			end
-		end
-		return res
+		return vim.iter(configs.parsers)
+			:filter(function(_, opts)
+				return opts.lsp ~= nil
+			end)
+			:map(function(_, opts)
+				return opts.lsp
+			end)
+			:totable()
 	end)(),
 	to_install_packages = (function()
 		return vim.tbl_keys(configs.lsps)
