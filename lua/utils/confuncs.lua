@@ -2,75 +2,68 @@ local configs = require("utils.configs")
 
 -- fix configs data
 for lsp, opts in pairs(configs.lsps) do
-    if opts.bin == nil then
-        if opts.lcl ~= nil or opts.fmt ~= nil then
-            opts.bin = lsp
-        end
-    end
+	if opts.bin == nil then
+		if opts.lcl ~= nil or opts.fmt ~= nil then
+			opts.bin = lsp
+		end
+	end
 end
 
 return {
-    -- array of all filetypes for which to enable treesitter
-    all_language_parsers = (function()
-        return vim.tbl_keys(configs.parsers)
-    end)(),
-    -- array of all treesitter parsers to download
-    to_install_parsers = (function()
-        local res = {}
-        for lang, opts in pairs(configs.parsers) do
-            if opts.map == nil then
-                table.insert(res, lang)
-            end
-        end
-        return res
-    end)(),
-    -- table of languages to remap to other languages
-    to_remap_parsers = (function()
-        local res = {}
-        for lang, opts in pairs(configs.parsers) do
-            if opts.map ~= nil then
-                res[lang] = opts.map
-            end
-        end
-        return res
-    end)(),
-    -- array of all lsp to enable
-    to_enable_lsp = (function()
-        local res = {}
-        for _, opts in pairs(configs.lsps) do
-            if opts.lsp ~= nil then
-                table.insert(res, opts.lsp)
-            end
-        end
-        return res
-    end)(),
-    -- array of all mason packages to install
-    to_install_packages = (function()
-        return vim.tbl_keys(configs.lsps)
-    end)(),
-    -- table of packages with the installed executable name
-    use_local_packages = (function()
-        local res = {}
-        for lsp, opts in pairs(configs.lsps) do
-            if opts.lcl ~= nil then
-                res[lsp] = opts.bin
-            end
-        end
-        return res
-    end)(),
-    -- table of languages with the formatters to use
-    formatters_by_ft = (function()
-        local res = {}
-        for _, opts in pairs(configs.lsps) do
-            if opts.fmt ~= nil then
-                for _, lang in ipairs(opts.fmt) do
-                    if res[lang] == nil then
-                        res[lang] = {}
-                    end
-                    table.insert(res[lang], opts.bin)
-                end
-            end
-        end
-        return res
-    end)(),
+	all_language_parsers = (function()
+		return vim.tbl_keys(configs.parsers)
+	end)(),
+	to_install_parsers = (function()
+		local res = {}
+		for lang, opts in pairs(configs.parsers) do
+			if opts.map == nil then
+				table.insert(res, lang)
+			end
+		end
+		return res
+	end)(),
+	to_remap_parsers = (function()
+		local res = {}
+		for lang, opts in pairs(configs.parsers) do
+			if opts.map ~= nil then
+				res[lang] = opts.map
+			end
+		end
+		return res
+	end)(),
+	to_enable_lsp = (function()
+		local res = {}
+		for _, opts in pairs(configs.lsps) do
+			if opts.lsp ~= nil then
+				table.insert(res, opts.lsp)
+			end
+		end
+		return res
+	end)(),
+	to_install_packages = (function()
+		return vim.tbl_keys(configs.lsps)
+	end)(),
+	use_local_packages = (function()
+		local res = {}
+		for lsp, opts in pairs(configs.lsps) do
+			if opts.lcl ~= nil then
+				res[lsp] = opts.bin
+			end
+		end
+		return res
+	end)(),
+	formatters_by_ft = (function()
+		local res = {}
+		for _, opts in pairs(configs.lsps) do
+			if opts.fmt ~= nil then
+				for _, lang in ipairs(opts.fmt) do
+					if res[lang] == nil then
+						res[lang] = {}
+					end
+					table.insert(res[lang], opts.bin)
+				end
+			end
+		end
+		return res
+	end)(),
 }
