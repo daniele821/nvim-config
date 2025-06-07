@@ -1,4 +1,14 @@
 local configs = require("utils.configs")
+
+-- fix configs data
+for lsp, opts in pairs(configs.lsps) do
+    if opts.bin == nil then
+        if opts.lcl ~= nil or opts.fmt ~= nil then
+            opts.bin = lsp
+        end
+    end
+end
+
 return {
     -- array of all filetypes for which to enable treesitter
     all_language_parsers = (function()
@@ -42,11 +52,21 @@ return {
     use_local_packages = (function()
         local res = {}
         for lsp, opts in pairs(configs.lsps) do
-            if opts.lcl then
-                if opts.bin then
-                    res[lsp] = opts.bin
-                else
-                    res[lsp] = lsp
+            if opts.lcl ~= nil then
+                res[lsp] = opts.bin
+            end
+        end
+        return res
+    end)(),
+    formatters_by_ft = (function()
+        local res = {}
+        for _, opts in pairs(configs.lsps) do
+            if opts.fmt ~= nil then
+                for _, lang in ipairs(opts.fmt) do
+                    if res[lang] == nil then
+                        res[lang] = {}
+                    end
+                    table.insert(res[lang], opts.bin)
                 end
             end
         end
