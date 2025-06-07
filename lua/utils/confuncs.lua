@@ -24,4 +24,14 @@ return {
         end
         return res
     end)(),
+    -- array of all lsp to enable
+    lsp_to_enable = (function()
+        local res = {}
+        for _, opts in pairs(configs.lsps) do
+            if opts.lsp ~= nil then
+                table.insert(res, opts.lsp)
+            end
+        end
+        return res
+    end)(),
 }
