@@ -4,10 +4,11 @@ for lang, parser in pairs(confuncs.to_remap_parsers) do
 	vim.treesitter.language.register(parser, lang)
 end
 vim.api.nvim_create_autocmd("Filetype", {
-	callback = function()
-		if vim.tbl_contains(confuncs.all_language_parsers, vim.bo.filetype) then
+	callback = function(args)
+		local lang = vim.treesitter.language.get_lang(args.match)
+		if lang and vim.treesitter.language.add(lang) then
 			vim.schedule(function()
-				pcall(vim.treesitter.start)
+				vim.treesitter.start(args.buf)
 			end)
 		end
 	end,
