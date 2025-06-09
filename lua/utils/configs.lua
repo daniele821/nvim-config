@@ -1,11 +1,11 @@
 return {
 	-- mason packages to install.
 	-- [lsp]: name of lsp provided by package
+	-- [fmt]: list of lang for the formatter
 	-- [bin]: name of executable (if not present, name of package is assumed)
-	-- [lcl]*: if set to anything it avoid installing package, if binary already present in path
-	-- [fmt]*: list of lang for the formatter
+	-- [lcl]: if set to anything it avoid installing package, if binary already present in path
 	--
-	-- *: [bin] is required (is empty, package name is assumed!)
+    -- note: [lcl], [fmt] require [bin] (otherwise it is assumed the package name as bin value)
 	lsps = {
 		["bash-language-server"] = { lsp = "bashls" },
 		["css-lsp"] = { lsp = "cssls" },
