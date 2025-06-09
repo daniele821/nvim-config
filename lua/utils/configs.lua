@@ -20,7 +20,7 @@ return {
 		["stylua"] = { fmt = { "lua" } },
 		["typescript-language-server"] = { lsp = "ts_ls" },
 	},
-	-- languages for which to start treesitter parsers
+	-- languages for which to install treesitter parsers
 	parsers = {
 		"bash",
 		"c",
