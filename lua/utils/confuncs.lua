@@ -2,27 +2,7 @@ local configs = require("utils.configs")
 
 return {
 	all_language_parsers = (function()
-		return vim.tbl_keys(configs.parsers)
-	end)(),
-	to_install_parsers = (function()
-		return vim.iter(configs.parsers)
-			:filter(function(_, opts)
-				return opts.map == nil
-			end)
-			:map(function(key, _)
-				return key
-			end)
-			:totable()
-	end)(),
-	to_remap_parsers = (function()
-		return vim.iter(configs.parsers)
-			:filter(function(_, opts)
-				return opts.map ~= nil
-			end)
-			:fold({}, function(acc, lang, opts)
-				acc[lang] = opts.map
-				return acc
-			end)
+		return configs.parsers
 	end)(),
 	to_enable_lsp = (function()
 		return vim.iter(configs.lsps)
