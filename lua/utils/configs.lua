@@ -15,7 +15,6 @@ return {
 		["lua-language-server"] = { lsp = "lua_ls" },
 		["ruff"] = { lsp = "ruff" },
 		["rust-analyzer"] = { lsp = "rust_analyzer", lcl = true },
-		["shellcheck"] = {},
 		["shfmt"] = { fmt = { "bash", "sh" } },
 		["stylua"] = { fmt = { "lua" } },
 		["typescript-language-server"] = { lsp = "ts_ls" },
