@@ -16,6 +16,7 @@ vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.ignorecase = true
+vim.opt.hlsearch = false
 vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
