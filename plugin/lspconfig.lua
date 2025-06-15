@@ -33,6 +33,11 @@ end
 
 -- auto command to install parsers and lsps
 vim.api.nvim_create_user_command("StarterPack", function()
+	-- download parsers
+	local res = require("nvim-treesitter").install(require("utils.configs").parsers)
+	if #vim.api.nvim_list_uis() == 0 then
+		res:wait(300000)
+	end
 	-- download lsps
 	local mason_registry = require("mason-registry")
 	local configs = require("utils.configs")
@@ -45,10 +50,5 @@ vim.api.nvim_create_user_command("StarterPack", function()
 		:join(" ")
 	if missing_lsps ~= "" then
 		vim.cmd("MasonInstall " .. missing_lsps)
-	end
-	-- download parsers
-	local res = require("nvim-treesitter").install(require("utils.configs").parsers)
-	if #vim.api.nvim_list_uis() == 0 then
-		res:wait(300000)
 	end
 end, {})
