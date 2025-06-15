@@ -11,5 +11,8 @@ return {
 				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
+
+        -- immediately lint the file opened via cmdline
+		lint.try_lint(nil, { ignore_errors = true })
 	end,
 }
