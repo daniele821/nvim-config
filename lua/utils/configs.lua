@@ -11,10 +11,6 @@ return {
 		"stylua",
 		"typescript-language-server",
 	},
-	local_lsp = {
-		["jq"] = "jq",
-		["rust-analyzer"] = "rust-analyzer",
-	},
 	formatters_by_ft = {
 		bash = { "shfmt" },
 		json = { "jq" },
