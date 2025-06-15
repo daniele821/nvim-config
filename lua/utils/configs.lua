@@ -1,6 +1,5 @@
 return {
 	-- mason packages to install.
-	-- [lsp]: name of lsp provided by package
 	-- [fmt]: list of lang for the formatter
 	-- [lnt]: list of lang for the linter
 	-- [bin]: name of executable (if not present, name of package is assumed)
@@ -8,18 +7,18 @@ return {
 	--
 	-- note: [lcl], [fmt], [lnt] require [bin] (otherwise it is assumed the package name as bin value)
 	lsps = {
-		["bash-language-server"] = { lsp = "bashls" },
-		["css-lsp"] = { lsp = "cssls" },
-		["gopls"] = { lsp = "gopls" },
-		["html-lsp"] = { lsp = "html" },
+		["bash-language-server"] = {},
+		["css-lsp"] = {},
+		["gopls"] = {},
+		["html-lsp"] = {},
 		["jq"] = { fmt = { "json" }, lnt = { "json" }, lcl = true },
-		["lua-language-server"] = { lsp = "lua_ls" },
-		["ruff"] = { lsp = "ruff" },
-		["rust-analyzer"] = { lsp = "rust_analyzer", lcl = true },
+		["lua-language-server"] = {},
+		["ruff"] = {},
+		["rust-analyzer"] = { lcl = true },
 		["shellcheck"] = { lnt = { "bash", "sh" } },
 		["shfmt"] = { fmt = { "bash", "sh" } },
 		["stylua"] = { fmt = { "lua" } },
-		["typescript-language-server"] = { lsp = "ts_ls" },
+		["typescript-language-server"] = {},
 	},
 	-- languages for which to install treesitter parsers
 	-- [map]: array of all filetypes to be remapped to use the parser specified

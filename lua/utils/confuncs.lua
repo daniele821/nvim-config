@@ -2,14 +2,6 @@ local configs = require("utils.configs")
 
 return {
 	to_install_packages = vim.tbl_keys(configs.lsps),
-	to_enable_lsp = vim.iter(configs.lsps)
-		:filter(function(_, opts)
-			return opts.lsp ~= nil
-		end)
-		:map(function(_, opts)
-			return opts.lsp
-		end)
-		:totable(),
 	use_local_packages = vim.iter(configs.lsps)
 		:filter(function(_, opts)
 			return opts.lcl ~= nil
