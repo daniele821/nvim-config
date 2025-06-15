@@ -7,7 +7,7 @@ vim.env.PATH = install_bin .. ":" .. vim.env.PATH
 vim.api.nvim_create_user_command("StarterPackLsp", function()
 	-- mason installations
 	local mason_registry = require("mason-registry")
-    local confuncs = require("utils.confuncs")
+	local confuncs = require("utils.confuncs")
 	local to_install_lsps = confuncs.to_install_packages
 	local use_local_lsp = confuncs.use_local_packages
 	local installed_lsps = mason_registry.get_installed_package_names()
@@ -27,10 +27,10 @@ end, {})
 
 return {
 	"mason-org/mason.nvim",
-    cmd = "Mason",
+	lazy = true,
 	opts = {
 		install_root_dir = install_dir,
 		PATH = "skip",
-        max_concurrent_installers = 8,
+		max_concurrent_installers = 8,
 	},
 }
