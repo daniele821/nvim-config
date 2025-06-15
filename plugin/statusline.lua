@@ -97,7 +97,7 @@ function M.lspList()
 end
 
 function M.formatterList()
-	local formatters = vim.iter(require("utils.confuncs").formatters_by_ft[vim.bo.filetype] or {})
+	local formatters = vim.iter(require("utils.configs").formatters_by_ft[vim.bo.filetype] or {})
 		:filter(function(linter)
 			return vim.fn.executable(linter) == 1
 		end)
@@ -111,7 +111,7 @@ function M.formatterList()
 end
 
 function M.linterList()
-	local linters = vim.iter(require("utils.confuncs").linters_by_ft[vim.bo.filetype] or {})
+	local linters = vim.iter(require("utils.configs").linters_by_ft[vim.bo.filetype] or {})
 		:filter(function(linter)
 			return vim.fn.executable(linter) == 1
 		end)

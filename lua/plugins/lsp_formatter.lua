@@ -13,7 +13,7 @@ return {
 		notify_on_error = false,
 		notify_no_formatters = false,
 		format_on_save = false,
-		formatters_by_ft = require("utils.confuncs").formatters_by_ft,
+		formatters_by_ft = require("utils.configs").formatters_by_ft,
 	},
 }
 

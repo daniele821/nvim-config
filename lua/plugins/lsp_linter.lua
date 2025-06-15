@@ -1,4 +1,4 @@
-local linters_by_ft = require("utils.confuncs").linters_by_ft
+local linters_by_ft = require("utils.configs").linters_by_ft
 return {
 	"mfussenegger/nvim-lint",
 	event = "VeryLazy",
