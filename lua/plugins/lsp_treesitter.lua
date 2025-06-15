@@ -1,18 +1,15 @@
 -- automagically launch treesitter in buffers
 vim.api.nvim_create_autocmd("Filetype", {
-	callback = function(args)
-		local lang = vim.treesitter.language.get_lang(args.match)
-		if lang and vim.treesitter.language.add(lang) then
-			vim.schedule(function()
-				vim.treesitter.start(args.buf)
-			end)
-		end
+	callback = function()
+		vim.schedule(function()
+			pcall(vim.treesitter.start)
+		end)
 	end,
 })
 
 -- remap languages
 for lang, ft in pairs(require("utils.confuncs").remap_parsers) do
-  vim.treesitter.language.register(lang, ft)
+	vim.treesitter.language.register(lang, ft)
 end
 
 -- command to install missing parsers
