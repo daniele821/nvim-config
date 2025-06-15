@@ -26,19 +26,10 @@ vim.api.nvim_create_user_command("StarterPackLsp", function()
 end, {})
 
 return {
-	-- lsp config is necessary to always load, to provide the lsp config files
-	{
-		"neovim/nvim-lspconfig",
-		event = "VeryLazy",
-		config = function()
-			vim.lsp.enable(require("utils.confuncs").to_enable_lsp)
-		end,
-	},
-	-- lazily loaded on commands
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {},
-		cmd = { "LspInstall", "Mason" },
+        event = "VeryLazy",
 		dependencies = {
 			{ "neovim/nvim-lspconfig" },
 			{
