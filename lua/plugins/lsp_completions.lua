@@ -104,10 +104,9 @@ return {
 					-- 1) source
 					-- 2) put _* at the end
 					local order = {
-						dadbod = 1,
-						lsp = 3,
-						snippets = 5,
-						buffer = 7,
+						lsp = 1,
+						snippets = 3,
+						buffer = 5,
 					}
 					local order_a = order[a.source_id]
 					local order_b = order[b.source_id]
