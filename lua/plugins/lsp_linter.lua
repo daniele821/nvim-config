@@ -12,7 +12,9 @@ return {
 			end,
 		})
 
-        -- immediately lint the file opened via cmdline
-		lint.try_lint(nil, { ignore_errors = true })
+		-- immediately lint the file opened via cmdline
+		vim.schedule(function()
+			lint.try_lint(nil, { ignore_errors = true })
+		end)
 	end,
 }
