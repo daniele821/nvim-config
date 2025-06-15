@@ -5,40 +5,50 @@ vim.env.PATH = install_bin .. ":" .. vim.env.PATH
 
 -- user commands
 vim.api.nvim_create_user_command("StarterPackLsp", function()
-    -- mason installations
-    local mason_registry = require("mason-registry")
-    local confuncs = require("utils.confuncs")
-    local to_install_lsps = confuncs.to_install_packages
-    local use_local_lsp = confuncs.use_local_packages
-    local installed_lsps = mason_registry.get_installed_package_names()
-    local missing_lsps = vim.iter(to_install_lsps)
-        :filter(function(elem)
-            return not vim.tbl_contains(installed_lsps, elem)
-        end)
-        :filter(function(elem)
-            local local_lsp = use_local_lsp[elem]
-            return not local_lsp or vim.fn.executable(local_lsp) == 0
-        end)
-        :join(" ")
-    if missing_lsps ~= "" then
-        vim.cmd("MasonInstall " .. missing_lsps)
-    end
+	-- mason installations
+	local mason_registry = require("mason-registry")
+	local confuncs = require("utils.confuncs")
+	local to_install_lsps = confuncs.to_install_packages
+	local use_local_lsp = confuncs.use_local_packages
+	local installed_lsps = mason_registry.get_installed_package_names()
+	local missing_lsps = vim.iter(to_install_lsps)
+		:filter(function(elem)
+			return not vim.tbl_contains(installed_lsps, elem)
+		end)
+		:filter(function(elem)
+			local local_lsp = use_local_lsp[elem]
+			return not local_lsp or vim.fn.executable(local_lsp) == 0
+		end)
+		:join(" ")
+	if missing_lsps ~= "" then
+		vim.cmd("MasonInstall " .. missing_lsps)
+	end
 end, {})
 
 return {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {},
-    event = "VeryLazy",
-    dependencies = {
-        "neovim/nvim-lspconfig",
-        {
-            "mason-org/mason.nvim",
-            lazy = true,
-            opts = {
-                install_root_dir = install_dir,
-                PATH = "skip",
-                max_concurrent_installers = 8,
-            },
-        },
-    },
+	-- lsp config is necessary to always load, to provide the lsp config files
+	{
+		"neovim/nvim-lspconfig",
+		event = "VeryLazy",
+		config = function()
+			vim.lsp.enable(require("utils.confuncs").to_enable_lsp)
+		end,
+	},
+	-- lazily loaded on commands
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		cmd = { "LspInstall", "Mason" },
+		dependencies = {
+			{ "neovim/nvim-lspconfig" },
+			{
+				"mason-org/mason.nvim",
+				opts = {
+					install_root_dir = install_dir,
+					PATH = "skip",
+					max_concurrent_installers = 8,
+				},
+			},
+		},
+	},
 }
