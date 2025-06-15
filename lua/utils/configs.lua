@@ -40,7 +40,4 @@ return {
 		"typescript",
 		"yaml",
 	},
-	remap_parsers = {
-		["bash"] = "sh",
-	},
 }
