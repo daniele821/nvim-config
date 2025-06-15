@@ -10,6 +10,7 @@ return {
 		"shfmt",
 		"stylua",
 		"typescript-language-server",
+        "jq",
 	},
 	formatters_by_ft = {
 		bash = { "shfmt" },
