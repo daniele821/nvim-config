@@ -10,6 +10,11 @@ vim.api.nvim_create_autocmd("Filetype", {
 	end,
 })
 
+-- remap languages
+for lang, ft in pairs(require("utils.confuncs").remap_parsers) do
+  vim.treesitter.language.register(lang, ft)
+end
+
 -- command to install missing parsers
 vim.api.nvim_create_user_command("StarterPackParsers", function()
 	local res = require("nvim-treesitter").install(require("utils.confuncs").all_language_parsers)
@@ -22,4 +27,5 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	branch = "main",
 	build = ":TSUpdate",
+	lazy = true,
 }

@@ -1,7 +1,7 @@
 local configs = require("utils.configs")
 
 return {
-	all_language_parsers = configs.parsers,
+	to_install_packages = vim.tbl_keys(configs.lsps),
 	to_enable_lsp = vim.iter(configs.lsps)
 		:filter(function(_, opts)
 			return opts.lsp ~= nil
@@ -10,7 +10,6 @@ return {
 			return opts.lsp
 		end)
 		:totable(),
-	to_install_packages = vim.tbl_keys(configs.lsps),
 	use_local_packages = vim.iter(configs.lsps)
 		:filter(function(_, opts)
 			return opts.lcl ~= nil
@@ -30,6 +29,15 @@ return {
 				end
 				table.insert(acc[lang], opts.bin or lsp)
 			end
+			return acc
+		end),
+	all_language_parsers = vim.tbl_keys(configs.parsers),
+	remap_parsers = vim.iter(configs.parsers)
+		:filter(function(_, opts)
+			return opts.map ~= nil
+		end)
+		:fold({}, function(acc, lang, opts)
+			acc[lang] = opts.map
 			return acc
 		end),
 }

@@ -5,7 +5,7 @@ return {
 	-- [bin]: name of executable (if not present, name of package is assumed)
 	-- [lcl]: if set to anything it avoid installing package, if binary already present in path
 	--
-    -- note: [lcl], [fmt] require [bin] (otherwise it is assumed the package name as bin value)
+	-- note: [lcl], [fmt] require [bin] (otherwise it is assumed the package name as bin value)
 	lsps = {
 		["bash-language-server"] = { lsp = "bashls" },
 		["css-lsp"] = { lsp = "cssls" },
@@ -21,21 +21,21 @@ return {
 	},
 	-- languages for which to install treesitter parsers
 	parsers = {
-		"bash",
-		"c",
-		"cpp",
-		"css",
-		"go",
-		"html",
-		"javascript",
-		"json",
-		"markdown",
-		"php",
-		"python",
-		"rust",
-		"sql",
-		"toml",
-		"typescript",
-		"yaml",
+		["bash"] = { map = { "sh" } },
+		["c"] = {},
+		["cpp"] = {},
+		["css"] = {},
+		["go"] = {},
+		["html"] = {},
+		["javascript"] = { map = { "javascriptreact" } },
+		["json"] = {},
+		["markdown"] = { map = { "pandoc" } },
+		["php"] = {},
+		["python"] = { map = { "gyp" } },
+		["rust"] = {},
+		["sql"] = {},
+		["toml"] = {},
+		["typescript"] = {},
+		["yaml"] = {},
 	},
 }
