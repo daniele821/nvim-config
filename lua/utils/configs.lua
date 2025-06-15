@@ -12,7 +12,7 @@ return {
 		["css-lsp"] = { lsp = "cssls" },
 		["gopls"] = { lsp = "gopls" },
 		["html-lsp"] = { lsp = "html" },
-		["json-lsp"] = { lsp = "jsonls" },
+		["jq"] = { fmt = { "json" }, lnt = { "json" }, lcl = true },
 		["lua-language-server"] = { lsp = "lua_ls" },
 		["ruff"] = { lsp = "ruff" },
 		["rust-analyzer"] = { lsp = "rust_analyzer", lcl = true },
