@@ -20,6 +20,7 @@ return {
 		["typescript-language-server"] = { lsp = "ts_ls" },
 	},
 	-- languages for which to install treesitter parsers
+    -- [map]: array of all filetypes to be remapped to use the parser specified
 	parsers = {
 		["bash"] = { map = { "sh" } },
 		["c"] = {},
