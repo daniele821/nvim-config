@@ -11,6 +11,5 @@ return {
 				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
-		lint.try_lint(nil, { ignore_errors = true })
 	end,
 }
