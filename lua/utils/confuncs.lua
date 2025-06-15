@@ -24,10 +24,7 @@ return {
 		end)
 		:fold({}, function(acc, lsp, opts)
 			for _, lang in ipairs(opts.fmt) do
-				if acc[lang] == nil then
-					acc[lang] = {}
-				end
-				table.insert(acc[lang], opts.bin or lsp)
+				acc[lang] = { opts.bin or lsp }
 			end
 			return acc
 		end),
@@ -37,10 +34,7 @@ return {
 		end)
 		:fold({}, function(acc, lsp, opts)
 			for _, lang in ipairs(opts.lnt) do
-				if acc[lang] == nil then
-					acc[lang] = {}
-				end
-				table.insert(acc[lang], opts.bin or lsp)
+				acc[lang] = { opts.bin or lsp }
 			end
 			return acc
 		end),
