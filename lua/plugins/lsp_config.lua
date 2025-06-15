@@ -1,6 +1,3 @@
--- enable lsp servers
-vim.lsp.enable(require("utils.confuncs").to_enable_lsp)
-
 -- additional keymaps for buffers with lsp attached
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
@@ -33,3 +30,12 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	opts.max_height = opts.max_height or 15
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+return {
+	"neovim/nvim-lspconfig",
+	event = "VeryLazy",
+	config = function()
+		-- enable lsp servers
+		vim.lsp.enable(require("utils.confuncs").to_enable_lsp)
+	end,
+}
