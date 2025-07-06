@@ -2,16 +2,14 @@ return {
 	lsps = {
 		"bash-language-server",
 		"css-lsp",
-		"gopls",
 		"html-lsp",
-		"jq",
+		"typescript-language-server",
 		"lua-language-server",
 		"ruff",
-		"rust-analyzer",
+		"jq",
 		"shellcheck",
 		"shfmt",
 		"stylua",
-		"typescript-language-server",
 	},
 	formatters_by_ft = {
 		bash = { "shfmt" },
