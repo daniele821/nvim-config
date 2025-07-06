@@ -2,7 +2,7 @@ return {
 	lsps = {
         "bash-language-server",
 		"lua-language-server",
-        "ruff"
+        "ruff",
 		"jq",
 		"shellcheck",
 		"shfmt",
