@@ -1,5 +1,4 @@
 FROM archlinux
-RUN pacman -Syu --noconfirm --needed neovim git unzip wget tree-sitter-cli base-devel
-COPY . /root/.config/nvim
-WORKDIR /root
-RUN nvim --headless +StarterPack +qa
+RUN pacman -Syu --noconfirm --needed neovim git unzip wget tree-sitter-cli base-devel nodejs python3 && \
+git clone https://github.com/daniele821/nvim-config /root/.config/nvim && \
+nvim --headless +StarterPack +qa
