@@ -1,11 +1,6 @@
 return {
 	lsps = {
-		"bash-language-server",
-		"css-lsp",
-		"html-lsp",
-		"typescript-language-server",
 		"lua-language-server",
-		"ruff",
 		"jq",
 		"shellcheck",
 		"shfmt",
