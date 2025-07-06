@@ -1,11 +1,39 @@
--- core configurations
-require("configs.options")
-require("configs.autocmd")
-require("configs.keymaps")
+-- show row numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- space vs tab
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- set where to open split windows
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- various
+vim.opt.laststatus = 3
+vim.opt.signcolumn = "yes"
+vim.opt.showmode = false
+vim.opt.ignorecase = true
+vim.opt.hlsearch = false
+vim.opt.mousemodel = "extend"
+vim.opt.pumheight = 15
+vim.opt.swapfile = false
+
+-- easily quit terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- highlight when yanking text
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
----@diagnostic disable-next-line: undefined-field
 if not vim.uv.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
