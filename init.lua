@@ -12,6 +12,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- various
+vim.opt.statusline = "%<%ff%m%r%y %= %{&ff} %l:%v %P"
 vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
