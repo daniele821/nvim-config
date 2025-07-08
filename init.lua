@@ -22,10 +22,11 @@ vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
 
--- easily quit terminal
+-- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.api.nvim_set_keymap('n', 'grf', '<Nop>', {})
 
--- highlight when yanking text
+-- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	callback = function()
