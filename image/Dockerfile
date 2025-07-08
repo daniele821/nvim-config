@@ -13,5 +13,7 @@ RUN git clone --branch complete --depth 1 https://github.com/daniele821/nvim-con
     nvim --headless +StarterPack +qa && \
     cp /root/.config/nvim/image/bashrc /root/.bashrc
 
+COPY gitconfig /root/.gitconfig
+
 # set initial directory
 WORKDIR /root
