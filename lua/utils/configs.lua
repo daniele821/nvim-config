@@ -14,8 +14,6 @@ return {
 		"html-lsp",
 		"typescript-language-server",
 		"jq",
-        -- rust
-		"rust-analyzer",
         -- go
 		"gopls",
 		"goimports",
