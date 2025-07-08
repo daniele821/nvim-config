@@ -8,4 +8,4 @@ if ! podman image exists neovim; then
     podman build -t neovim "$SCRIPT_DIR"
 fi
 
-podman run --rm -it --security-opt label=disable --network none -v .:/"$SCRIPT_DIRNAME" -w /"$SCRIPT_DIRNAME" localhost/neovim
+podman run --rm -it --security-opt label=disable --network none -v .:/app/"$SCRIPT_DIRNAME" -w /app/"$SCRIPT_DIRNAME" localhost/neovim
