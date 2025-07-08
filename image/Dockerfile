@@ -1,10 +1,8 @@
 FROM archlinux
 COPY ./bashrc /root/.bashrc
-RUN pacman -Syu --noconfirm --needed \
-    zoxide fzf lsd ripgrep bat git less bash-completion \
+RUN pacman -Syu --noconfirm --needed lsd ripgrep bat git less bash-completion \
     neovim git unzip wget ripgrep tree-sitter-cli base-devel nodejs npm python3 && \
     git clone https://github.com/daniele821/nvim-config /root/.config/nvim  && \
     git -C /root/.config/nvim switch complete  && \
     nvim --headless +StarterPack +qa && \
     pacman -Scc --noconfirm
-WORKDIR /root
