@@ -47,7 +47,7 @@ vim.api.nvim_create_user_command("Zen", function()
 		vim.o.relativenumber = false
 		vim.o.signcolumn = "no"
         vim.diagnostic.enable(false)
-        vim.g.zen_mode_enabled = false
+        vim.g.zen_mode_enabled = true
 	end
 end, {})
 
