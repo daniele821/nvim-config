@@ -40,10 +40,11 @@ vim.api.nvim_create_user_command("Zen", function()
 		vim.o.number = true
 		vim.o.relativenumber = true
 		vim.o.signcolumn = "yes"
-	end
+    else
 		vim.o.number = false
 		vim.o.relativenumber = false
 		vim.o.signcolumn = "no"
+	end
 end, {})
 
 -- install lazy plugin manager
