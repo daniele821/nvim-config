@@ -36,14 +36,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- user command
 vim.api.nvim_create_user_command("Zen", function()
-	if not vim.o.number and not vim.o.relativenumber and vim.o.signcolumn == "no" then
+	if vim.g.zen_mode_enabled then
 		vim.o.number = true
 		vim.o.relativenumber = true
 		vim.o.signcolumn = "yes"
-    else
+        vim.diagnostic.enable()
+        vim.g.zen_mode_enabled = false
+	else
 		vim.o.number = false
 		vim.o.relativenumber = false
 		vim.o.signcolumn = "no"
+        vim.diagnostic.enable(false)
+        vim.g.zen_mode_enabled = false
 	end
 end, {})
 
