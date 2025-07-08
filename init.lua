@@ -1,17 +1,11 @@
--- show row numbers
+-- options
 vim.o.number = true
 vim.o.relativenumber = true
-
--- space vs tab
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-
--- set where to open split windows
 vim.o.splitright = true
 vim.o.splitbelow = true
-
--- various
 vim.o.statusline = "%<%f %m%r%y %= %{&ff} %l:%v %P"
 vim.o.laststatus = 3
 vim.o.signcolumn = "yes"
@@ -32,6 +26,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.hl.on_yank()
 	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
 })
 
 -- user command
