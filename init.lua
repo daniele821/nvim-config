@@ -1,17 +1,11 @@
--- show row numbers
+-- options
 vim.opt.number = true
 vim.opt.relativenumber = true
-
--- space vs tab
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
--- set where to open split windows
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-
--- various
 vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
@@ -21,18 +15,24 @@ vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
 
--- easily quit terminal
+-- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
--- highlight when yanking text
+-- create autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	callback = function()
 		vim.hl.on_yank()
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
 
--- user command
+-- user commands
 vim.api.nvim_create_user_command("Zen", function()
 	if vim.g.zen_mode_enabled then
 		vim.o.number = true
