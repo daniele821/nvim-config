@@ -1,33 +1,43 @@
 return {
 	lsps = {
-        "bash-language-server",
-		"lua-language-server",
-        "ruff",
-        "css-lsp",
-        "html-lsp",
-        "typescript-language-server",
-		"jq",
+        -- bash
+		"bash-language-server",
 		"shellcheck",
 		"shfmt",
+        -- lua
+		"lua-language-server",
 		"stylua",
+        -- python
+		"ruff",
+        -- webdev
+		"css-lsp",
+		"html-lsp",
+		"typescript-language-server",
+		"jq",
+        -- rust
+		"rust-analyzer",
+        -- go
+		"gopls",
+		"goimports",
 	},
 	formatters_by_ft = {
 		bash = { "shfmt" },
+		sh = { "shfmt" },
 		json = { "jq" },
 		lua = { "stylua" },
-		sh = { "shfmt" },
+		go = { "goimports" },
 	},
 	linters_by_ft = {
 		bash = { "shellcheck" },
-		json = { "jq" },
 		sh = { "shellcheck" },
+		json = { "jq" },
 	},
 	parsers = {
 		"bash",
 		"c",
 		"cpp",
 		"css",
-        "dockerfile",
+		"dockerfile",
 		"go",
 		"html",
 		"javascript",
