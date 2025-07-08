@@ -1,30 +1,30 @@
 -- show row numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- space vs tab
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
 -- set where to open split windows
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- various
-vim.opt.statusline = "%<%f %m%r%y %= %{&ff} %l:%v %P"
-vim.opt.laststatus = 3
-vim.opt.signcolumn = "yes"
-vim.opt.showmode = false
-vim.opt.ignorecase = true
-vim.opt.hlsearch = false
-vim.opt.mousemodel = "extend"
-vim.opt.pumheight = 15
-vim.opt.swapfile = false
+vim.o.statusline = "%<%f %m%r%y %= %{&ff} %l:%v %P"
+vim.o.laststatus = 3
+vim.o.signcolumn = "yes"
+vim.o.showmode = false
+vim.o.ignorecase = true
+vim.o.hlsearch = false
+vim.o.mousemodel = "extend"
+vim.o.pumheight = 15
+vim.o.swapfile = false
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.api.nvim_set_keymap('n', 'grf', '<Nop>', {})
+vim.api.nvim_set_keymap("n", "grf", "<Nop>", {})
 
 -- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -33,6 +33,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+-- user command
+vim.api.nvim_create_user_command("Zen", function()
+	if not vim.o.number and not vim.o.relativenumber and vim.o.signcolumn == "no" then
+		vim.o.number = true
+		vim.o.relativenumber = true
+		vim.o.signcolumn = "yes"
+	end
+		vim.o.number = false
+		vim.o.relativenumber = false
+		vim.o.signcolumn = "no"
+end, {})
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
