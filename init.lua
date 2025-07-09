@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 vim.api.nvim_create_autocmd("FileType", {
-    desc = "Disable autocommenting"
+	desc = "Disable autocommenting",
 	callback = function()
 		vim.opt.formatoptions:remove({ "c", "r", "o" })
 	end,
