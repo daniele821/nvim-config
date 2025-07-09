@@ -123,3 +123,8 @@ function __cleanup_prompt__() {
     return "${retval}"
 }
 PROMPT_COMMAND="__cleanup_prompt__;"${PROMPT_COMMAND}
+
+# load completions
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+fi
