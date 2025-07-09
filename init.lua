@@ -18,7 +18,9 @@ vim.o.swapfile = false
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.api.nvim_set_keymap("n", "grf", "<Nop>", {})
+vim.keymap.set("n", "grf", function()
+	vim.notify("Formatting is disabled in minimal nvim version!", vim.log.WARN)
+end, {})
 
 -- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -28,9 +30,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
 })
 
 -- user command
@@ -39,14 +41,14 @@ vim.api.nvim_create_user_command("Zen", function()
 		vim.o.number = true
 		vim.o.relativenumber = true
 		vim.o.signcolumn = "yes"
-        vim.diagnostic.enable()
-        vim.g.zen_mode_enabled = false
+		vim.diagnostic.enable()
+		vim.g.zen_mode_enabled = false
 	else
 		vim.o.number = false
 		vim.o.relativenumber = false
 		vim.o.signcolumn = "no"
-        vim.diagnostic.enable(false)
-        vim.g.zen_mode_enabled = true
+		vim.diagnostic.enable(false)
+		vim.g.zen_mode_enabled = true
 	end
 end, {})
 
