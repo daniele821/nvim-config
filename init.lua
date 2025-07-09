@@ -23,12 +23,13 @@ vim.keymap.set("n", "<a-z>", "<CMD>Zen<CR>")
 
 -- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
+	desc = "Highlight when yanking text",
 	callback = function()
 		vim.hl.on_yank()
 	end,
 })
 vim.api.nvim_create_autocmd("FileType", {
+    desc = "Disable autocommenting"
 	callback = function()
 		vim.opt.formatoptions:remove({ "c", "r", "o" })
 	end,
