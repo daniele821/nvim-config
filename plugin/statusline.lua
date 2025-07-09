@@ -7,6 +7,7 @@ _G.Statusline = M
 function M.setup()
 	-- set statusline
 	vim.opt.statusline = vim.iter({
+		" ",
 		"%<%{%v:lua._G.Statusline.filename()%}",
 		"%m%r%y",
 		"%=",
@@ -17,6 +18,7 @@ function M.setup()
 		"%{&ff}",
 		"%l:%v",
 		"%P",
+		" ",
 	}):join(" ")
 
 	-- intercept progress messages
