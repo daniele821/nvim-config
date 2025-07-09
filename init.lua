@@ -18,9 +18,8 @@ vim.o.swapfile = false
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "grf", function()
-	vim.notify("Formatting is disabled in minimal nvim version!", vim.log.WARN)
-end, {})
+vim.keymap.set("n", "grf", "<CMD>echo 'Formatting is disabled in minimal nvim version!'<CR>")
+vim.keymap.set("n", "<a-z>", "<CMD>Zen<CR>")
 
 -- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
