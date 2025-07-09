@@ -1,5 +1,6 @@
 -- additional keymaps for buffers with lsp attached
 vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "Create keymaps for buffers with lsp attached",
 	callback = function(event)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf })
 	end,

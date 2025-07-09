@@ -7,6 +7,7 @@ return {
 
 		-- autocmd to lint on changes
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
+			desc = "Lint files on save",
 			callback = function()
 				lint.try_lint(nil, { ignore_errors = true })
 			end,

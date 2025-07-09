@@ -7,11 +7,10 @@ return {
 		local function parse()
 			vim.schedule(function()
 				pcall(vim.treesitter.start)
-				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-				vim.bo.indentexpr = ""
 			end)
 		end
 		vim.api.nvim_create_autocmd("Filetype", {
+			desc = "Start treesitter parser",
 			callback = parse,
 		})
 		parse()

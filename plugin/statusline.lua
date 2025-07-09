@@ -24,11 +24,13 @@ function M.setup()
 
 	-- autocmd to refresh statusline when necessary
 	vim.api.nvim_create_autocmd("LspAttach", {
+		desc = "Refresh statusline on LspAttach",
 		callback = function()
 			vim.cmd("redrawstatus")
 		end,
 	})
 	vim.api.nvim_create_autocmd("LspDetach", {
+		desc = "Refresh statusline on LspDetach",
 		callback = function()
 			vim.defer_fn(function()
 				vim.cmd("redrawstatus")
