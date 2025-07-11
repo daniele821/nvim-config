@@ -14,10 +14,10 @@ vim.opt.hlsearch = false
 vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
+vim.g.clipboard = "osc52"
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<a-z>", "<CMD>Zen<CR>")
 
 -- create autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -32,23 +32,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.formatoptions:remove({ "c", "r", "o" })
 	end,
 })
-
--- user commands
-vim.api.nvim_create_user_command("Zen", function()
-	if vim.g.zen_mode_enabled then
-		vim.o.number = true
-		vim.o.relativenumber = true
-		vim.o.signcolumn = "yes"
-		vim.diagnostic.enable()
-		vim.g.zen_mode_enabled = false
-	else
-		vim.o.number = false
-		vim.o.relativenumber = false
-		vim.o.signcolumn = "no"
-		vim.diagnostic.enable(false)
-		vim.g.zen_mode_enabled = true
-	end
-end, {})
 
 -- install lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -83,7 +66,7 @@ require("lazy").setup({
 				"tutor",
 				"zipPlugin",
 				"tarPlugin",
-				"osc52",
+				-- "osc52",
 				"shada",
 				"spellfile",
 				"man",
