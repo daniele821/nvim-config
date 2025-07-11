@@ -14,7 +14,19 @@ vim.opt.hlsearch = false
 vim.opt.mousemodel = "extend"
 vim.opt.pumheight = 15
 vim.opt.swapfile = false
-vim.g.clipboard = "osc52"
+
+-- use clipboard-osc52 to be able to copy from inside a container
+vim.g.clipboard = {
+	name = "OSC52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = function() end,
+		["*"] = function() end,
+	},
+}
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
