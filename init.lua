@@ -1,20 +1,20 @@
 -- options
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.statusline = "%<%f %m%r%y %= %{&ff} %l:%v %P"
-vim.o.laststatus = 3
-vim.o.signcolumn = "yes"
-vim.o.showmode = false
-vim.o.ignorecase = true
-vim.o.hlsearch = false
-vim.o.mousemodel = "extend"
-vim.o.pumheight = 15
-vim.o.swapfile = false
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.statusline = "%<%f %m%r%y %= %{&ff} %l:%v %P"
+vim.opt.laststatus = 3
+vim.opt.signcolumn = "yes"
+vim.opt.showmode = false
+vim.opt.ignorecase = true
+vim.opt.hlsearch = false
+vim.opt.mousemodel = "extend"
+vim.opt.pumheight = 15
+vim.opt.swapfile = false
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
