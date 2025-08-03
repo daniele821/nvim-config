@@ -4,7 +4,7 @@ return {
 		picker = {},
         notifier = { 
             filter = function(n) 
-                return n.title ~= "Snacks" 
+                return n.title ~= "Snacks" and string.sub(n.msg, 1, 15) == "Command failed:"
             end 
         },
 	},
