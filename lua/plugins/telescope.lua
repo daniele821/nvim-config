@@ -53,6 +53,9 @@ return {
 					i = {
 						["<esc>"] = actions.close,
 						["<C-c>"] = actions.close,
+						["<a-f>"] = function()
+							require("telescope.builtin").find_files()
+						end,
 					},
 					n = {
 						["<esc>"] = actions.close,
