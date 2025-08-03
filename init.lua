@@ -18,7 +18,7 @@ vim.opt.swapfile = false
 
 -- keymaps
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "grf", "<CMD>echo 'Formatting is disabled in minimal nvim version!'<CR>")
+vim.keymap.set("n", "grf", "")
 
 -- autocmd
 vim.api.nvim_create_autocmd("TextYankPost", {
