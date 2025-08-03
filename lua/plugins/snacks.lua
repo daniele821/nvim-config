@@ -2,7 +2,11 @@ return {
 	"folke/snacks.nvim",
 	opts = {
 		picker = {},
-        notifier = {},
+        notifier = { 
+            filter = function(n) 
+                return n.title ~= "Snacks" 
+            end 
+        },
 	},
 	keys = {
 		{ "<A-f>", function() Snacks.picker.files()   end },
