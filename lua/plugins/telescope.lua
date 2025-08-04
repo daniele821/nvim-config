@@ -26,6 +26,15 @@ return {
 		{
 			"<A-b>",
 			function()
+				require("telescope.builtin").buffers({
+                    only_cwd = true,
+                })
+			end,
+			mode = { "n", "i" },
+		},
+		{
+			"<A-s-b>",
+			function()
 				require("telescope.builtin").buffers()
 			end,
 			mode = { "n", "i" },
