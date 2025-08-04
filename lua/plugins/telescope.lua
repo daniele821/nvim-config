@@ -7,6 +7,20 @@ return {
 	},
 	keys = {
 		{
+			"<A-a>",
+			function()
+				require("telescope.builtin").builtin()
+			end,
+			mode = { "n", "i" },
+		},
+		{
+			"<A-h>",
+			function()
+				require("telescope.builtin").help_tags()
+			end,
+			mode = { "n", "i" },
+		},
+		{
 			"<A-f>",
 			function()
 				require("telescope.builtin").find_files()
